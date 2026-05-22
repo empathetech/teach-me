@@ -14,8 +14,9 @@
   <nav class="site-header__nav">
     <a href="#courses">Courses</a>
     <a href="#about">About</a>
+    <a href="#contribute">Contribute</a>
     <a href="credits.html">Credits</a>
-    <a href="https://github.com/empathetech/teach-me" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.empathetech.org/" target="_blank" rel="noopener">Empathetech ↗</a>
   </nav>
 </header>
 
@@ -23,17 +24,17 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero">
-    <p class="hero__kicker">A learning portfolio · Designed by Chris Ling with Claude Code</p>
-    <h1 class="hero__title">Things I wanted to actually be able to do.</h1>
-    <p class="hero__tagline">Each course here was built around a concrete outcome — not a topic, but a moment. A brunch on Sunday. A song at a wedding. A deploy that just works.</p>
-    <p class="hero__bio">Every curriculum is self-contained — its own design, its own pace, its own interactive tools. They share a philosophy: the <em>why</em> belongs in lessons you read on the couch; the <em>how</em> belongs in checklists you open at the stove. Open any course to start.</p>
+    <p class="hero__kicker">An <a href="https://www.empathetech.org/" target="_blank" rel="noopener" style="color: inherit; text-decoration-color: currentColor;">Empathetech</a> community project</p>
+    <h1 class="hero__title">Teach yourself a thing. Cite your sources. Help the next person.</h1>
+    <p class="hero__tagline">A growing collection of personal learning curricula, built by members of our community using Claude Code — designed around things they actually wanted to be able to do.</p>
+    <p class="hero__bio">Empathetech is built on the idea that good software engineers are good humans. This little corner of the community is for what good humans do when they want to learn something new: they study it, build something around it, and share what they figured out. The <code>/teach-me</code> Claude Code skill helps members shape their curiosity into a full curriculum — with full source attribution, honest credit for the AI collaboration, and an emphasis on doing all of this in as ethical a way as we know how.</p>
   </section>
 
   <!-- ===== Courses ===== -->
   <section id="courses">
-    <span class="section-label">The courses · <span id="course-count">1</span></span>
-    <h2 style="margin-bottom: var(--space-2);">Currently in the portfolio</h2>
-    <p style="color: var(--text-muted);">New ones land here as I build them.</p>
+    <span class="section-label">From the community · <span id="course-count">1</span></span>
+    <h2 style="margin-bottom: var(--space-2);">What folks are teaching themselves</h2>
+    <p style="color: var(--text-muted); max-width: var(--measure);">Each course is the work of an individual community member. Each has its own shape, its own voice, its own design — some are interactive SPAs, others might be long-form essays, galleries, or formats we haven't thought of yet. We don't enforce a template. We enforce care.</p>
 
     <div class="courses" id="course-grid"></div>
   </section>
@@ -41,48 +42,83 @@
   <!-- ===== About ===== -->
   <section id="about" class="about">
     <span class="section-label">About</span>
-    <h2>What this is, and what it isn't.</h2>
-    <p>
-      I'm <a href="https://github.com/bjamba" target="_blank" rel="noopener">Chris Ling</a> — these are curricula I've built to teach myself things that mattered enough to want to keep around. They live here as a portfolio: navigable, citable, durable.
-    </p>
-    <p style="font-size: var(--size-base); color: var(--text-muted);">
-      Each course is designed by me with <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> as a collaborative writing and engineering partner. I do the framing, scope, voice, and design calls; Claude drafts prose and writes the SPA's interaction logic under that direction. Every factual claim in a lesson is cited and linkable — see the <strong>📚 Sources</strong> section at the bottom of any lesson, and the per-course Credits page for the full bibliography.
-    </p>
+    <h2>Three values, in order.</h2>
+
+    <p><strong>1. Personal curiosity is a worthy reason to build.</strong> Every course on this hub started with a community member wanting to learn something specific — not for a grade, not for resale, not for clout. Because it mattered to them. Designing your own curriculum is one of the better ways to learn something, and the artifact you produce can help someone else who shows up curious about the same thing.</p>
+
+    <p><strong>2. Be honest about working with AI.</strong> Each course is designed by a human, with <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> as a collaborative writing and engineering partner. The human does the framing, scope, voice, and design decisions; Claude drafts prose and writes interactive components under direction. We name both — every page, every time. "<em>Designed by [Name] with Claude Code.</em>" That phrasing isn't decoration; it's the truth about how these were made, and we think honesty about the collaboration is part of using AI responsibly.</p>
+
+    <p><strong>3. Cite your sources. All of them.</strong> Every factual claim in any lesson is traceable to a real, linkable source — see the <strong>📚 Sources</strong> section at the bottom of any lesson page, and each course's Credits page for the full bibliography. Libraries, fonts, content references, cooking-history attributions — they're all listed, with licenses. When you teach people things, you owe them the ability to verify. We treat sourcing as a first-class requirement, not a bonus.</p>
+
     <div class="about__links">
-      <a href="https://github.com/bjamba" target="_blank" rel="noopener">GitHub →</a>
-      <a href="https://www.linkedin.com/in/kurisuringu/" target="_blank" rel="noopener">LinkedIn →</a>
+      <a href="https://www.empathetech.org/" target="_blank" rel="noopener">empathetech.org →</a>
+      <a href="https://github.com/empathetech/teach-me" target="_blank" rel="noopener">Repository →</a>
       <a href="credits.html">Hub credits →</a>
     </div>
+  </section>
+
+  <!-- ===== Contributors ===== -->
+  <section id="contributors" style="padding: var(--space-12) 0; border-top: 1px solid var(--line);">
+    <span class="section-label">The people · <span id="contributor-count">1</span></span>
+    <h2>Contributors</h2>
+    <p style="color: var(--text-muted); max-width: var(--measure);">Community members who've designed and contributed a course. The work is theirs; the hub just gives it a home.</p>
+    <div id="contributor-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); margin-top: var(--space-6);"></div>
+  </section>
+
+  <!-- ===== Contribute ===== -->
+  <section id="contribute" style="padding: var(--space-12) 0; border-top: 1px solid var(--line);">
+    <span class="section-label">Add your own</span>
+    <h2>Want to build one?</h2>
+    <p>If you're an Empathetech community member with something you want to learn, you can add a course to this hub. Here's the rough shape of it:</p>
+    <ol style="font-size: var(--size-base); line-height: 1.8; max-width: var(--measure);">
+      <li>Pick something specific you want to be <em>able to do</em>. Not a topic — an outcome. "Deploy a Lambda that checks this site every day" beats "learn AWS."</li>
+      <li>Install <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> and the <code>/teach-me</code> skill, fork this repo, run <code>/teach-me</code> from the repo root. The skill will recognize it's inside this hub and help you scaffold a new course as a subdirectory.</li>
+      <li>Build the course in whatever format fits your topic — a Learn/Pick/Cook SPA (like Brunch Made Real), a long-form book-style site, a notebook-driven walkthrough, a gallery, a worksheet collection. Design follows topic; topic follows curiosity.</li>
+      <li>Cite every fact. Credit every source. Name yourself as designer and Claude Code as the collaboration partner.</li>
+      <li>Open a pull request. The hub picks up your course card from <code>portfolio.json</code> automatically.</li>
+    </ol>
+    <p style="font-size: var(--size-sm); color: var(--text-muted); margin-top: var(--space-6); max-width: var(--measure);">
+      We're still figuring out exactly how the contribution flow should work in practice — what gets reviewed, what we ask for in a PR, how we keep the bar on attribution high without making the bar feel hostile. Come talk to us in the Empathetech community if you have an idea you want to start building.
+    </p>
   </section>
 
 </main>
 
 <footer class="site-footer">
   <div>
-    Designed by <a href="https://github.com/bjamba" target="_blank" rel="noopener">Chris Ling</a> with <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> · <span id="year"></span>
+    An <a href="https://www.empathetech.org/" target="_blank" rel="noopener">Empathetech</a> community project · <span id="year"></span>
   </div>
   <div class="site-footer__links">
     <a href="credits.html">Credits</a>
     <a href="https://github.com/empathetech/teach-me" target="_blank" rel="noopener">Repo</a>
+    <a href="https://www.empathetech.org/" target="_blank" rel="noopener">empathetech.org</a>
   </div>
 </footer>
 
 <script>
-// Render course cards from portfolio.json
+// Render the hub from portfolio.json
 fetch('portfolio.json')
   .then(function(r) { return r.json(); })
   .then(function(data) {
+    // ----- Course grid -----
     var grid = document.getElementById('course-grid');
-    var countEl = document.getElementById('course-count');
-    countEl.textContent = data.courses.length;
+    document.getElementById('course-count').textContent = data.courses.length;
     data.courses.forEach(function(c) {
       var a = document.createElement('a');
       a.className = 'course-card';
-      a.href = c.path + 'dashboard.html';
+      a.href = c.path + (c.entry || 'dashboard.html');
       a.style.borderTop = '3px solid ' + (c.color || 'var(--accent)');
+      var byLine = c.designer
+        ? '<span class="course-card__byline" style="font-family: var(--font-mono); font-size: var(--size-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: var(--space-2); display: block;">by ' +
+          (c.designer_github
+            ? '<a href="https://github.com/' + c.designer_github + '" target="_blank" rel="noopener" style="color: inherit;">' + c.designer + '</a>'
+            : c.designer) +
+          '</span>'
+        : '';
       a.innerHTML =
         '<span class="course-card__corner">' + (c.topic || '') + '</span>' +
         '<span class="course-card__emoji">' + (c.emoji || '📚') + '</span>' +
+        byLine +
         '<h3 class="course-card__title">' + c.title + '</h3>' +
         '<p class="course-card__tagline">' + (c.tagline || '') + '</p>' +
         '<div class="course-card__meta">' +
@@ -96,19 +132,48 @@ fetch('portfolio.json')
       grid.appendChild(a);
     });
 
-    // Placeholder card to invite future courses
+    // Placeholder card to invite the next course
     var placeholder = document.createElement('div');
     placeholder.className = 'course-card course-card--placeholder';
     placeholder.innerHTML =
-      '<span class="course-card__corner">soon</span>' +
+      '<span class="course-card__corner">your course?</span>' +
       '<span class="course-card__emoji" style="opacity: 0.4;">···</span>' +
-      '<h3 class="course-card__title">Next one in the works</h3>' +
-      '<p class="course-card__tagline">A new course lands here when I finish the next one.</p>';
+      '<h3 class="course-card__title">Yours, maybe</h3>' +
+      '<p class="course-card__tagline">Community members add new courses by opening a pull request — see <a href="#contribute" style="color: inherit;">Contribute</a>.</p>';
     grid.appendChild(placeholder);
+
+    // ----- Contributors -----
+    var clist = document.getElementById('contributor-list');
+    var contributors = data.contributors || [];
+    document.getElementById('contributor-count').textContent = contributors.length;
+    contributors.forEach(function(p) {
+      var card = document.createElement('div');
+      card.style.cssText = 'display: flex; gap: var(--space-4); align-items: flex-start; padding: var(--space-5); background: var(--surface); border: 1px solid var(--line); border-radius: 0;';
+      var avatar = p.github
+        ? '<img src="https://github.com/' + p.github + '.png?size=80" alt="" width="64" height="64" loading="lazy" style="border-radius: 50%; flex-shrink: 0; border: 1px solid var(--line);">'
+        : '<div style="width:64px;height:64px;border-radius:50%;background:var(--bg-subtle);flex-shrink:0;"></div>';
+      var courseList = (p.courses || []).map(function(slug) {
+        var course = data.courses.find(function(x) { return x.slug === slug; });
+        return course
+          ? '<a href="' + course.path + (course.entry || 'dashboard.html') + '">' + course.title + '</a>'
+          : slug;
+      }).join(', ');
+      var links = [];
+      if (p.github)   links.push('<a href="https://github.com/' + p.github + '" target="_blank" rel="noopener">GitHub</a>');
+      if (p.linkedin) links.push('<a href="https://www.linkedin.com/in/' + p.linkedin + '/" target="_blank" rel="noopener">LinkedIn</a>');
+      card.innerHTML =
+        avatar +
+        '<div style="min-width: 0;">' +
+          '<div style="font-family: var(--font-display); font-weight: 600; font-size: var(--size-lg); margin-bottom: 2px;">' + p.name + '</div>' +
+          (links.length ? '<div style="font-family: var(--font-mono); font-size: var(--size-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: var(--space-2);">' + links.join(' · ') + '</div>' : '') +
+          '<div style="font-size: var(--size-sm); color: var(--text-muted);">Contributed: ' + (courseList || '—') + '</div>' +
+        '</div>';
+      clist.appendChild(card);
+    });
   })
   .catch(function(err) {
     document.getElementById('course-grid').innerHTML =
-      '<p style="color: var(--text-muted); font-style: italic;">(Could not load portfolio.json. If you\'re viewing this on file:// directly, try opening through a local server or visit the GH Pages deploy.)</p>';
+      '<p style="color: var(--text-muted); font-style: italic;">(Could not load portfolio.json. If you\'re viewing this on file:// directly, try a local server or visit the GH Pages deploy.)</p>';
     console.error(err);
   });
 

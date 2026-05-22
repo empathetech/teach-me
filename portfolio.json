@@ -1,24 +1,36 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "type": "portfolio",
   "title": "teach-me",
-  "tagline": "A small portfolio of personal learning curricula, each built around something I wanted to actually be able to do.",
-  "builder": {
-    "name": "Chris Ling",
-    "links": {
-      "github": "https://github.com/bjamba",
-      "linkedin": "https://www.linkedin.com/in/kurisuringu/"
-    }
+  "tagline": "Teach yourself a thing. Cite your sources. Help the next person.",
+  "description": "A community project of Empathetech: members design personal learning curricula with Claude Code, with full source attribution and an emphasis on doing it ethically.",
+  "org": {
+    "name": "Empathetech",
+    "url": "https://www.empathetech.org/",
+    "tagline": "Empathy is central to our success as software engineers."
   },
+  "contributors": [
+    {
+      "name": "Chris Ling",
+      "github": "bjamba",
+      "linkedin": "kurisuringu",
+      "courses": ["brunch-made-real"],
+      "joined": "2026-05-22"
+    }
+  ],
   "courses": [
     {
       "slug": "brunch-made-real",
       "title": "Brunch Made Real",
       "tagline": "Perfect scrambled eggs and a complete brunch — Sunday.",
       "path": "brunch-made-real/",
+      "entry": "dashboard.html",
+      "format": "SPA — Learn / Pick / Shop / Cook tabs with embedded interactive widgets and a smart-parallel cook timeline.",
       "emoji": "🍳",
       "color": "#f4a93a",
       "status": "active",
+      "designer": "Chris Ling",
+      "designer_github": "bjamba",
       "lessons_total": 8,
       "topic": "Cooking · Scrambled eggs & brunch composition",
       "started_at": "2026-05-22"
