@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Style Guide · Brunch Made Real</title>
+  <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Style Guide</span>
+</nav>
+
+<main class="page-shell">
+
+  <header class="hero-band hero-band--summer">
+    <span class="hero-band__decor" style="top: 0; right: 30px;">🎨</span>
+    <span class="hero-band__decor" style="bottom: -10px; left: 30px; font-size: 3rem;">🌞</span>
+    <p class="lesson__kicker" style="color: var(--color-tomato-dark);">The Bible</p>
+    <h1 style="margin-bottom: var(--space-3);">Style Guide</h1>
+    <p style="max-width: var(--measure-prose); margin: 0;">
+      Every page consumes <code>assets/theme.css</code>. Want it warmer, cooler, more vibrant, more minimal?
+      Edit the tokens here and every lesson + recipe + tool updates at once.
+    </p>
+  </header>
+
+  <!-- ============================ -->
+  <section>
+    <div class="section-header shared-section">
+      <h2>Identity</h2>
+      <span class="section-header__hint">What this curriculum is for.</span>
+    </div>
+    <div class="grid grid--2">
+      <div>
+        <p><strong>Aesthetic:</strong> Summery cookbook — warm sun, fresh herb, ripe fruit. Friendly without being saccharine.</p>
+        <p><strong>Tone:</strong> Friendly cooking-show host. Warm, restrained. <em>No glaze, no padding.</em></p>
+        <p style="font-family: var(--font-heading); font-size: var(--size-lg); font-style: italic; padding: var(--space-4); background: var(--color-surface); border-left: 4px solid var(--color-sun); border-radius: var(--radius-md);">
+          "Make perfect scrambled eggs and a complete brunch for my family this weekend — around $5 a head, with upgrade knobs."
+        </p>
+      </div>
+      <div>
+        <p><strong>Device:</strong> Responsive (375 / 768 / 1280)</p>
+        <p><strong>Hosting:</strong> Local <code>file://</code></p>
+        <p><strong>Budget anchor:</strong> $5/p baseline, upgrade tiers surfaced inline</p>
+        <p><strong>Central tool:</strong> The <a href="dashboard.html#pick">Pick tab</a> — filterable recipe grid, side-by-side comparison, inline price editing</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"><span>—</span></hr>
+
+  <!-- ============================ -->
+  <section>
+    <div class="section-header shared-section">
+      <h2>The Two-Mode Rule</h2>
+      <span class="section-header__hint">The architectural split that defines the whole curriculum.</span>
+    </div>
+    <p>The two modes look <em>and</em> feel different on purpose. Each one signals what to do with the page.</p>
+
+    <div class="grid grid--2" style="margin-top: var(--space-5);">
+
+      <div style="padding: var(--space-6); background: var(--learn-bg); background-image: var(--learn-pattern); border: 1px solid var(--color-border); border-top: 6px solid var(--color-leaf); border-radius: var(--radius-lg);">
+        <span class="tag tag--learn">LEARN mode</span>
+        <h3 style="margin-top: var(--space-3);">🧘 Magazine prose</h3>
+        <p>For the <em>why</em>. Read on the couch, before you cook.</p>
+        <ul style="font-size: var(--size-sm); padding-left: var(--space-5);">
+          <li>Cool sage tint background</li>
+          <li>Generous prose width (~64ch)</li>
+          <li>Magazine-style hero band</li>
+          <li>Science callouts + dinner-table facts</li>
+        </ul>
+        <p style="font-size: var(--size-xs); color: var(--color-text-muted); margin: 0;"><code>body.mode-learn</code></p>
+      </div>
+
+      <div style="padding: var(--space-6); background: var(--cook-bg); background-image: var(--cook-pattern); border: 1px solid var(--color-border); border-top: 6px solid var(--color-tomato); border-radius: var(--radius-lg);">
+        <span class="tag tag--cook">COOK mode</span>
+        <h3 style="margin-top: var(--space-3);">🔥 Functional checklist</h3>
+        <p>For the <em>how</em>. Open on your phone <em>at</em> the stove.</p>
+        <ul style="font-size: var(--size-sm); padding-left: var(--space-5);">
+          <li>Warm sunny yellow background</li>
+          <li>Checkboxes, big tap targets, mono qty</li>
+          <li>Step timers with ambient mood music</li>
+          <li>Zero prose between you and the step</li>
+        </ul>
+        <p style="font-size: var(--size-xs); color: var(--color-text-muted); margin: 0;"><code>body.mode-cook</code></p>
+      </div>
+
+    </div>
+
+    <div class="callout callout--note">
+      <strong>Why the hard split:</strong> Recipe websites have ruined themselves with SEO-padded prose between you and the next step.
+      When you're standing at the stove with one hand on a spatula, you should not be scrolling past the history of the egg.
+    </div>
+  </section>
+
+  <hr class="divider"><span>—</span></hr>
+
+  <!-- ============================ -->
+  <section>
+    <div class="section-header shared-section">
+      <h2>Color</h2>
+      <span class="section-header__hint">Friendly, summery, fruit-inspired.</span>
+    </div>
+    <div class="grid grid--4">
+      <div>
+        <div style="height: 80px; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md);"></div>
+        <p style="margin-top: var(--space-2); font-size: var(--size-sm);"><strong>Eggshell</strong><br><code>--color-bg</code><br>#fdf7eb</p>
+      </div>
+      <div>
+        <div style="height: 80px; background: var(--learn-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md);"></div>
+        <p style="margin-top: var(--space-2); font-size: var(--size-sm);"><strong>Learn tint</strong><br><code>--learn-bg</code><br>#f0f7f2</p>
+      </div>
+      <div>
+        <div style="height: 80px; background: var(--cook-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md);"></div>
+        <p style="margin-top: var(--space-2); font-size: var(--size-sm);"><strong>Cook tint</strong><br><code>--cook-bg</code><br>#fff3d9</p>
+      </div>
+      <div>
+        <div style="height: 80px; background: var(--color-sun); border-radius: var(--radius-md);"></div>
+        <p style="margin-top: var(--space-2); font-size: var(--size-sm);"><strong>Sun</strong><br><code>--color-sun</code><br>#f4a93a</p>
+      </div>
+      <div>
+        <div style="height: 80px; background: var(--color-tomato); border-radius: var(--radius-md);"></div>
+        <p style="margin-top: var(--space-2); font-size: var(--size-sm);"><strong>Tomato</strong><br><code>--color-tomato</code><br>#e85d4f</p>
+      </div>
+      <div>
+        <div style="height: 80px; background: var(--color-leaf); border-radius: var(--radius-md);"></div>
+        <p style="margin-top: var(--space-2); font-size: var(--size-sm);"><strong>Leaf</strong><br><code>--color-leaf</code><br>#5fa85f</p>
+      </div>
+      <div>
+        <div style="height: 80px; background: var(--color-sky); border-radius: var(--radius-md);"></div>
+        <p style="margin-top: var(--space-2); font-size: var(--size-sm);"><strong>Sky</strong><br><code>--color-sky</code><br>#5db4d9</p>
+      </div>
+      <div>
+        <div style="height: 80px; background: var(--color-berry); border-radius: var(--radius-md);"></div>
+        <p style="margin-top: var(--space-2); font-size: var(--size-sm);"><strong>Berry</strong><br><code>--color-berry</code><br>#e7588d</p>
+      </div>
+    </div>
+    <p style="color: var(--color-text-muted); font-size: var(--size-sm); margin-top: var(--space-4);">
+      <strong>Tomato</strong> = upgrade CTAs only. <strong>Leaf</strong> = Learn mode signature + sides + success. <strong>Sun</strong> = the dominant accent (buttons, counters). <strong>Sky</strong> = neutral notes + audio/music. <strong>Berry</strong> = featured tools + "dinner table" callouts.
+    </p>
+  </section>
+
+  <hr class="divider"><span>—</span></hr>
+
+  <!-- ============================ -->
+  <section>
+    <div class="section-header shared-section">
+      <h2>Components</h2>
+      <span class="section-header__hint">All themed from the tokens above.</span>
+    </div>
+
+    <h3>Callouts</h3>
+    <div class="callout callout--note"><strong>Note:</strong> Neutral aside. Used in lessons for "by the way" content.</div>
+    <div class="callout callout--science">
+      Below ~62°C, egg whites are still liquid. Between 62°C and 70°C, proteins denature and reform as a soft mesh trapping water — silky curd. Past 70°C, the water is squeezed out: rubber.
+    </div>
+    <div class="callout callout--dinner-fact">
+      The reason cold-start ramen eggs are jammy in the middle: the yolk sets at a <em>lower</em> temperature than the white. You're cooking two different things at once.
+    </div>
+    <div class="callout callout--warning">
+      <strong>Heads up:</strong> Don't salt eggs more than five minutes before cooking — it pulls water out and you'll get weepy curds.
+    </div>
+
+    <h3>Buttons</h3>
+    <p>
+      <button class="btn btn--primary">Start cooking</button>
+      <button class="btn btn--accent">Upgrade</button>
+      <button class="btn btn--sky">Play sound</button>
+      <button class="btn">Default</button>
+      <button class="btn btn--ghost">Ghost</button>
+    </p>
+
+    <h3>Tags</h3>
+    <p>
+      <span class="tag">8 min read</span>
+      <span class="tag tag--learn">Learn</span>
+      <span class="tag tag--cook">Cook · 12 min</span>
+      <span class="tag tag--sky">Audio</span>
+      <span class="tag tag--berry">★ Featured</span>
+    </p>
+
+    <h3>Stat cards</h3>
+    <div class="grid grid--4">
+      <div class="stat-card stat-card--sun"><span class="stat-card__label">Time</span><div class="stat-card__value" style="color: var(--color-sun-dark);">10 min</div></div>
+      <div class="stat-card stat-card--leaf"><span class="stat-card__label">Cost</span><div class="stat-card__value" style="color: var(--color-leaf-dark);">$5.00</div></div>
+      <div class="stat-card stat-card--berry"><span class="stat-card__label">Servings</span><div class="stat-card__value">4</div></div>
+      <div class="stat-card stat-card--sky"><span class="stat-card__label">Skill</span><div class="stat-card__value">★★★</div></div>
+    </div>
+
+    <h3>Progress bar</h3>
+    <div class="progress-bar" style="margin-bottom: var(--space-2);">
+      <div class="progress-bar__fill" style="width: 60%;"></div>
+    </div>
+    <p style="font-size: var(--size-sm); color: var(--color-text-muted);">Sunset-tone gradient — sun → tomato → berry.</p>
+  </section>
+
+  <hr class="divider"><span>—</span></hr>
+
+  <!-- ============================ -->
+  <section>
+    <div class="section-header cook-section">
+      <h2>Cook mode — recipe parts</h2>
+      <span class="section-header__hint">What it looks like at the stove.</span>
+    </div>
+    <div class="mode-cook" style="padding: var(--space-5); border-radius: var(--radius-lg); background-image: none;">
+      <ul class="ingredients" style="margin-bottom: var(--space-4);">
+        <li><input type="checkbox"><span class="ingredient-qty">6</span><span class="ingredient-name">large eggs</span><span class="ingredient-cost">$1.80</span></li>
+        <li class="checked"><input type="checkbox" checked><span class="ingredient-qty">2 tbsp</span><span class="ingredient-name">unsalted butter</span><span class="ingredient-cost">$0.35</span></li>
+        <li><input type="checkbox"><span class="ingredient-qty">1 pinch</span><span class="ingredient-name">flaky salt</span><span class="ingredient-cost">$0.05</span></li>
+      </ul>
+
+      <ol class="steps">
+        <li>
+          <div class="step-action">Crack eggs into a cold pan with the butter.</div>
+          <div class="step-detail">Yes, cold. We coax these, not blast them.</div>
+          <div class="step-controls">
+            <span class="timer">⏱ Start 30s</span>
+            <button class="btn btn--ghost">Mark done</button>
+          </div>
+        </li>
+        <li class="done">
+          <div class="step-action">Set heat to medium-low. Stir constantly.</div>
+        </li>
+      </ol>
+
+      <div class="upgrade" style="margin-top: var(--space-4);">
+        <input type="checkbox">
+        <span class="upgrade__label"><strong>Upgrade:</strong> Cultured European butter for nuttier flavor.</span>
+        <span class="upgrade__delta">+$0.45/p</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"><span>—</span></hr>
+
+  <!-- ============================ -->
+  <section>
+    <div class="section-header cook-section">
+      <h2>🎵 Kitchen mood — the timer audio</h2>
+      <span class="section-header__hint">Generated, not licensed. Toggleable per page.</span>
+    </div>
+    <p>While any timer is running on a recipe card, a soft Cmaj9 pad hums underneath using Tone.js. When the timer hits zero, a clean three-note chime plays (C → E → G). No external audio files — it's all synthesized on demand and works offline. The user can mute it with the music toggle in the recipe page header.</p>
+    <p style="color: var(--color-text-muted); font-size: var(--size-sm);">
+      Why a pad and not a melody: a melody would compete with the cook's own thoughts. A drone-ish pad just <em>holds the room</em>. The chime at the end is unmistakable but not jarring — a sound you'd hear in a real kitchen, not a notification ping.
+    </p>
+  </section>
+
+  <hr class="divider"><span>—</span></hr>
+
+  <!-- ============================ -->
+  <section>
+    <div class="section-header shared-section">
+      <h2>Tone — calibration</h2>
+      <span class="section-header__hint">Anchors so future-you doesn't drift toward AI-glaze.</span>
+    </div>
+
+    <div class="callout callout--note">
+      <strong>👍 In voice:</strong><br>
+      "Low and slow. Take them off when they still look slightly underdone — they keep cooking from the pan's heat for about 20 seconds after."
+    </div>
+    <div class="callout callout--warning">
+      <strong>👎 Off voice (too much glaze):</strong><br>
+      "Now, this is super important and you're going to love this technique — it's truly transformative and one of my favorite parts of the whole process!"
+    </div>
+    <div class="callout callout--warning">
+      <strong>👎 Off voice (too clinical):</strong><br>
+      "Remove from heat at 80% denaturation to allow for residual thermal carryover."
+    </div>
+  </section>
+
+  <hr class="divider"><span>—</span></hr>
+
+  <!-- ============================ -->
+  <section>
+    <div class="section-header shared-section">
+      <h2>Accessibility &amp; device</h2>
+      <span class="section-header__hint">What's been done; what's deliberate.</span>
+    </div>
+    <ul>
+      <li><strong>Primary device:</strong> Responsive — verified at 375px (phone), 768px (tablet), 1280px (laptop).</li>
+      <li><strong>Touch targets ≥ 44px</strong> across all checkboxes, buttons, step rows — critical with one hand on a spatula.</li>
+      <li><strong>No hover-only interactions.</strong></li>
+      <li><strong>Color is never the only signal.</strong> Done steps fade <em>and</em> show ✓.</li>
+      <li><strong>Reduced motion respected</strong> via <code>prefers-reduced-motion</code>.</li>
+      <li><strong>Body text contrast ≥ 4.5:1</strong> (warm dark brown on eggshell).</li>
+      <li><strong>Audio is opt-out, not opt-in</strong> — but easy to mute, and never the only signal a timer finished (visual + animation also fire).</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  Brunch Made Real · Style Guide · <a href="dashboard.html">Back to dashboard</a>
+</footer>
+
+</body>
+</html>

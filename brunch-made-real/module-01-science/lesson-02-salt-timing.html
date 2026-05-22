@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salt timing & the water question · Brunch Made Real</title>
+  <link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body class="mode-learn">
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="../dashboard.html#learn">📚 Learn</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Salt timing</span>
+</nav>
+
+<main class="page-shell">
+  <article class="lesson">
+    <header class="lesson__hero">
+      <p class="lesson__kicker">Module 1 · Lesson 2</p>
+      <h1 class="lesson__title">Salt timing &amp; the water question</h1>
+      <div class="lesson__meta">
+        <span class="tag tag--learn">Learn · 5 min read</span>
+        <span class="tag">Pairs with every egg recipe in <a href="../dashboard.html#cook" style="color: inherit;">Cook</a></span>
+      </div>
+    </header>
+
+    <div class="lesson__body">
+
+      <p>If the first lesson was about <em>heat</em>, this one is about <em>water</em>. Eggs are mostly water — about 75% of an egg by weight. The whole game of scrambling them is about controlling how much of that water stays trapped in the curd and how much escapes onto your plate.</p>
+
+      <p>Salt is the variable you can dial. It has nothing to do with seasoning here — well, almost nothing. The flavor part takes a pinch. The timing part is structural.</p>
+
+      <h2>What salt does to a raw egg</h2>
+
+      <p>Salt is a chaotropic agent. That's a scary word for "it disrupts protein folding." When you add salt to raw beaten eggs, the salt ions weaken the bonds that hold the egg proteins in their folded shape. The proteins start to relax and unspool a little, even at room temperature.</p>
+
+      <p>If you cook them immediately, this doesn't matter — heat would have unfolded them anyway. But if salt sits on raw eggs for more than a few minutes, two things happen:</p>
+
+      <ul>
+        <li>The proteins partially denature without heat. When you then cook them, they set faster and tighter.</li>
+        <li>The salt draws water out of the proteins through osmosis. That water has nowhere to go but the bowl, and now it's diluting the egg.</li>
+      </ul>
+
+      <p>Result: eggs that weep on the plate, sit in a pool of cloudy liquid, and have a slightly tough texture.</p>
+
+      <div class="lesson__wide">
+        <figure style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-6); text-align: center;">
+          <p style="font-family: var(--font-heading); font-style: italic; color: var(--color-text-muted); margin-bottom: var(--space-4);">Slide the salt timing — see what happens.</p>
+
+          <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4);">
+            <div style="display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; justify-content: center;">
+              <label for="salt-dial" style="font-weight: 600;">When you salt:</label>
+              <input type="range" id="salt-dial" min="-1800" max="60" value="60" step="60" style="width: min(360px, 60vw); accent-color: var(--color-primary-dark);">
+              <span id="salt-when" style="font-family: var(--font-mono); font-size: var(--size-xl); font-weight: 700; min-width: 100px; color: var(--color-primary-dark);">at the end</span>
+            </div>
+
+            <div id="salt-zone" style="padding: var(--space-3) var(--space-5); border-radius: var(--radius-pill); font-weight: 600; font-size: var(--size-base); background: var(--color-bg-subtle);">Perfect</div>
+
+            <p id="salt-description" style="max-width: 56ch; color: var(--color-text-muted); font-size: var(--size-base); margin: 0;">
+              Eggs hit the pan unsalted. They form curds at their natural protein structure. You salt at the very end — flavor lands on the curds without weakening them. This is the gold standard.
+            </p>
+          </div>
+        </figure>
+        <p style="text-align: center; font-size: var(--size-sm); color: var(--color-text-muted); margin-top: var(--space-3);">
+          "At the end" means within the last 10 seconds of cook time, or right when you plate. Either is fine.
+        </p>
+      </div>
+
+      <h2>So how should you actually do it?</h2>
+
+      <p>There are three reasonable approaches. They each work, and which one fits depends on the texture you want.</p>
+
+      <h3>1. Salt at the very end — soft-curd default</h3>
+      <p>Cook the eggs in their natural protein structure. Salt the finished curd before plating. This gives the silkiest texture and the most distinct egg flavor. Best for: French soft-curd, Robuchon, Japanese silken.</p>
+
+      <h3>2. Salt 15 minutes before — diner pre-salt</h3>
+      <p>This is the surprising one. <a href="https://www.thekitchn.com/i-tried-j-kenji-lopez-alts-velvety-scrambled-eggs-and-my-mornings-will-never-be-the-same-23499314" target="_blank" rel="noopener">J. Kenji López-Alt's experiments</a> show that salting the raw eggs and letting them sit a full 15 minutes before cooking gives noticeably more tender curds than salting immediately before. The salt breaks down proteins enough to form a "net" that holds moisture in as the eggs cook — so counterintuitively, the long sit produces a texture closer to soft-curd than the rushed 2-minute pre-salt. Best for: American diner-style, when you have time to plan.</p>
+
+      <h3>3. Salt in the cook — the "as you go" method</h3>
+      <p>A pinch right before you scramble. Splits the difference. Doesn't have time to draw out water meaningfully, and gives even seasoning. Best for: any egg style when you're in a hurry. The boring safe answer.</p>
+
+      <div class="callout callout--warning">
+        <p><strong>The one to avoid:</strong> Salting raw eggs 2–5 minutes before cooking. Too long to be neutral, too short to fully relax. You get all the water loss with none of the texture benefit. Either salt immediately and cook, or salt and wait the full 15.</p>
+      </div>
+
+      <h2>The "should I add water or milk or cream?" question</h2>
+
+      <p>Different liquid, similar logic. Anything you add to raw eggs is changing the water-to-protein ratio.</p>
+
+      <ul>
+        <li><strong>Cream (1 tsp/egg)</strong> — adds fat, which lubricates the protein mesh. Eggs set at a slightly higher temperature, giving you more margin. Silkier mouthfeel. Recommended for soft-curd styles.</li>
+        <li><strong>Milk (1 tsp/egg)</strong> — adds water with a little fat. Eggs fluff up more but weep more easily if overcooked. Classic diner addition.</li>
+        <li><strong>Water (1 tsp/egg)</strong> — purely lightens. Makes eggs fluffier and lower in protein concentration per bite. The chef's-trick version, but you lose some richness.</li>
+        <li><strong>Crème fraîche (½ tsp/egg, off heat)</strong> — added at the end, never during cooking. Cools and enriches without diluting. Ramsay does this, Robuchon does this.</li>
+        <li><strong>Nothing</strong> — the French classical answer. Just eggs, butter, salt. The eggs themselves are doing the talking.</li>
+      </ul>
+
+      <div class="callout callout--dinner-fact">
+        <p>The reason restaurant scrambled eggs taste different from yours: most kitchens add a small amount of <em>egg yolk emulsion</em> — extra yolks stirred into the raw egg before cooking. It boosts richness without diluting. Try cracking 6 eggs but adding 2 extra yolks next time. You'll taste it.</p>
+      </div>
+
+      <h2>The order of operations, distilled</h2>
+
+      <ol>
+        <li>Crack eggs into a cold pan with butter (or hot pan if going diner-style).</li>
+        <li>Optional: add cream, milk, or nothing — your choice based on the style.</li>
+        <li>Cook by the technique appropriate to the style.</li>
+        <li>Off the heat <em>before</em> they look done.</li>
+        <li><strong>Salt now.</strong> Fold once or twice. Plate immediately.</li>
+      </ol>
+
+      <p>That last step is the whole point of this lesson. Salt is the final act, not the first one.</p>
+
+      <hr class="divider"><span>recap</span></hr>
+
+      <h2>What to take away</h2>
+      <ul>
+        <li>Salt disrupts protein folding and pulls water out. Time it accordingly.</li>
+        <li>Best default: salt at the very end. Within 10 seconds of plating.</li>
+        <li>Alternative for soft-fluffy diner style: salt 15 minutes ahead and let it fully relax.</li>
+        <li>Avoid the in-between: 2–5 minute pre-salt is the worst of both worlds.</li>
+        <li>Cream, milk, water, crème fraîche — each changes the texture. Cream and crème fraîche are the move for richness.</li>
+      </ul>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--color-border);">
+        <a href="lesson-01-low-heat.html" class="btn btn--ghost">← Why low heat wins</a>
+        <a href="lesson-03-three-styles.html" class="btn btn--primary">Next: Three styles compared →</a>
+      </div>
+
+      <details class="lesson__sources" style="margin-top: var(--space-10); padding: var(--space-5); background: var(--color-bg-subtle); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+        <summary style="cursor: pointer; font-weight: 700; font-size: var(--size-base); min-height: var(--tap-target); display: flex; align-items: center;">📚 Sources cited in this lesson</summary>
+        <ul style="margin: var(--space-4) 0 0; padding-left: var(--space-6); font-size: var(--size-sm); line-height: 1.7;">
+          <li>The 15-minute pre-salt finding: <a href="https://www.thekitchn.com/i-tried-j-kenji-lopez-alts-velvety-scrambled-eggs-and-my-mornings-will-never-be-the-same-23499314" target="_blank" rel="noopener">J. Kenji López-Alt's velvety scrambled eggs technique</a> — and the underlying Serious Eats experiments comparing salt timing.</li>
+          <li>Salt's chaotropic effect on protein structure: Harold McGee, <em>On Food and Cooking</em>, Chapter 2 (Eggs) and Chapter 14 (Cooking Methods).</li>
+          <li>Dairy in eggs (cream, crème fraîche, milk effects): <a href="https://www.scienceofcooking.com/eggs/" target="_blank" rel="noopener">Science of Cooking — Eggs</a>.</li>
+          <li>Extra-yolk emulsion technique: documented in <em>The French Laundry Cookbook</em> by Thomas Keller (Workman, 1999) and widely used in professional kitchens.</li>
+        </ul>
+      </details>
+
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  Brunch Made Real · Lesson 2 of 8 · <a href="../dashboard.html">Back to dashboard</a> &nbsp;<span style="color: var(--color-border-strong);">·</span>&nbsp; <a href="../credits.html">Credits</a>
+</footer>
+
+<script>
+  (function() {
+    var dial = document.getElementById('salt-dial');
+    var whenEl = document.getElementById('salt-when');
+    var zoneEl = document.getElementById('salt-zone');
+    var descEl = document.getElementById('salt-description');
+
+    // Value is "seconds before cook" — negative = before, positive = after start
+    var zones = [
+      { max: -900, name: 'Full pre-salt', color: '#ecf3e0', desc: 'Salt at least 15 minutes ahead. Proteins fully relax. Eggs come out lighter, almost custardy. Surprising-but-good. Great for diner-style.', label: '15+ min before' },
+      { max: -300, name: 'Danger zone', color: '#fcefdb', desc: 'Worst of both worlds. The proteins start denaturing and water is being drawn out, but not enough time for the texture to relax. Eggs will be tough and weepy.', label: '5–15 min before' },
+      { max: -60, name: 'Danger zone', color: '#fcefdb', desc: 'Same problem — between 2 and 5 minutes is the bad window. Salt is hurting structure without giving you the relax benefit.', label: '1–5 min before' },
+      { max: 0, name: 'Right before cooking', color: '#fbeae5', desc: 'A pinch right as you start cooking. Doesn\'t have time to do damage. Even seasoning. Fine but not optimal.', label: 'right before' },
+      { max: 60, name: 'Perfect', color: 'var(--color-bg-subtle)', desc: 'Eggs hit the pan unsalted. They form curds at their natural protein structure. You salt at the very end — flavor lands on the curds without weakening them. This is the gold standard.', label: 'at the end' }
+    ];
+
+    function update() {
+      var v = parseInt(dial.value, 10);
+      var zone = zones.find(function(z) { return v <= z.max; });
+      whenEl.textContent = zone.label;
+      zoneEl.textContent = zone.name;
+      zoneEl.style.background = zone.color;
+      descEl.textContent = zone.desc;
+    }
+    dial.addEventListener('input', update);
+    update();
+  })();
+</script>
+
+</body>
+</html>

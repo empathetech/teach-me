@@ -1,0 +1,94 @@
+{
+  "version": "1.1",
+  "topic": "Perfect scrambled eggs & a complete brunch",
+  "learner": {
+    "name": "Chris",
+    "objective": "Make perfect scrambled eggs and serve a complete, reasonably-priced brunch to my family this weekend.",
+    "learning_style": ["hands-on", "wants-the-why-and-the-how", "values-clear-separation-between-learning-and-doing"],
+    "comfort_level": "comfortable in the kitchen, comfortable with HTML/CSS, technical user",
+    "device_target": "responsive",
+    "timeframe": "5 days to first attempt; ongoing for skill-building",
+    "preferred_tone": "friendly cooking-show host — warm and restrained. No glaze. No verbosity.",
+    "engagement_style": "magical interactivity matters; embedded demos preferred; experimentation encouraged",
+    "favorite_teacher_traits": "explains the why before the how, shows real examples, doesn't waste time"
+  },
+  "builder": {
+    "name": "Chris Ling",
+    "links": {
+      "github": "https://github.com/bjamba",
+      "linkedin": "https://www.linkedin.com/in/kurisuringu/"
+    }
+  },
+  "design": {
+    "aesthetic": "Garden Manual × Cookbook (summery — eggshell base, butter yellow / tomato / sage / sky / berry accents)",
+    "theme_css": "assets/theme.css",
+    "primary_device": "responsive"
+  },
+  "portfolio": {
+    "hub_path": "../",
+    "hub_url": "https://empathetech.github.io/teach-me/",
+    "slug": "brunch-made-real"
+  },
+  "modules": [
+    {
+      "id": "module-01-science",
+      "title": "The science of scrambled eggs",
+      "status": "not_started",
+      "lessons": [
+        { "id": "lesson-01", "title": "Why low heat wins", "file": "module-01-science/lesson-01-low-heat.html", "status": "not_started" },
+        { "id": "lesson-02", "title": "Salt timing & the water question", "file": "module-01-science/lesson-02-salt-timing.html", "status": "not_started" },
+        { "id": "lesson-03", "title": "Three styles compared", "file": "module-01-science/lesson-03-three-styles.html", "status": "not_started" }
+      ]
+    },
+    {
+      "id": "module-02-composing",
+      "title": "Composing a brunch",
+      "status": "not_started",
+      "lessons": [
+        { "id": "lesson-01", "title": "What makes a brunch feel complete", "file": "module-02-composing/lesson-01-complete-brunch.html", "status": "not_started" },
+        { "id": "lesson-02", "title": "Timing the menu so everything lands warm", "file": "module-02-composing/lesson-02-timing.html", "status": "not_started" }
+      ]
+    },
+    {
+      "id": "module-03-sides",
+      "title": "Sides & accompaniments",
+      "status": "not_started",
+      "lessons": [
+        { "id": "lesson-01", "title": "Carbs: bread, potatoes, hash", "file": "module-03-sides/lesson-01-carbs.html", "status": "not_started" },
+        { "id": "lesson-02", "title": "Fresh things: salads, fruit, sauces", "file": "module-03-sides/lesson-02-fresh-things.html", "status": "not_started" }
+      ]
+    },
+    {
+      "id": "module-04-budget",
+      "title": "Stretching the budget",
+      "status": "not_started",
+      "lessons": [
+        { "id": "lesson-01", "title": "Where to splurge, where to save", "file": "module-04-budget/lesson-01-splurge-save.html", "status": "not_started" }
+      ]
+    }
+  ],
+  "tools": {
+    "dashboard": "dashboard.html",
+    "style_guide": "style-guide.html",
+    "pick_tab": "dashboard.html#pick",
+    "shop_tab": "dashboard.html#shop",
+    "cook_tab": "dashboard.html#cook"
+  },
+  "data_keys": {
+    "brunch_prices": "Per-unit prices for all ingredients (base + upgrade ingredients).",
+    "brunch_pinned_recipes": "Array of pinned recipe ids — additive across eggs + sides.",
+    "brunch_applied_upgrades": "Per-recipe map of upgrade id → bool.",
+    "brunch_servings": "Shared servings count across Pick / Shop / Cook tabs.",
+    "brunch_pans": "Array of owned pan sizes (8 / 10 / 12 / 14).",
+    "brunch_cook_mode": "'parallel' or 'sequential' for the Cook tab timeline view."
+  },
+  "progress": {
+    "started_at": "2026-05-22",
+    "last_session": "2026-05-22",
+    "modules_completed": 0,
+    "modules_total": 4,
+    "current_module": "module-01-science",
+    "current_lesson": "lesson-01",
+    "total_sessions": 0
+  }
+}

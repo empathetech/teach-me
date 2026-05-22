@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Three styles compared · Brunch Made Real</title>
+  <link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body class="mode-learn">
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="../dashboard.html#learn">📚 Learn</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Three styles compared</span>
+</nav>
+
+<main class="page-shell">
+  <article class="lesson">
+    <header class="lesson__hero">
+      <p class="lesson__kicker">Module 1 · Lesson 3</p>
+      <h1 class="lesson__title">Three styles compared</h1>
+      <div class="lesson__meta">
+        <span class="tag tag--learn">Learn · 6 min read</span>
+        <span class="tag">See all 8 in the <a href="../dashboard.html#pick" style="color: inherit;">Pick tab</a></span>
+      </div>
+    </header>
+
+    <div class="lesson__body">
+
+      <p>You can scramble eggs eight different ways — the Pick tab has all of them — but three are the foundational ones every cook should be able to read off the back of a hand. The other five are riffs on these.</p>
+
+      <p>The three are: <strong>French soft-curd</strong>, <strong>American diner</strong>, and <strong>Robuchon's scrambled cream</strong>. They sit at three different points on a single spectrum: how aggressively you cook the protein.</p>
+
+      <h2>The spectrum, simplified</h2>
+
+      <p>If you remember nothing else from this module, remember this: <strong>heat × time = curd size</strong>. Higher heat with less time gives you bigger curds. Lower heat with more time gives you smaller curds. The three styles are choices you make about where to sit on that curve.</p>
+
+      <div class="lesson__wide">
+        <figure style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-6);">
+          <p style="font-family: var(--font-heading); font-style: italic; color: var(--color-text-muted); text-align: center; margin-bottom: var(--space-5);">Click any style. The others fade so you can see what makes it different.</p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4);" id="style-cards">
+
+            <button class="style-pick" data-style="diner" style="border: 2px solid var(--color-border); background: var(--color-surface); padding: var(--space-5); border-radius: var(--radius-md); cursor: pointer; text-align: left; transition: opacity 0.25s ease, border-color 0.25s ease; min-height: var(--tap-target);">
+              <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">🍳</div>
+              <h3 style="margin: 0 0 var(--space-2); color: var(--color-tomato);">American diner</h3>
+              <p style="margin: 0; font-size: var(--size-sm); color: var(--color-text-muted);">Big curds. Hot fast. Slight browning. Done in 4 minutes.</p>
+            </button>
+
+            <button class="style-pick" data-style="french" style="border: 2px solid var(--color-border); background: var(--color-surface); padding: var(--space-5); border-radius: var(--radius-md); cursor: pointer; text-align: left; transition: opacity 0.25s ease, border-color 0.25s ease; min-height: var(--tap-target);">
+              <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">🥚</div>
+              <h3 style="margin: 0 0 var(--space-2); color: var(--color-sun-dark);">French soft-curd</h3>
+              <p style="margin: 0; font-size: var(--size-sm); color: var(--color-text-muted);">Small curds. Low and slow. Constant stir. Custardy.</p>
+            </button>
+
+            <button class="style-pick" data-style="robuchon" style="border: 2px solid var(--color-border); background: var(--color-surface); padding: var(--space-5); border-radius: var(--radius-md); cursor: pointer; text-align: left; transition: opacity 0.25s ease, border-color 0.25s ease; min-height: var(--tap-target);">
+              <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">🌟</div>
+              <h3 style="margin: 0 0 var(--space-2); color: var(--color-berry);">Robuchon</h3>
+              <p style="margin: 0; font-size: var(--size-sm); color: var(--color-text-muted);">No curds. Bain-marie. 20 min of whisking. Liquid silk.</p>
+            </button>
+
+          </div>
+
+          <div id="style-detail" style="margin-top: var(--space-6); padding: var(--space-5); background: var(--color-bg-subtle); border-radius: var(--radius-md); display: none;">
+            <h4 style="margin: 0 0 var(--space-3);" id="style-detail-title">—</h4>
+            <p id="style-detail-text" style="margin: 0;"></p>
+          </div>
+        </figure>
+      </div>
+
+      <h2>American diner — the bold one</h2>
+
+      <p>Hot pan, butter foams, beaten eggs in, big folds, plated in three minutes. The curds form fast and large because the proteins denature all at once. A little browning at the edges from Maillard reactions is fine — even welcome.</p>
+
+      <p>This style is forgiving. You can do it half-asleep on a Saturday morning. The eggs are dense, savory, holding their shape on the plate next to bacon and toast.</p>
+
+      <p><strong>When to choose it:</strong> a busy brunch where eggs are one of many things, when the eaters want substance, when the toast and hash browns are the costars.</p>
+
+      <h2>French soft-curd — the patient one</h2>
+
+      <p>Cold pan, eggs and butter in together, medium-low heat. Constant scrape with a silicone spatula. Curds form small and many because the proteins denature gradually, breaking apart before they can grow into large structures. Off the pan early. Salt at the end.</p>
+
+      <p>The texture is almost pudding-y. Spoon-glossy. Stand-alone food, not a side dish — these eggs are the centerpiece.</p>
+
+      <p><strong>When to choose it:</strong> when eggs are the headline. When you're showing someone you cared. When the toast is just there to scoop up what's escaping.</p>
+
+      <h2>Robuchon — the obsessive one</h2>
+
+      <p>Saucepan with simmering water. Heatproof bowl over the steam, never touching it. Whisk eggs and butter together in the bowl. Whisk for twelve, maybe fifteen minutes. Don't stop. The eggs will look raw, then thicken, then thicken more, until they're a pourable custard. Off the heat. Whisk in crème fraîche. Plate immediately.</p>
+
+      <p>The texture is unlike any other scrambled eggs you've made. It's a sauce that happens to be eggs. The French haute cuisine version. <a href="https://en.wikipedia.org/wiki/Jo%C3%ABl_Robuchon" target="_blank" rel="noopener">Joël Robuchon</a> served it with caviar at his Paris restaurants.</p>
+
+      <p><strong>When to choose it:</strong> when you have an arm, twenty minutes, and a moment you want to remember.</p>
+
+      <div class="callout callout--science">
+        <p><strong>Why all three exist at all</strong>: eggs are one of the most chemically variable cooking proteins on Earth. Their texture window between "still liquid" and "rubber" is about 18°C wide, and your technique chooses where on that window to land. Bigger curds at the top end; smaller curds in the middle; no curds at all at the bottom.</p>
+      </div>
+
+      <h2>Pick covers five more</h2>
+
+      <p>The Pick tab has the full eight: the three above, plus Gordon Ramsay's off-and-on technique (between French and diner), Chinese tomato eggs (wok-hot fluffy), Japanese silken (somewhere between French and Robuchon, with dashi), Mexican a la Mexicana (set with veg), and Indian anda bhurji (set with spice). Use the radar comparison there — toggle <strong>🔍 Compare 2–4</strong> in Pick to overlay any styles you're curious about.</p>
+
+      <div class="callout callout--dinner-fact">
+        <p>Robuchon's Paris restaurant <a href="https://en.wikipedia.org/wiki/Jo%C3%ABl_Robuchon" target="_blank" rel="noopener">Jamin</a> was awarded three Michelin stars in 1984 — its third year — making him one of the fastest chefs in history to reach the top rating. The scrambled-eggs-with-caviar technique was part of that menu.</p>
+      </div>
+
+      <hr class="divider"><span>recap</span></hr>
+
+      <h2>What to take away</h2>
+      <ul>
+        <li><strong>Heat × time = curd size.</strong> Higher and faster = bigger curds. Lower and longer = smaller. Off the heat entirely = no curds, sauce.</li>
+        <li><strong>Diner-style</strong>: hot pan, fast, big curds, slight browning. Forgiving.</li>
+        <li><strong>French soft-curd</strong>: cold start, low heat, constant stir, small curds. Patient.</li>
+        <li><strong>Robuchon</strong>: bain-marie, 15 minutes of whisking, no curds. Obsessive.</li>
+        <li>Pick the style that matches the moment, not the other way around.</li>
+      </ul>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--color-border);">
+        <a href="lesson-02-salt-timing.html" class="btn btn--ghost">← Salt timing</a>
+        <a href="../module-02-composing/lesson-01-complete-brunch.html" class="btn btn--primary">Next: Composing a brunch →</a>
+      </div>
+
+      <details class="lesson__sources" style="margin-top: var(--space-10); padding: var(--space-5); background: var(--color-bg-subtle); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+        <summary style="cursor: pointer; font-weight: 700; font-size: var(--size-base); min-height: var(--tap-target); display: flex; align-items: center;">📚 Sources cited in this lesson</summary>
+        <ul style="margin: var(--space-4) 0 0; padding-left: var(--space-6); font-size: var(--size-sm); line-height: 1.7;">
+          <li>Joël Robuchon biography and Jamin restaurant Michelin history: <a href="https://en.wikipedia.org/wiki/Jo%C3%ABl_Robuchon" target="_blank" rel="noopener">Joël Robuchon — Wikipedia</a>.</li>
+          <li>Robuchon's scrambled-eggs-with-caviar technique (low-heat bain-marie + crème fraîche): described in many of his cookbooks; for an accessible adaptation see <a href="https://www.tastewiththeeyes.com/2016/12/holiday-entertaining-scrambled-eggs-caviar-creme-fraiche/" target="_blank" rel="noopener">Lori Lynn Hirsch Stokoe's adaptation</a>.</li>
+          <li>Heat × time relationship and curd formation: Harold McGee, <em>On Food and Cooking</em>, Chapter 2 (Eggs).</li>
+          <li>Gordon Ramsay's off-and-on heat method: widely demonstrated on his TV programmes; see his official YouTube channel for the technique.</li>
+        </ul>
+      </details>
+
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  Brunch Made Real · Lesson 3 of 8 · <a href="../dashboard.html">Back to dashboard</a> &nbsp;<span style="color: var(--color-border-strong);">·</span>&nbsp; <a href="../credits.html">Credits</a>
+</footer>
+
+<script>
+  (function() {
+    var STYLES = {
+      diner: { title: 'American diner — the bold one', text: 'Hot pan, fast cook, big curds. Cooks in under 5 minutes. Eggs sit on the plate firm and confident. Slight browning at the edges. Best paired with bacon, hash browns, and a busy table.' },
+      french: { title: 'French soft-curd — the patient one', text: 'Cold-start pan, low heat, constant stir. Tiny tender curds that hold their custardy texture. Off the pan early so carryover does the rest. Salt at the very end. The centerpiece, not the side dish.' },
+      robuchon: { title: 'Robuchon scrambled cream — the obsessive one', text: 'No direct heat — a bain-marie. 12+ minutes of constant whisking. Finished with crème fraîche. The result is a pourable, sauce-like custard. A meditation, not a recipe. Worth doing once a year.' }
+    };
+    var cards = document.querySelectorAll('.style-pick');
+    var detail = document.getElementById('style-detail');
+    var titleEl = document.getElementById('style-detail-title');
+    var textEl = document.getElementById('style-detail-text');
+    var activeStyle = null;
+    cards.forEach(function(c) {
+      c.addEventListener('click', function() {
+        var s = c.dataset.style;
+        if (activeStyle === s) {
+          activeStyle = null;
+          cards.forEach(function(x) { x.style.opacity = '1'; x.style.borderColor = 'var(--color-border)'; });
+          detail.style.display = 'none';
+          return;
+        }
+        activeStyle = s;
+        cards.forEach(function(x) {
+          if (x === c) { x.style.opacity = '1'; x.style.borderColor = 'var(--color-tomato)'; }
+          else { x.style.opacity = '0.4'; x.style.borderColor = 'var(--color-border)'; }
+        });
+        titleEl.textContent = STYLES[s].title;
+        textEl.textContent = STYLES[s].text;
+        detail.style.display = 'block';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

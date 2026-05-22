@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>teach-me · A learning portfolio</title>
+  <meta name="description" content="A small portfolio of personal learning curricula by Chris Ling, designed with Claude Code.">
+  <link rel="stylesheet" href="assets/hub-theme.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-header__brand" href="index.html">teach&#x2011;me</a>
+  <nav class="site-header__nav">
+    <a href="#courses">Courses</a>
+    <a href="#about">About</a>
+    <a href="credits.html">Credits</a>
+    <a href="https://github.com/empathetech/teach-me" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<main class="shell">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <p class="hero__kicker">A learning portfolio · Designed by Chris Ling with Claude Code</p>
+    <h1 class="hero__title">Things I wanted to actually be able to do.</h1>
+    <p class="hero__tagline">Each course here was built around a concrete outcome — not a topic, but a moment. A brunch on Sunday. A song at a wedding. A deploy that just works.</p>
+    <p class="hero__bio">Every curriculum is self-contained — its own design, its own pace, its own interactive tools. They share a philosophy: the <em>why</em> belongs in lessons you read on the couch; the <em>how</em> belongs in checklists you open at the stove. Open any course to start.</p>
+  </section>
+
+  <!-- ===== Courses ===== -->
+  <section id="courses">
+    <span class="section-label">The courses · <span id="course-count">1</span></span>
+    <h2 style="margin-bottom: var(--space-2);">Currently in the portfolio</h2>
+    <p style="color: var(--text-muted);">New ones land here as I build them.</p>
+
+    <div class="courses" id="course-grid"></div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section id="about" class="about">
+    <span class="section-label">About</span>
+    <h2>What this is, and what it isn't.</h2>
+    <p>
+      I'm <a href="https://github.com/bjamba" target="_blank" rel="noopener">Chris Ling</a> — these are curricula I've built to teach myself things that mattered enough to want to keep around. They live here as a portfolio: navigable, citable, durable.
+    </p>
+    <p style="font-size: var(--size-base); color: var(--text-muted);">
+      Each course is designed by me with <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> as a collaborative writing and engineering partner. I do the framing, scope, voice, and design calls; Claude drafts prose and writes the SPA's interaction logic under that direction. Every factual claim in a lesson is cited and linkable — see the <strong>📚 Sources</strong> section at the bottom of any lesson, and the per-course Credits page for the full bibliography.
+    </p>
+    <div class="about__links">
+      <a href="https://github.com/bjamba" target="_blank" rel="noopener">GitHub →</a>
+      <a href="https://www.linkedin.com/in/kurisuringu/" target="_blank" rel="noopener">LinkedIn →</a>
+      <a href="credits.html">Hub credits →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div>
+    Designed by <a href="https://github.com/bjamba" target="_blank" rel="noopener">Chris Ling</a> with <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> · <span id="year"></span>
+  </div>
+  <div class="site-footer__links">
+    <a href="credits.html">Credits</a>
+    <a href="https://github.com/empathetech/teach-me" target="_blank" rel="noopener">Repo</a>
+  </div>
+</footer>
+
+<script>
+// Render course cards from portfolio.json
+fetch('portfolio.json')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var grid = document.getElementById('course-grid');
+    var countEl = document.getElementById('course-count');
+    countEl.textContent = data.courses.length;
+    data.courses.forEach(function(c) {
+      var a = document.createElement('a');
+      a.className = 'course-card';
+      a.href = c.path + 'dashboard.html';
+      a.style.borderTop = '3px solid ' + (c.color || 'var(--accent)');
+      a.innerHTML =
+        '<span class="course-card__corner">' + (c.topic || '') + '</span>' +
+        '<span class="course-card__emoji">' + (c.emoji || '📚') + '</span>' +
+        '<h3 class="course-card__title">' + c.title + '</h3>' +
+        '<p class="course-card__tagline">' + (c.tagline || '') + '</p>' +
+        '<div class="course-card__meta">' +
+          (c.lessons_total ? '<span>' + c.lessons_total + ' lessons</span>' : '') +
+          (c.status === 'active' ? '<span class="badge badge--active">active</span>'
+            : c.status === 'in_progress' ? '<span class="badge">in progress</span>'
+            : c.status === 'not_started' ? '<span class="badge">not started</span>'
+            : '') +
+        '</div>' +
+        '<span class="course-card__cta">Open</span>';
+      grid.appendChild(a);
+    });
+
+    // Placeholder card to invite future courses
+    var placeholder = document.createElement('div');
+    placeholder.className = 'course-card course-card--placeholder';
+    placeholder.innerHTML =
+      '<span class="course-card__corner">soon</span>' +
+      '<span class="course-card__emoji" style="opacity: 0.4;">···</span>' +
+      '<h3 class="course-card__title">Next one in the works</h3>' +
+      '<p class="course-card__tagline">A new course lands here when I finish the next one.</p>';
+    grid.appendChild(placeholder);
+  })
+  .catch(function(err) {
+    document.getElementById('course-grid').innerHTML =
+      '<p style="color: var(--text-muted); font-style: italic;">(Could not load portfolio.json. If you\'re viewing this on file:// directly, try opening through a local server or visit the GH Pages deploy.)</p>';
+    console.error(err);
+  });
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

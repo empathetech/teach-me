@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "type": "portfolio",
+  "title": "teach-me",
+  "tagline": "A small portfolio of personal learning curricula, each built around something I wanted to actually be able to do.",
+  "builder": {
+    "name": "Chris Ling",
+    "links": {
+      "github": "https://github.com/bjamba",
+      "linkedin": "https://www.linkedin.com/in/kurisuringu/"
+    }
+  },
+  "courses": [
+    {
+      "slug": "brunch-made-real",
+      "title": "Brunch Made Real",
+      "tagline": "Perfect scrambled eggs and a complete brunch — Sunday.",
+      "path": "brunch-made-real/",
+      "emoji": "🍳",
+      "color": "#f4a93a",
+      "status": "active",
+      "lessons_total": 8,
+      "topic": "Cooking · Scrambled eggs & brunch composition",
+      "started_at": "2026-05-22"
+    }
+  ],
+  "design": {
+    "aesthetic": "Editorial minimal — warm off-white, terracotta accent, Playfair display + Inter body",
+    "theme_css": "assets/hub-theme.css"
+  }
+}
