@@ -197,12 +197,13 @@ img { max-width: 100%; height: auto; }
   box-shadow: 0 18px 40px rgba(24,23,26,0.10);
 }
 .course-card__corner {
-  position: absolute;
-  top: var(--space-3); right: var(--space-4);
+  display: block;
+  margin-bottom: var(--space-4);
   font-family: var(--font-mono);
   font-size: var(--size-xs);
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  line-height: 1.5;
   color: var(--text-muted);
 }
 .course-card__emoji {
