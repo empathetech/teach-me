@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet the terminal — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-you-dont-need-to-be-a-coder.html">Module 0 · Before you start</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Meet the terminal</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 0 · Lesson 3 · the scary-looking window that isn't</p>
+  <h1>Meet the terminal</h1>
+  <p>The terminal is a plain window where you type a command and press Enter instead of clicking
+  buttons. That's the whole idea. By the end of this lesson you'll have opened one and run a
+  harmless command — and it'll feel like no big deal, because it isn't.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">6 min read</span> <span class="tag">hands-on</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <h2>What it actually is</h2>
+
+  <p>You normally tell your computer what to do by clicking. The terminal lets you tell it what to
+  do by <em>typing</em> — one line at a time. People who build software use it because typing a
+  command is often faster and more precise than hunting through menus.</p>
+
+  <p>It's also called the "command line," the "command prompt," the "shell," or the "console" —
+  all the same idea. It looks bare because it is: a prompt, your command, and the answer.</p>
+
+  <aside class="callout callout--success">
+    <strong>You can't easily break anything by opening it</strong>
+    Opening the terminal and typing the commands in this course is safe. The risky commands are
+    ones that delete things — and we'll never ask you to run one of those blind. When you're
+    unsure what a command does, you can always ask Claude before you run it.
+  </aside>
+
+  <h2>How to open it</h2>
+
+  <p>It depends on your computer:</p>
+
+  <h3>On a Mac</h3>
+  <ol>
+    <li>Press <span class="tag">⌘ Command</span> + <span class="tag">Space</span> to open Spotlight search.</li>
+    <li>Type <strong>Terminal</strong> and press Enter.</li>
+    <li>A window opens with a prompt. That's it — you're in.</li>
+  </ol>
+
+  <h3>On Windows</h3>
+  <ol>
+    <li>Click the Start menu and type <strong>PowerShell</strong>.</li>
+    <li>Click <strong>Windows PowerShell</strong> (the blue one) to open it.</li>
+    <li>A window opens with a prompt that starts with <code>PS C:\</code>. You're in.</li>
+  </ol>
+
+  <aside class="callout callout--note">
+    <strong>PowerShell vs CMD (Windows only):</strong> Windows has two of these. PowerShell's
+    prompt starts with <code>PS C:\</code>; the older "Command Prompt" (CMD) shows just
+    <code>C:\</code> with no <code>PS</code>. The install commands in Lesson 4 are written for
+    PowerShell, so open that one.
+  </aside>
+
+  <h2>How to run a command</h2>
+
+  <p>You type the command, then press <strong>Enter</strong>. That's the entire ritual. To use a
+  command from this course, you don't even need to type it — you can <strong>copy</strong> it from
+  the lesson and <strong>paste</strong> it in:</p>
+
+  <ul>
+    <li><strong>Mac:</strong> paste with <span class="tag">⌘ Command</span> + <span class="tag">V</span>.</li>
+    <li><strong>Windows PowerShell:</strong> paste with <span class="tag">Ctrl</span> + <span class="tag">V</span>, or just right-click.</li>
+  </ul>
+
+  <p>A safe first command to try once your real terminal is open is one that just prints a line
+  back to you:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">terminal</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>echo "hello, I am using the terminal"</code></pre>
+  </figure>
+
+  <p>Press Enter and it simply repeats your words back. Nothing dramatic — that's the point. You
+  just ran a command.</p>
+
+  <h2>Try it: a practice terminal</h2>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">⌨️ Practice terminal (pretend — touches nothing on your computer)</div>
+    <p style="margin-top:0; color:var(--color-text-muted);">Type one of these and press Enter: <code>echo hello</code>, <code>whoami</code>, or <code>help</code>. This is a safe sandbox; it doesn't run anything real.</p>
+    <div style="background:#211a3a; border-radius:var(--radius-md); padding:var(--space-3) var(--space-4); font-family:var(--font-mono); font-size:.9rem; color:#ece7f7;">
+      <div id="termOut" style="white-space:pre-wrap; min-height:3em;">Welcome. Type a command and press Enter.</div>
+      <div style="display:flex; align-items:center; gap:8px; margin-top:8px;">
+        <span style="color:var(--color-accent);">$</span>
+        <input id="termIn" type="text" autocomplete="off" aria-label="practice terminal input"
+          style="flex:1; background:transparent; border:none; outline:none; color:#ece7f7; font-family:var(--font-mono); font-size:.9rem;">
+      </div>
+    </div>
+  </div>
+
+  <p>See? A prompt, a command, an answer. The real terminal works the same way — and in the next
+  lesson you'll use it for something real: installing Claude Code.</p>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>The terminal is a window where you type commands and press Enter.</li>
+      <li>Open it via Spotlight (Mac) or by searching PowerShell (Windows).</li>
+      <li>You can copy commands from a lesson and paste them in — no typing required.</li>
+      <li>Opening it and running course commands is safe; ask Claude if you're ever unsure.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Claude Code terminal guide</strong> · Anthropic · <a href="https://code.claude.com/docs/en/terminal-guide">code.claude.com/docs/en/terminal-guide</a> · step-by-step terminal basics for newcomers, incl. the PowerShell vs CMD distinction.</li>
+      <li><strong>Terminal</strong> definition · Hacky Hours <code>GLOSSARY.md</code> · <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-02-what-youll-need-and-costs.html">◂ Lesson 2</a>
+  <a class="btn btn--primary" href="lesson-04-install-claude-code.html">Lesson 4 · Install Claude Code ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+var out = document.getElementById('termOut'), inp = document.getElementById('termIn');
+var replies = {
+  'echo hello': 'hello',
+  'whoami': 'you — the person in charge here 🙂',
+  'help': 'This is a practice box. Try: echo hello · whoami · clear',
+  'clear': '',
+  'ls': 'lesson-01  lesson-02  lesson-03  (pretend files)',
+  'pwd': '/you/learning/hacky-hours'
+};
+if(inp){
+  inp.addEventListener('keydown', function(e){
+    if(e.key !== 'Enter') return;
+    var cmd = inp.value.trim();
+    if(!cmd){ return; }
+    var lower = cmd.toLowerCase();
+    if(lower === 'clear'){ out.textContent = ''; inp.value=''; return; }
+    var reply;
+    if(lower in replies){ reply = replies[lower]; }
+    else if(lower.indexOf('echo ') === 0){ reply = cmd.slice(5).replace(/^["']|["']$/g,''); }
+    else { reply = '"' + cmd + '" isn’t one of the practice commands — try echo hello, whoami, or help.'; }
+    out.textContent += '\n$ ' + cmd + '\n' + reply;
+    inp.value = '';
+    out.scrollTop = out.scrollHeight;
+  });
+}
+</script>
+
+</body>
+</html>

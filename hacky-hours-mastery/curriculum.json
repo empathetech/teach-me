@@ -34,6 +34,16 @@
   },
   "modules": [
     {
+      "id": "module-00", "title": "Before you start (absolute-beginner setup)", "status": "not_started",
+      "lessons": [
+        {"id": "lesson-01", "title": "You don't need to be a coder", "status": "not_started"},
+        {"id": "lesson-02", "title": "What you'll need & what it costs", "status": "not_started"},
+        {"id": "lesson-03", "title": "Meet the terminal", "status": "not_started"},
+        {"id": "lesson-04", "title": "Install Claude Code", "status": "not_started"},
+        {"id": "lesson-05", "title": "Install the Hacky Hours skill", "status": "not_started"}
+      ]
+    },
+    {
       "id": "module-01", "title": "Getting started", "status": "not_started",
       "lessons": [
         {"id": "lesson-01", "title": "What Hacky Hours actually is", "status": "not_started"},
@@ -112,8 +122,8 @@
     "started_at": null,
     "last_session": null,
     "modules_completed": 0,
-    "modules_total": 9,
-    "current_module": "module-01",
+    "modules_total": 10,
+    "current_module": "module-00",
     "current_lesson": "lesson-01",
     "streak_days": 0,
     "total_sessions": 0

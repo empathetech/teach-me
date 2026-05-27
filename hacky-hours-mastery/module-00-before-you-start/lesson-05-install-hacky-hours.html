@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Install the Hacky Hours skill — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-you-dont-need-to-be-a-coder.html">Module 0 · Before you start</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Install the Hacky Hours skill</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 0 · Lesson 5 · the last step before you build</p>
+  <h1>Install the Hacky Hours skill</h1>
+  <p>One more command and you're ready. With Claude Code installed, you just add the Hacky Hours
+  skill on top — then type <code>/hacky-hours</code> and you're in. Let's finish the setup.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">6 min read</span> <span class="tag">hands-on</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <h2>Step 1 — run the install command</h2>
+
+  <p>Open your terminal (Lesson 3), pick your system below, and paste the command. This downloads
+  the Hacky Hours skill and places it where Claude Code can find it.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🛠️ Pick your computer</div>
+    <div id="os" style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button class="btn btn--primary" type="button" data-os="mac">macOS</button>
+      <button class="btn btn--ghost" type="button" data-os="win">Windows</button>
+      <button class="btn btn--ghost" type="button" data-os="linux">Linux / WSL</button>
+    </div>
+    <div id="osCmd" style="margin-top:var(--space-4);"></div>
+  </div>
+
+  <aside class="callout callout--responsibility">
+    <strong>Same careful habit as last lesson</strong>
+    This command runs an installer from the Hacky Hours project's official GitHub. It's
+    open-source, so you can read exactly what it does at the repository before running it. As
+    always: only run install commands from sources you trust, and if anything looks off, stop and
+    ask.
+  </aside>
+
+  <h2>Step 2 — restart Claude Code</h2>
+
+  <p>Skills are picked up when Claude Code starts. So close Claude Code and open it again (quit
+  the terminal session with <code>Ctrl + C</code> or by closing the window, then run
+  <code>claude</code> again — or just reopen the desktop app).</p>
+
+  <h2>Step 3 — check it's there</h2>
+
+  <p>Inside Claude Code, type:</p>
+  <figure class="code-block" data-lang="text">
+    <header class="code-block__header"><span class="code-block__lang">in claude code</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours help</code></pre>
+  </figure>
+  <p>If you see the Hacky Hours help message — a list of commands like <code>step</code>,
+  <code>team</code>, <code>adopt</code>, and <code>audit</code> — the skill is installed and
+  working. That's the finish line for setup. 🎉</p>
+
+  <aside class="callout callout--note">
+    <strong>Don't see it?</strong> Make sure you fully restarted Claude Code after installing.
+    If it's still missing, re-run the install command and watch for any error message — it usually
+    tells you what's wrong. You can also paste the error to Claude and ask what it means.
+  </aside>
+
+  <hr class="divider">
+
+  <h2>Your "from zero" checklist</h2>
+
+  <p>Here's everything from this module in one place. Tick items as you go — your progress is
+  saved on this device.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">✅ From nothing to ready</div>
+    <div id="setupList" style="display:flex; flex-direction:column; gap:10px;"></div>
+    <div class="progress-bar" style="margin-top:var(--space-4);"><div class="progress-bar__fill" id="setupFill" style="width:0%"></div></div>
+    <p id="setupMsg" role="status" style="margin:var(--space-3) 0 0; font-weight:600; color:var(--color-success);"></p>
+    <button class="btn btn--ghost" type="button" id="setupReset" style="margin-top:var(--space-3);">Reset checklist</button>
+  </div>
+
+  <div class="recap">
+    <h3>You're set up</h3>
+    <ul style="margin-bottom:0;">
+      <li>Installed the Hacky Hours skill with one command.</li>
+      <li>Restarted Claude Code so it loads the skill.</li>
+      <li>Confirmed it works with <code>/hacky-hours help</code>.</li>
+      <li>Next up, Module 1 explains what Hacky Hours is and how to actually use it.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours installation</strong> · Empathetech · <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a> · install via <code>install.sh</code> (mac/Linux) or <code>install.ps1</code> (Windows PowerShell), then restart Claude Code and use <code>/hacky-hours</code>.</li>
+      <li><strong>Verifying a skill</strong> · running <code>/hacky-hours help</code> prints the framework's command list (per <code>SKILL.md</code>).</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-04-install-claude-code.html">◂ Lesson 4</a>
+  <a class="btn btn--primary" href="../module-01-getting-started/lesson-01-what-is-hacky-hours.html">Module 1 · What Hacky Hours is ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+var HH = {
+  mac:   {label:'macOS — paste this in Terminal:', code:'curl -fsSL https://raw.githubusercontent.com/empathetech/hacky-hours-docs/main/install.sh | bash'},
+  win:   {label:'Windows — paste this in PowerShell:', code:'irm https://raw.githubusercontent.com/empathetech/hacky-hours-docs/main/install.ps1 | iex'},
+  linux: {label:'Linux or WSL — paste this in your terminal:', code:'curl -fsSL https://raw.githubusercontent.com/empathetech/hacky-hours-docs/main/install.sh | bash'}
+};
+function showOS(os){
+  document.querySelectorAll('#os button').forEach(function(b){
+    var on = b.dataset.os === os;
+    b.classList.toggle('btn--primary', on); b.classList.toggle('btn--ghost', !on);
+  });
+  var c = HH[os];
+  document.getElementById('osCmd').innerHTML =
+    '<p style="margin:0 0 8px; font-weight:500;">' + c.label + '</p>' +
+    '<figure class="code-block" data-lang="bash"><header class="code-block__header"><span class="code-block__lang">terminal</span>' +
+    '<button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header><pre><code>' +
+    c.code + '</code></pre></figure>';
+}
+document.querySelectorAll('#os button').forEach(function(b){ b.addEventListener('click', function(){ showOS(this.dataset.os); }); });
+showOS('mac');
+
+// Setup checklist (persisted, hhm_-namespaced)
+var STEPS = [
+  {k:'hhm_setup_plan',    t:'Created a Claude account on a paid plan (Pro is fine)'},
+  {k:'hhm_setup_cc',      t:'Installed Claude Code (desktop app or one command)'},
+  {k:'hhm_setup_signin',  t:'Opened Claude Code and signed in'},
+  {k:'hhm_setup_skill',   t:'Ran the Hacky Hours install command'},
+  {k:'hhm_setup_restart', t:'Restarted Claude Code'},
+  {k:'hhm_setup_verify',  t:'Saw the help message from /hacky-hours help'}
+];
+var listEl = document.getElementById('setupList'),
+    fillEl = document.getElementById('setupFill'),
+    msgEl  = document.getElementById('setupMsg');
+function renderList(){
+  listEl.innerHTML = '';
+  var done = 0;
+  STEPS.forEach(function(s){
+    var checked = localStorage.getItem(s.k) === '1';
+    if(checked) done++;
+    var id = s.k + '_cb';
+    var row = document.createElement('label');
+    row.setAttribute('for', id);
+    row.style.cssText = 'display:flex; gap:10px; align-items:flex-start; cursor:pointer;';
+    row.innerHTML = '<input type="checkbox" id="'+id+'" '+(checked?'checked':'')+' style="margin-top:4px;">' +
+                    '<span'+(checked?' style="color:var(--color-text-muted); text-decoration:line-through;"':'')+'>'+s.t+'</span>';
+    var cb = row.querySelector('input');
+    cb.addEventListener('change', function(){
+      localStorage.setItem(s.k, cb.checked ? '1' : '0');
+      renderList();
+    });
+    listEl.appendChild(row);
+  });
+  var pct = Math.round(done / STEPS.length * 100);
+  fillEl.style.width = pct + '%';
+  if(done === STEPS.length){
+    msgEl.textContent = "You're fully set up — head to Module 1 when you're ready. 🎉";
+    if(localStorage.getItem('hhm_setup_celebrated') !== '1' && typeof confetti === 'function'){
+      confetti({particleCount:120, spread:70, origin:{y:0.7}});
+      localStorage.setItem('hhm_setup_celebrated','1');
+    }
+  } else {
+    msgEl.textContent = '';
+    localStorage.setItem('hhm_setup_celebrated','0');
+  }
+}
+document.getElementById('setupReset').addEventListener('click', function(){
+  STEPS.forEach(function(s){ localStorage.removeItem(s.k); });
+  localStorage.removeItem('hhm_setup_celebrated');
+  renderList();
+});
+renderList();
+</script>
+
+</body>
+</html>

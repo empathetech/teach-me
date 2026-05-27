@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Install Claude Code — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-you-dont-need-to-be-a-coder.html">Module 0 · Before you start</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Install Claude Code</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 0 · Lesson 4 · get the tool</p>
+  <h1>Install Claude Code</h1>
+  <p>Two steps: get a paid Claude plan, then install Claude Code. There's a no-terminal way (a
+  desktop app you download like any program) and a terminal way (one command). Pick whichever
+  feels comfortable — both end with the same thing running on your computer.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#account">Step 1 — get a Claude account &amp; plan</a></li>
+      <li><a href="#install">Step 2 — install Claude Code (pick your way)</a></li>
+      <li><a href="#signin">Step 3 — open it and sign in</a></li>
+      <li><a href="#trouble">If something goes wrong</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="account">Step 1 — get a Claude account and plan</h2>
+
+  <ol>
+    <li>Go to <a href="https://claude.ai">claude.ai</a> and create an account (or sign in).</li>
+    <li>Upgrade to a paid plan — <strong>Pro</strong> is the usual starting point. Remember from
+    Lesson 2: the free plan can't run Claude Code.</li>
+  </ol>
+
+  <aside class="callout callout--note">
+    <strong>Why a plan first?</strong> Claude Code signs in with your Claude account. If the
+    account isn't on a paid plan (Pro, Max, Team, Enterprise, or a pay-as-you-go Console account),
+    Claude Code won't let you in. Setting up the plan now saves a stumble later.
+  </aside>
+
+  <h2 id="install">Step 2 — install Claude Code</h2>
+
+  <p>Choose the path that suits you. They lead to the same place.</p>
+
+  <h3>The gentle way: the desktop app (no terminal)</h3>
+  <p>Anthropic offers a <strong>desktop app</strong> with a graphical interface, so you can use
+  Claude Code without living in the terminal. Download it for
+  <a href="https://claude.com/download">macOS or Windows</a>, install it like any other program,
+  and open it.</p>
+
+  <aside class="callout callout--note">
+    <strong>Heads up:</strong> even with the desktop app, installing the Hacky Hours skill in the
+    next lesson uses one terminal command. That's why we made friends with the terminal in Lesson
+    3 — you'll need it just that once. Everything after can stay in the app if you prefer.
+  </aside>
+
+  <h3>The terminal way: one command</h3>
+  <p>Open your terminal (Lesson 3), then pick your system and paste the matching command:</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🖥️ Pick your computer</div>
+    <div id="os" style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button class="btn btn--primary" type="button" data-os="mac">macOS</button>
+      <button class="btn btn--ghost" type="button" data-os="win">Windows</button>
+      <button class="btn btn--ghost" type="button" data-os="linux">Linux / WSL</button>
+    </div>
+    <div id="osCmd" style="margin-top:var(--space-4);"></div>
+  </div>
+
+  <p style="font-size:var(--size-sm); color:var(--color-text-muted);">Prefer package managers?
+  Homebrew (<code>brew install --cask claude-code</code>), WinGet, and npm (needs Node.js 18+:
+  <code>npm install -g @anthropic-ai/claude-code</code>) all work too — see the official docs.</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>A safety habit worth keeping</strong>
+    These commands download and run an installer from the internet. That's normal and these are
+    Anthropic's official addresses — but "paste a command that runs something from a URL" is
+    exactly the kind of action worth being careful with in general. Only run install commands from
+    sources you trust (like the official docs linked here), and when in doubt, don't.
+  </aside>
+
+  <h2 id="signin">Step 3 — open it and sign in</h2>
+
+  <p>In your terminal, start Claude Code by typing:</p>
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">terminal</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>claude</code></pre>
+  </figure>
+  <p>The first time, it opens your web browser to log in. Sign in with the Claude account from
+  Step 1, approve it, and come back to the terminal. You're now running Claude Code.</p>
+
+  <p>To double-check it installed, you can run:</p>
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">terminal</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>claude --version</code></pre>
+  </figure>
+  <p>If it prints a version number, you're good. (Using the desktop app instead? Just opening the
+  app and signing in is enough — it's already set up.)</p>
+
+  <h2 id="trouble">If something goes wrong</h2>
+  <p>Two friendly fallbacks:</p>
+  <ul>
+    <li>Run <code>claude doctor</code> in the terminal — it checks your install and points at fixes.</li>
+    <li>See Anthropic's <a href="https://code.claude.com/docs/en/troubleshoot-install">install &amp; login troubleshooting</a> guide.</li>
+  </ul>
+
+  <div class="recap">
+    <h3>What you just did</h3>
+    <ul style="margin-bottom:0;">
+      <li>Created a Claude account on a paid plan (Pro is the usual start).</li>
+      <li>Installed Claude Code — via the desktop app, or one terminal command.</li>
+      <li>Opened it (<code>claude</code>) and signed in through the browser.</li>
+      <li>Confirmed it works with <code>claude --version</code> (or just opening the app).</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Claude Code setup</strong> · Anthropic · <a href="https://code.claude.com/docs/en/setup">code.claude.com/docs/en/setup</a> · native installer commands, npm/Homebrew/WinGet options, <code>claude</code>, <code>claude --version</code>, <code>claude doctor</code>, and the desktop-app note.</li>
+      <li><strong>Desktop app</strong> · <a href="https://claude.com/download">claude.com/download</a> (macOS / Windows GUI).</li>
+      <li><strong>Authentication</strong> · setup docs — Claude Code requires a Pro/Max/Team/Enterprise/Console account; sign in via browser on first <code>claude</code> run.</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-03-meet-the-terminal.html">◂ Lesson 3</a>
+  <a class="btn btn--primary" href="lesson-05-install-hacky-hours.html">Lesson 5 · Install Hacky Hours ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+var CMDS = {
+  mac:   {label:'macOS — paste this in Terminal:', code:'curl -fsSL https://claude.ai/install.sh | bash'},
+  win:   {label:'Windows — paste this in PowerShell (the prompt starts with PS C:\\):', code:'irm https://claude.ai/install.ps1 | iex'},
+  linux: {label:'Linux or WSL — paste this in your terminal:', code:'curl -fsSL https://claude.ai/install.sh | bash'}
+};
+function showOS(os){
+  document.querySelectorAll('#os button').forEach(function(b){
+    var on = b.dataset.os === os;
+    b.classList.toggle('btn--primary', on); b.classList.toggle('btn--ghost', !on);
+  });
+  var c = CMDS[os];
+  document.getElementById('osCmd').innerHTML =
+    '<p style="margin:0 0 8px; font-weight:500;">' + c.label + '</p>' +
+    '<figure class="code-block" data-lang="bash"><header class="code-block__header"><span class="code-block__lang">terminal</span>' +
+    '<button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header><pre><code>' +
+    c.code + '</code></pre></figure>';
+}
+document.querySelectorAll('#os button').forEach(function(b){
+  b.addEventListener('click', function(){ showOS(this.dataset.os); });
+});
+showOS('mac');
+</script>
+
+</body>
+</html>

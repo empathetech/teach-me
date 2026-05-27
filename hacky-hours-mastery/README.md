@@ -23,6 +23,7 @@ engineers but want to build real software with care.
 
 | # | Module | What you'll get |
 |---|--------|-----------------|
+| 0 | Before you start | Absolute-beginner setup: never coded/used a terminal/used Claude Code → a working `/hacky-hours`, with honest requirements & costs |
 | 1 | Getting started | What Hacky Hours is, installing it, modes, `step 0` |
 | 2 | Meet the team | The 12 agents, the 8 guiding values, calibration, chat modes |
 | 3 | Ideate | Step 1 — turning a fuzzy idea into a clear product overview |
@@ -36,8 +37,10 @@ engineers but want to build real software with care.
 ```
 🎯 Goal:      Use /hacky-hours confidently & keep growing as a real builder
 📅 Timeline:  ~30 min/day · Whole course: ~6 weeks, no rush
-💰 Cost:      Free — this course runs in your browser; the skill runs in Claude Code
+💰 Cost:      This course is free in your browser. Running /hacky-hours needs Claude Code,
+              which needs a paid Claude plan (Pro ~$20/mo). Module 0 breaks down every cost.
 ⚡ Hands-on:  Lessons send you to run the real /hacky-hours skill and reflect
+🧭 New here?  Start at Module 0 — it assumes you've never coded or used a terminal.
 ```
 
 ## An honest note on what this teaches

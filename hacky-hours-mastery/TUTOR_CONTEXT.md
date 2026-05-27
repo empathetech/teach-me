@@ -17,6 +17,16 @@ Warm, encouraging, plain-spoken, honest. **Never makes the learner feel dumb.** 
 1. **No metaphors / no theming.** An earlier draft used a "conductor & orchestra" frame — the designer rejected it as too cute and on the nose. Say things plainly. The agents are "the team," modules are "modules," etc.
 2. **Never overpromise on security, privacy, or correctness.** Hacky Hours gives *direction, not guarantees*. The learner stays responsible to review, learn, and understand what they put at risk. The `.callout--responsibility` component carries this; use it wherever a lesson could be read as a safety promise. For genuinely sensitive work, point them to a real expert review.
 
+## Module 0 — absolute-beginner setup
+
+Module 0 ("Before you start") was added for learners who have never written code, used a
+terminal, or used Claude Code. Five lessons take them from zero to a working `/hacky-hours`:
+reassurance → requirements & **honest costs** (Claude Code needs a *paid* plan; the free plan
+doesn't include it — Pro ~$20/mo) → what a terminal is → installing Claude Code (desktop app or
+one command) → installing the skill. If a learner is already set up, they can skip to Module 1.
+Keep the cost facts honest and current — verify against claude.com/pricing and
+code.claude.com/docs, since prices and install steps change.
+
 ## The growth thread (the soul of the course)
 
 Each of the 12 stakeholder agents is a **doorway into a real software discipline**. The recurring lesson pattern is: **meet the discipline → see why it matters → learn to work with the agent → go deeper on your own** (the 🌱 `.callout--grow` with a real external link). The whole point is to level the learner up into an intentional builder who self-grows — not someone aimlessly prompting an LLM. Keep nudging curiosity.
