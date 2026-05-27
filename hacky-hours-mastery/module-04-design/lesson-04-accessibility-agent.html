@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The accessibility agent — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-what-design-means.html">Module 4 · Design</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">The accessibility agent</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 4 · Lesson 4 · ♿ the accessibility agent</p>
+  <h1>The accessibility agent</h1>
+  <p>Accessibility means making what you build usable by people with disabilities — and it's not
+  an extra. At Empathetech it's the whole point. This lesson introduces the agent who keeps it
+  central from day one, and is honest about what she can and can't promise.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: accessibility literacy</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>When your project has an interface — almost any time it does — Step 2 brings in
+  <strong>Lena Mwangi — Accessibility</strong> ♿. Lena writes <code>ACCESSIBILITY.md</code>:
+  how your product stays usable for people with disabilities, planned from the start rather than
+  patched on at the end.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#mission">Why this is central at Empathetech</a></li>
+      <li><a href="#wcag">WCAG 2.1 AA: the starting target</a></li>
+      <li><a href="#how">What "accessible by default" looks like</a></li>
+      <li><a href="#try">Try it: which alt text is right?</a></li>
+      <li><a href="#limit">What the agent does and doesn't promise</a></li>
+      <li><a href="#grow">Learning more on your own</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="mission">Why this is central at Empathetech</h2>
+
+  <p><a href="https://www.empathetech.org/">Empathetech</a> builds software designed to be usable
+  by as many people as possible — accessibility is its mission, not a feature it bolts on. So in
+  Hacky Hours, accessibility isn't something you have to remember to ask for. It's a default the
+  team brings to you.</p>
+
+  <aside class="callout callout--quote">
+    <strong>From the Hacky Hours values</strong>
+    "Accessible by default. WCAG 2.1 AA is the right starting point for any UI. Don't wait for the
+    user to ask. Semantic HTML before complex UI frameworks."
+  </aside>
+
+  <h2 id="wcag">WCAG 2.1 AA: the starting target</h2>
+
+  <p><strong>WCAG</strong> stands for the Web Content Accessibility Guidelines — the widely-used
+  international standard for making web content accessible, published by the
+  <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C</a> (the group that sets web
+  standards). It comes in levels: A, AA, and AAA. <strong>AA</strong> is the level most
+  organizations aim for, and it's the one Hacky Hours uses as a starting point.</p>
+
+  <p>It covers practical things: enough color <strong>contrast</strong> between text and
+  background so people with low vision can read it; everything reachable with a keyboard for
+  people who can't use a mouse; and content that works with a <strong>screen reader</strong> — a
+  tool that reads the page aloud for people who are blind.</p>
+
+  <hr class="divider">
+
+  <h2 id="how">What "accessible by default" looks like</h2>
+
+  <p>One phrase from the values does a lot of work: <em>"Semantic HTML before complex UI
+  frameworks."</em> <strong>Semantic HTML</strong> means using the web's built-in elements for
+  what they actually are — a real button for a button, a real heading for a heading — instead of
+  faking them with generic boxes.</p>
+
+  <p>This matters because screen readers and keyboards already understand the real elements. A
+  genuine <code>&lt;button&gt;</code> can be focused, pressed with the keyboard, and announced as
+  "button" automatically. A <code>&lt;div&gt;</code> styled to look like a button does none of
+  that unless someone rebuilds it by hand — and often no one does.</p>
+
+  <p class="pullquote">The most accessible code is usually the most ordinary code, used honestly.</p>
+
+  <h2 id="try">Try it: which alt text is right?</h2>
+
+  <p><strong>Alt text</strong> is a short written description of an image that a screen reader
+  reads aloud, so someone who can't see the image still gets its meaning. Good alt text describes
+  the image's <em>role</em> in the page — not every visual detail.</p>
+
+  <p>Here's the situation: a recipe page has a photo of the finished dish at the top, purely to
+  make the page inviting. Which alt text fits best?</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">♿ Interactive · pick the best alt text</div>
+    <p style="font-size:var(--size-base); color:var(--color-text-muted); margin-top:0;">Decorative-but-meaningful photo at the top of a recipe. Click your choice.</p>
+    <div id="altGame" style="display:grid; gap:8px;">
+      <button class="btn btn--ghost" data-good="0" type="button" style="text-align:left; justify-content:flex-start;">"image"</button>
+      <button class="btn btn--ghost" data-good="1" type="button" style="text-align:left; justify-content:flex-start;">"A bowl of finished lemon pasta, the dish this recipe makes"</button>
+      <button class="btn btn--ghost" data-good="0" type="button" style="text-align:left; justify-content:flex-start;">"IMG_4821.jpg, 1920x1080, shot on a wooden table with soft natural light from the left"</button>
+    </div>
+    <p id="altFeedback" role="status" style="margin:var(--space-4) 0 0; min-height:1.5em; font-size:var(--size-base);"></p>
+  </div>
+
+  <aside class="callout callout--quote">
+    <strong>Try it in your terminal</strong>
+    Run <code>/hacky-hours step 2</code> on a project with an interface. Lena will ask about
+    keyboard use, contrast, and screen readers, and write them into <code>ACCESSIBILITY.md</code>
+    before any code is built.
+  </aside>
+
+  <h2 id="limit">What the agent does and doesn't promise</h2>
+
+  <aside class="callout callout--responsibility">
+    <strong>The honest limit</strong>
+    Lena helps you build accessibly and aim at WCAG 2.1 AA — that's real and valuable. But the
+    agent does <strong>not</strong> certify legal compliance, and neither does this lesson. Meeting
+    an accessibility standard is something assessed by real testing — including by people who use
+    assistive technology — not something a document can guarantee. If you're in a setting with
+    legal accessibility requirements, the responsibility to verify them stays with you.
+  </aside>
+
+  <p>That limit doesn't make the agent less useful — it makes it honest. Building accessibly from
+  day one means there's far less to fix later, and the people you serve are included from the
+  start. Verification is the next step, not a replacement for the head start.</p>
+
+  <h2 id="grow">Learning more on your own 🌱</h2>
+
+  <p>Accessibility is one of the most rewarding crafts to grow into — every bit you learn directly
+  includes more people.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Read the W3C's <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">Introduction
+      to Web Accessibility</a> — the clearest plain-language starting point there is.</li>
+      <li>Try navigating a website you know using only the <kbd>Tab</kbd> key. You'll feel
+      instantly what keyboard accessibility means.</li>
+      <li>Read how the agent thinks: <code>/hacky-hours team show lena --prompt</code>.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Lena Mwangi writes ACCESSIBILITY.md and keeps accessibility central — Empathetech's mission.</li>
+      <li>WCAG 2.1 AA is the starting target; it covers contrast, keyboard use, and screen readers.</li>
+      <li>"Semantic HTML before complex frameworks" — use real elements so assistive tech understands them.</li>
+      <li>Good alt text describes an image's role, not every visual detail.</li>
+      <li>The agent helps you build accessibly but does not certify legal compliance — verification stays yours.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Introduction to Web Accessibility</strong> · W3C Web Accessibility Initiative ·
+      <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">w3.org/WAI/fundamentals/accessibility-intro</a></li>
+      <li><strong>WCAG overview</strong> · W3C · <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">w3.org/WAI/standards-guidelines/wcag</a></li>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · "accessible by default" value and ACCESSIBILITY doc trigger
+      quoted from <code>SKILL.md</code> / <code>steps/02-design.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Empathetech</strong> · accessibility mission · <a href="https://www.empathetech.org/">empathetech.org</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-03-security-agent.html">◂ Lesson 3 · The security agent</a>
+  <a class="btn btn--primary" href="lesson-05-data-and-the-erd.html">Lesson 5 · The data agent &amp; the ERD ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+document.querySelectorAll('#altGame button').forEach(function(b){
+  b.addEventListener('click', function(){
+    var fb = document.getElementById('altFeedback');
+    if(this.dataset.good === "1"){
+      fb.style.color = "var(--color-success)";
+      fb.innerHTML = "✅ Right. It describes the image's <em>role</em> — this is the dish the recipe makes — " +
+        "in a sentence a screen reader can read aloud. Just enough, no clutter.";
+    } else {
+      fb.style.color = "var(--color-warning)";
+      fb.innerHTML = "Not quite. \"image\" says nothing useful, and the file-and-camera details describe the photo, " +
+        "not its meaning on the page. Aim for the image's role in the recipe.";
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The three-lane audit — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-deployment-and-the-cloud.html">Module 7 · Ship &amp; iterate</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">The three-lane audit</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 7 · Lesson 2 · 🚀 Ops with Jordan Kim</p>
+  <h1>The three-lane audit</h1>
+  <p>Before you ship, it helps to stop and ask: is this actually ready? Hacky Hours has a single
+  command for that — <code>/hacky-hours audit</code>. It looks, it reports, and — importantly — it
+  never touches your files. Let's learn to read what it tells you.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: reading a scorecard</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>Jordan again 🚀. An <strong>audit</strong>, in plain terms, is a careful look at something to
+  report on its condition — like a home inspection before you buy a house. The inspector doesn't
+  fix anything; they hand you a list of what's solid, what needs attention, and what's a
+  dealbreaker. That's exactly what this command does for your project.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#what">What the audit does</a></li>
+      <li><a href="#lanes">The three lanes</a></li>
+      <li><a href="#lights">The traffic-light scorecard</a></li>
+      <li><a href="#try">Try it: read the scorecard</a></li>
+      <li><a href="#legacy">A note on review 1, 2, 3</a></li>
+      <li><a href="#grow">Going further</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="what">What the audit does</h2>
+
+  <p>Run <code>/hacky-hours audit</code> and the Ops agent performs a <strong>read-only
+  scan</strong> of your project, then gives you back a single prioritized report. The key word is
+  read-only:</p>
+
+  <aside class="callout callout--note">
+    <strong>Straight from the skill</strong>
+    The audit is <em>"a read-only scan that tells the user exactly what needs to happen before they
+    can ship. Never modifies any files except the optional scorecard. Safe to run at any time."</em>
+    <br><br>
+    It's a three-lane audit — code + docs + cross-reference — with a traffic-light scorecard.
+  </aside>
+
+  <p>Because it never changes anything, you can run it as often as you like, whenever you're
+  unsure. It's the natural thing to do <strong>right before a release</strong>.</p>
+
+  <h2 id="lanes">The three lanes</h2>
+
+  <p>"Three-lane" means the audit looks at your project from three angles at once:</p>
+
+  <ol>
+    <li><strong>Code</strong> — the highest-stakes check first: are there secrets (API keys,
+    passwords, tokens) sitting in your code or git history? Is <code>.env</code> properly ignored?
+    What's uncommitted or unpushed?</li>
+    <li><strong>Docs</strong> — are your design documents actually filled in? Each gets a status:
+    filled in, placeholder only, or missing. Is there a <code>CHANGELOG</code> entry for the
+    version you're about to release? Is there a <code>LICENSE</code>?</li>
+    <li><strong>Cross-reference</strong> — do the pieces agree with each other? For example, does
+    the version named in the skill match the latest <code>CHANGELOG</code> version? Do your GitHub
+    Issues line up with your <code>BACKLOG.md</code>?</li>
+  </ol>
+
+  <p>One run, three angles, one ordered to-do list at the end: blockers first, warnings next,
+  suggestions last.</p>
+
+  <hr class="divider">
+
+  <h2 id="lights">The traffic-light scorecard</h2>
+
+  <p>The audit reports each finding with a color you already understand from the road. A
+  <strong>tag</strong> here is just a short label git can attach to a moment in your project —
+  you'll meet those next lesson; for now, focus on the colors:</p>
+
+  <ul>
+    <li><strong style="color:var(--color-success);">🟢 Green</strong> — looks good. No obvious
+    problem found in this lane.</li>
+    <li><strong style="color:var(--color-warning);">🟡 Amber</strong> — a warning. Not a
+    dealbreaker, but worth handling before you ship.</li>
+    <li><strong style="color:var(--color-danger);">🔴 Red</strong> — a blocker. Stop and fix this
+    before going further, especially anything about leaked secrets.</li>
+  </ul>
+
+  <p class="pullquote">A scorecard doesn't make decisions for you. It points; you choose what to do.</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>Green is not a guarantee</strong>
+    The skill itself says the secrets scan is <em>"a heuristic check, not a security guarantee."</em>
+    Heuristic means it checks for common, known patterns — it can miss things it wasn't designed to
+    look for. An all-green scorecard means the automated checks found no obvious problems. It does
+    <strong>not</strong> mean your app is secure, private, or lawful to operate. For anything that
+    handles real people's data, a green light is a starting point, not a sign-off.
+  </aside>
+
+  <h2 id="try">Try it: read the scorecard</h2>
+
+  <p>Here's a sample audit result. Click each finding to see what the color means and what to do
+  about it.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🚦 Interactive · click each finding</div>
+    <div id="scorecard" style="display:flex; flex-direction:column; gap:var(--space-2);"></div>
+    <p id="cardFeedback" role="status" style="margin:var(--space-4) 0 0; min-height:1.5em;"></p>
+  </div>
+
+  <h2 id="legacy">A note on review 1, 2, 3</h2>
+
+  <p>If you see older Hacky Hours material mention <code>review 1</code>, <code>review 2</code>, and
+  <code>review 3</code>, here's the map. These are the legacy commands for working with existing or
+  inherited code:</p>
+
+  <ul>
+    <li><code>review 1</code> (<strong>audit</strong>) — the older name for what
+    <code>/hacky-hours audit</code> now does. Prefer <code>audit</code> going forward.</li>
+    <li><code>review 2</code> (<strong>optimize</strong>) — clean up code or docs that have grown
+    oversized or stale.</li>
+    <li><code>review 3</code> (<strong>pivot</strong>) — rework a project whose direction has
+    changed (we'll come back to pivoting in the last lesson).</li>
+  </ul>
+
+  <h2 id="grow">Going further 🌱</h2>
+
+  <p>The best way to learn the scorecard is to run it on something real and read every single
+  finding — including the ones you don't fully understand yet, then look those up.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Try it in your terminal</strong>
+    Open a project you've started with Hacky Hours and run:
+    <figure class="code-block" data-lang="bash" style="margin-top:.5rem;">
+      <header class="code-block__header"><span class="code-block__lang">bash</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+      <pre><code>/hacky-hours audit</code></pre>
+    </figure>
+    Read the report top to bottom. When it offers to save a scorecard to <code>audits/</code>, say
+    yes — it's a dated record of where the project stood, and a good habit before any release.
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li><code>/hacky-hours audit</code> is a read-only scan — it reports, it never modifies your
+      files.</li>
+      <li>Three lanes: <strong>code</strong> (secrets, git state), <strong>docs</strong> (design
+      docs, CHANGELOG, LICENSE), <strong>cross-reference</strong> (versions and Issues agree).</li>
+      <li>Findings come back as a 🟢/🟡/🔴 traffic-light scorecard, ordered blockers-first.</li>
+      <li>Green means the automated checks passed — not that your app is secure.</li>
+      <li>The legacy <code>review 1/2/3</code> commands map to audit / optimize / pivot.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · audit definition, three lanes, and
+      "heuristic check, not a security guarantee" quoted from <code>reviews/01-audit.md</code> and
+      the audit help in <code>SKILL.md</code>.</li>
+      <li><strong>Hacky Hours v4.0.1</strong> · <code>review 1/2/3</code> mapping (audit / optimize
+      / pivot) from <code>SKILL.md</code> verb routing.</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-01-deployment-and-the-cloud.html">◂ Lesson 1 · Deployment &amp; the cloud</a>
+  <a class="btn btn--primary" href="lesson-03-cutting-a-release.html">Lesson 3 · Cutting a release ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var findings = [
+    {light:'red', label:'A live API key was found in your code',
+      meaning:'🔴 Blocker — this is the highest-stakes finding. A secret in your code (and especially in git history) can be found and abused within minutes once pushed.',
+      todo:'Stop. Remove the key from the code, move it to an environment variable, rotate (replace) the key with the provider, and make sure .env is in .gitignore.'},
+    {light:'amber', label:'CHANGELOG has no entry for the version you’re releasing',
+      meaning:'🟡 Warning — not dangerous, but you can’t publish a clean release without describing what changed.',
+      todo:'Add a CHANGELOG entry for the new version before you run update 1.'},
+    {light:'green', label:'.env is correctly listed in .gitignore',
+      meaning:'🟢 Good — git is told to ignore your secrets file, so it won’t accidentally get committed.',
+      todo:'Nothing to do. Keep it that way.'},
+    {light:'amber', label:'2 BACKLOG items have no matching GitHub Issue',
+      meaning:'🟡 Warning (cross-reference lane) — your planned work and your tracked Issues have drifted apart.',
+      todo:'Run /hacky-hours update 2 to reconcile BACKLOG.md and GitHub Issues when you’re ready.'},
+    {light:'green', label:'A LICENSE file is present in the repo',
+      meaning:'🟢 Good — your project states how others may use it.',
+      todo:'Nothing to do.'}
+  ];
+  var colors = {green:'var(--color-success)', amber:'var(--color-warning)', red:'var(--color-danger)'};
+  var dots = {green:'🟢', amber:'🟡', red:'🔴'};
+  var wrap = document.getElementById('scorecard');
+  var fb = document.getElementById('cardFeedback');
+  findings.forEach(function(f){
+    var row = document.createElement('button');
+    row.type = 'button';
+    row.style.cssText = 'text-align:left; cursor:pointer; font-family:inherit; font-size:var(--size-base); background:var(--color-bg-subtle); border:1px solid var(--color-border); border-left:4px solid '+colors[f.light]+'; border-radius:var(--radius-md); padding:var(--space-3) var(--space-4);';
+    row.innerHTML = dots[f.light] + '  ' + f.label;
+    row.addEventListener('click', function(){
+      fb.style.color = colors[f.light];
+      fb.innerHTML = '<strong>'+f.meaning+'</strong><br><span style="color:var(--color-text);">What to do: '+f.todo+'</span>';
+    });
+    wrap.appendChild(row);
+  });
+})();
+</script>
+
+</body>
+</html>

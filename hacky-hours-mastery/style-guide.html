@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Guide — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+<style>
+  .swatch { display:inline-block; width:120px; vertical-align:top; margin:0 12px 16px 0; font-size:.72rem; }
+  .swatch .chip { height:54px; border-radius:8px; border:1px solid var(--color-border); }
+  .scale div { background:var(--color-primary-soft); margin-bottom:6px; border-radius:4px; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Style Guide</span>
+</nav>
+
+<header class="hero">
+  <p class="eyebrow">The theme bible · single source of truth</p>
+  <h1>Visual language</h1>
+  <p>Grounded in Empathetech's own brand (empathetech.org): Poppins type, deep-purple with
+  vibrant accents, generous rounding. Every page consumes one stylesheet —
+  <code>assets/theme.css</code> — so a change here propagates everywhere. Tone:
+  <strong>warm, plain-spoken, honest</strong>. No metaphors, no hype.</p>
+</header>
+
+<main class="wrap">
+
+  <h2>1 · Identity</h2>
+  <p><strong>Goal:</strong> use <code>/hacky-hours</code> confidently &amp; keep growing as a real builder.
+  <strong>Tone keywords:</strong> warm · encouraging · plain · honest · accessible.
+  <strong>Voice rule:</strong> say things straight. We borrow Empathetech's joyful, inclusive feel
+  and its commitment to accessibility — not cute theming.</p>
+
+  <h2>2 · Color (from empathetech.org)</h2>
+  <div>
+    <div class="swatch"><div class="chip" style="background:var(--color-bg)"></div>--color-bg<br>page</div>
+    <div class="swatch"><div class="chip" style="background:var(--color-surface)"></div>--color-surface<br>cards</div>
+    <div class="swatch"><div class="chip" style="background:var(--color-deep)"></div>--color-deep<br>#302653 hero/nav</div>
+    <div class="swatch"><div class="chip" style="background:var(--color-primary)"></div>--color-primary<br>#642d9b purple</div>
+    <div class="swatch"><div class="chip" style="background:var(--color-primary-soft)"></div>--color-primary-soft<br>#9973d3</div>
+    <div class="swatch"><div class="chip" style="background:var(--color-accent)"></div>--color-accent<br>#ffac32 amber</div>
+    <div class="swatch"><div class="chip" style="background:var(--color-success)"></div>--color-success<br>#2a9d8f teal</div>
+    <div class="swatch"><div class="chip" style="background:var(--color-warning)"></div>--color-warning</div>
+    <div class="swatch"><div class="chip" style="background:var(--color-danger)"></div>--color-danger<br>terracotta</div>
+  </div>
+  <p>Category accents — group the twelve agents by focus (plain labels, no metaphor):</p>
+  <div>
+    <div class="swatch"><div class="chip" style="background:var(--cat-idea)"></div>--cat-idea<br>shaping the idea</div>
+    <div class="swatch"><div class="chip" style="background:var(--cat-build)"></div>--cat-build<br>building it</div>
+    <div class="swatch"><div class="chip" style="background:var(--cat-solid)"></div>--cat-solid<br>making it solid</div>
+    <div class="swatch"><div class="chip" style="background:var(--cat-bigger)"></div>--cat-bigger<br>bigger picture</div>
+  </div>
+
+  <h2>3 · Typography</h2>
+  <h1>Poppins — H1 heading</h1>
+  <h2 style="margin-top:var(--space-4)">Poppins — H2 heading</h2>
+  <h3>Poppins — H3 heading</h3>
+  <p>Headings, nav, buttons, and tags use <strong>Poppins</strong> (Empathetech's display face).
+  Body copy is <strong>Inter</strong> at a generous 1.68 line-height, capped to
+  <code>--measure-prose</code> (~68 characters) so prose reads like a book. Commands and
+  <code>code</code> use JetBrains Mono on a soft tint.</p>
+
+  <h2>4 · Spacing &amp; radius</h2>
+  <div class="scale">
+    <div style="width:var(--space-2); height:18px"></div>
+    <div style="width:var(--space-4); height:18px"></div>
+    <div style="width:var(--space-8); height:18px"></div>
+    <div style="width:var(--space-12); height:18px"></div>
+  </div>
+  <span class="tag">--radius-sm</span> <span class="tag" style="border-radius:var(--radius-md)">--radius-md</span>
+  <span class="tag" style="border-radius:var(--radius-lg)">--radius-lg</span>
+
+  <h2>5 · Components</h2>
+
+  <h3>Callouts</h3>
+  <aside class="callout callout--note"><strong>Note</strong>Helpful context that isn't the main thread.</aside>
+  <aside class="callout callout--warning"><strong>Heads up</strong>Something to be careful about.</aside>
+  <aside class="callout callout--success"><strong>Nice</strong>Confirmation you did it right.</aside>
+  <aside class="callout callout--danger"><strong>Avoid this</strong>A genuine mistake to steer around.</aside>
+  <aside class="callout callout--quote"><strong>From the framework</strong>The skill's own words, quoted.</aside>
+  <aside class="callout callout--grow"><strong>Start learning this yourself 🌱</strong>The growth thread — optional doors into real disciplines.</aside>
+  <aside class="callout callout--responsibility"><strong>The honest limit</strong>Used for security, privacy, and anything risk-bearing: Hacky Hours gives direction, not guarantees. The responsibility to understand and review stays with the builder. This callout appears wherever we'd otherwise risk overpromising.</aside>
+
+  <h3>Code block</h3>
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">bash</span><button class="code-block__copy" type="button">Copy</button></header>
+    <pre><code><span class="cmd">/hacky-hours</span> step 1   <span class="cmt"># start ideating</span></code></pre>
+  </figure>
+
+  <h3>Buttons, tags, progress</h3>
+  <p><a class="btn btn--primary" href="#">Primary</a> <a class="btn btn--ghost" href="#">Ghost</a>
+  &nbsp; <span class="tag">tag</span> <span class="tag tag--accent">accent tag</span></p>
+  <div class="progress-bar" style="max-width:340px"><div class="progress-bar__fill" style="width:60%"></div></div>
+
+  <h3>Pull quote &amp; divider</h3>
+  <p class="pullquote">"You drive the product. Claude helps you build it — but it needs your direction."</p>
+  <hr class="divider">
+
+  <h3>Agent card (the Team tool)</h3>
+  <div class="team-grid" style="max-width:340px">
+    <button class="agent-card" style="--cat:var(--cat-build)"><span class="emoji">🛡️</span><span class="name">Alex Davies</span><span class="role">Security</span></button>
+  </div>
+
+  <h2>6 · Tone example</h2>
+  <div class="lesson__body" style="margin:var(--space-6) 0;">
+    <p>You don't have to be a security expert to reduce common risks in what you build. But you do
+    have to stay in the loop — because the responsibility for what your software exposes is, and
+    always will be, yours. We'll build that judgment together, one small step at a time.</p>
+  </div>
+
+  <h2>7 · Don't list</h2>
+  <ul>
+    <li>Don't put hardcoded colors, fonts, or pixel values in lesson HTML — use the tokens.</li>
+    <li>Don't write paragraphs longer than ~5 lines at prose width.</li>
+    <li>Don't use the metaphor voice ("conductor", "orchestra", "movements") — say things plainly.</li>
+    <li>Don't overpromise on security, privacy, or correctness — use <code>.callout--responsibility</code>.</li>
+    <li>Don't state a fact without a real, linkable source. Don't assume prior knowledge.</li>
+  </ul>
+
+  <h2>8 · Accessibility &amp; device choices</h2>
+  <p>Desktop-first (the skill runs in a terminal) but responsive to 375px. Baseline always on:
+  semantic HTML, visible amber focus rings, contrast ≥ 4.5:1 for body text, color never the only
+  signal, <code>prefers-reduced-motion</code> respected, keyboard-operable widgets. Accessibility
+  is treated as a feature to celebrate, in keeping with Empathetech's mission.</p>
+
+</main>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> ·
+  <a href="https://github.com/empathetech">GitHub</a> ·
+  <a href="credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+</body>
+</html>

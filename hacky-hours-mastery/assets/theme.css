@@ -1,0 +1,291 @@
+/* =====================================================================
+   Hacky Hours Mastery — Theme Bible
+   ---------------------------------------------------------------------
+   Visual language grounded in Empathetech's own brand (empathetech.org):
+   Poppins type, deep-purple + vibrant accents (amber, teal, coral, pink,
+   lavender), generous rounding, a warm/joyful/accessible feel.
+
+   Single source of truth. Every page consumes this via <link>. Lessons
+   never define their own colors, fonts, radii, or spacing — they use the
+   semantic classes below. Plain language throughout — no metaphors.
+   ===================================================================== */
+
+:root {
+  /* ---- Color (Empathetech palette) ---- */
+  --color-bg:            #f6f3fb;   /* light lavender-white — page bg          */
+  --color-bg-subtle:     #ece4f6;   /* callout fills, sidebars                 */
+  --color-surface:       #ffffff;   /* cards, lesson body                      */
+  --color-text:          #241c38;   /* deep purple-black ink                   */
+  --color-text-muted:    #6b6478;   /* captions, metadata                      */
+
+  --color-primary:       #642d9b;   /* Empathetech purple — links, accents     */
+  --color-primary-soft:  #9973d3;   /* lavender                                */
+  --color-primary-contrast: #ffffff;
+  --color-deep:          #302653;   /* deepest indigo — hero/nav/footer bg     */
+  --color-deep-2:        #4a2783;   /* lifted purple panels                    */
+  --color-accent:        #ffac32;   /* amber — highlights, progress, focus     */
+
+  --color-success:       #2a9d8f;   /* teal                                    */
+  --color-warning:       #e8951f;   /* amber (darker, for text contrast)       */
+  --color-danger:        #d65a3f;   /* terracotta                              */
+  --color-border:        #e4dcef;
+  --color-border-strong: #cdbfe2;
+
+  /* Category accents — group the 12 agents by focus (no metaphor) */
+  --cat-idea:    #642d9b;   /* Shaping the idea */
+  --cat-build:   #e76f51;   /* Building it */
+  --cat-solid:   #2a9d8f;   /* Making it solid */
+  --cat-bigger:  #ff3186;   /* The bigger picture */
+
+  /* ---- Typography ---- */
+  --font-body:    "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading: "Poppins", "Inter", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "SFMono-Regular", Menlo, monospace;
+  --size-base: 1rem;  --size-sm: 0.875rem;  --size-lg: 1.125rem;
+  --size-h1: 2.3rem;  --size-h2: 1.65rem;   --size-h3: 1.3rem;
+  --line-body: 1.68;  --line-tight: 1.25;
+
+  /* ---- Layout ---- */
+  --space-1: 0.25rem; --space-2: 0.5rem;  --space-3: 0.75rem; --space-4: 1rem;
+  --space-6: 1.5rem;  --space-8: 2rem;    --space-12: 3rem;   --space-16: 4rem;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-pill: 999px;
+  --shadow-sm: 0 1px 3px rgba(48,38,83,.10);
+  --shadow-md: 0 8px 24px rgba(48,38,83,.14);
+  --shadow-lg: 0 18px 48px rgba(48,38,83,.20);
+
+  /* ---- Reading width ---- */
+  --measure-prose: 68ch;
+  --measure-wide:  94ch;
+}
+
+/* ============================ Base ============================ */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--color-bg); color: var(--color-text);
+  font-family: var(--font-body); font-size: var(--size-base);
+  line-height: var(--line-body); -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: var(--font-heading); line-height: var(--line-tight); font-weight: 600; letter-spacing: -.01em; }
+h1 { font-size: var(--size-h1); margin: 0 0 var(--space-4); font-weight: 700; }
+h2 { font-size: var(--size-h2); margin: var(--space-12) 0 var(--space-4); }
+h3 { font-size: var(--size-h3); margin: var(--space-8) 0 var(--space-3); }
+p  { margin: 0 0 var(--space-4); }
+a  { color: var(--color-primary); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: #4a2080; }
+::selection { background: var(--color-primary-soft); color: #fff; }
+
+code {
+  font-family: var(--font-mono); font-size: 0.9em;
+  background: var(--color-bg-subtle); padding: 0.12em 0.4em;
+  border-radius: var(--radius-sm); color: var(--color-primary);
+}
+
+/* ============================ Site nav ============================ */
+.site-nav {
+  display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap;
+  background: var(--color-deep); color: #fff;
+  padding: var(--space-3) var(--space-6); font-size: var(--size-sm);
+  position: sticky; top: 0; z-index: 20; box-shadow: var(--shadow-sm);
+}
+.site-nav a { color: #d8cdee; text-decoration: none; }
+.site-nav a:hover { color: #fff; }
+.site-nav .nav-sep { color: #6f5fa0; }
+.site-nav .nav-current { color: var(--color-accent); font-weight: 600; }
+.site-nav .nav-brand { font-family: var(--font-heading); font-weight: 600; }
+.site-nav .nav-spacer { flex: 1; }
+
+/* ============================ Hero ============================ */
+.hero, .lesson__hero {
+  background: linear-gradient(150deg, var(--color-deep) 0%, var(--color-deep-2) 100%);
+  color: #fff; padding: var(--space-12) var(--space-6); position: relative; overflow: hidden;
+}
+.hero::after, .lesson__hero::after { /* soft amber glow, no glyph/metaphor */
+  content: ""; position: absolute; right: -60px; top: -60px;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,172,50,.30), transparent 70%);
+}
+.hero h1, .lesson__hero h1 { color: #fff; max-width: var(--measure-wide); position: relative; }
+.hero p, .lesson__hero p { color: #ddd4f0; max-width: var(--measure-prose); position: relative; }
+.hero .eyebrow, .lesson__hero .eyebrow {
+  text-transform: uppercase; letter-spacing: .16em; font-size: .72rem;
+  color: var(--color-accent); font-weight: 600; margin-bottom: var(--space-3);
+  font-family: var(--font-heading); position: relative;
+}
+
+/* ============================ Lesson layout ============================ */
+.lesson { max-width: var(--measure-wide); margin: 0 auto; padding: 0 var(--space-6); }
+.lesson__body {
+  max-width: var(--measure-prose); margin: var(--space-12) auto;
+  background: var(--color-surface); padding: var(--space-12) clamp(var(--space-4), 5vw, var(--space-16));
+  border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm); font-size: var(--size-lg);
+}
+.lesson__body > p:first-child { margin-top: 0; }
+.lesson__wide { max-width: var(--measure-wide); margin-left: auto; margin-right: auto; }
+
+.toc {
+  background: var(--color-bg-subtle); border: 1px solid var(--color-border);
+  border-radius: var(--radius-md); padding: var(--space-4) var(--space-6);
+  margin: var(--space-6) 0; font-size: var(--size-sm);
+}
+.toc strong { display: block; margin-bottom: var(--space-2); font-family: var(--font-heading); }
+.toc ol { margin: 0; padding-left: 1.2em; }
+
+/* ============================ Callouts ============================ */
+.callout {
+  border-left: 4px solid var(--color-border-strong); background: var(--color-bg-subtle);
+  padding: var(--space-4) var(--space-6); border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: var(--space-6) 0; font-size: var(--size-base);
+}
+.callout strong:first-child { display: block; margin-bottom: var(--space-1); }
+.callout--note    { border-color: var(--color-primary-soft); background: #ece4f6; }
+.callout--warning { border-color: var(--color-warning); background: #fcefd7; }
+.callout--success { border-color: var(--color-success); background: #def0ed; }
+.callout--danger  { border-color: var(--color-danger);  background: #f9e4dd; }
+.callout--quote   { border-color: var(--color-primary); background: #efe7f8; font-style: italic; }
+.callout--grow    { border-color: var(--color-accent); background: linear-gradient(180deg,#fef4df,#fdeccb); }
+.callout--grow strong:first-child { color: #9a6200; }
+/* Responsibility / no-guarantee notice — used for security, privacy, anything risk-bearing */
+.callout--responsibility {
+  border: 1px solid var(--color-danger); border-left: 4px solid var(--color-danger);
+  background: #fbede8; border-radius: var(--radius-md);
+}
+.callout--responsibility strong:first-child { color: var(--color-danger); }
+
+/* Pull quote (plain) */
+.pullquote {
+  font-family: var(--font-heading); font-weight: 500; font-size: 1.4rem; line-height: 1.35;
+  color: var(--color-primary); border-left: 4px solid var(--color-accent);
+  padding: var(--space-2) 0 var(--space-2) var(--space-6); margin: var(--space-8) 0;
+}
+
+/* ============================ Code blocks ============================ */
+.code-block {
+  margin: var(--space-6) 0; border-radius: var(--radius-md); overflow: hidden;
+  border: 1px solid var(--color-border-strong); box-shadow: var(--shadow-sm);
+}
+.code-block__header {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--color-deep); color: #cdc2e6; padding: var(--space-2) var(--space-4);
+  font-size: .78rem; font-family: var(--font-mono);
+}
+.code-block__lang { color: var(--color-accent); letter-spacing: .04em; }
+.code-block__copy {
+  background: transparent; border: 1px solid #5a4a86; color: #cdc2e6;
+  border-radius: var(--radius-sm); padding: 2px 10px; cursor: pointer;
+  font-size: .72rem; font-family: var(--font-mono);
+}
+.code-block__copy:hover { background: var(--color-deep-2); }
+.code-block pre {
+  margin: 0; padding: var(--space-4); background: #211a3a; color: #ece7f7;
+  font-family: var(--font-mono); font-size: .9rem; line-height: 1.6; overflow-x: auto;
+}
+.code-block .cmd { color: var(--color-accent); }
+.code-block .cmt { color: #8b7fb0; font-style: italic; }
+
+/* ============================ Figures ============================ */
+.figure { margin: var(--space-8) 0; }
+.figure img, .figure svg { width: 100%; border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+.figure__caption { font-size: var(--size-sm); color: var(--color-text-muted); margin-top: var(--space-2); text-align: center; }
+
+/* ============================ Buttons ============================ */
+.btn {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-heading); font-size: var(--size-base); font-weight: 500;
+  padding: var(--space-3) var(--space-6); border-radius: var(--radius-pill);
+  border: 1px solid transparent; cursor: pointer; text-decoration: none; transition: .15s;
+}
+.btn--primary { background: var(--color-primary); color: #fff; }
+.btn--primary:hover { background: #4a2080; color: #fff; }
+.btn--ghost { background: transparent; border-color: var(--color-border-strong); color: var(--color-primary); }
+.btn--ghost:hover { background: var(--color-bg-subtle); }
+
+/* ============================ Progress ============================ */
+.progress-bar { background: var(--color-bg-subtle); border-radius: var(--radius-pill); height: 12px; overflow: hidden; border: 1px solid var(--color-border); }
+.progress-bar__fill { height: 100%; background: linear-gradient(90deg, var(--color-primary-soft), var(--color-primary)); border-radius: var(--radius-pill); transition: width .4s; }
+
+/* ============================ Tags ============================ */
+.tag {
+  display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .02em;
+  padding: 2px 10px; border-radius: var(--radius-pill); font-family: var(--font-heading);
+  background: var(--color-bg-subtle); color: var(--color-primary); border: 1px solid var(--color-border);
+}
+.tag--accent { background: #fdeccb; color: #9a6200; border-color: var(--color-accent); }
+
+/* ============================ Divider ============================ */
+.divider { border: 0; text-align: center; margin: var(--space-12) 0; }
+.divider::before { content: "• • •"; color: var(--color-primary-soft); letter-spacing: .5em; }
+
+/* ============================ Tool frame ============================ */
+.tool-frame {
+  background: var(--color-surface); border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-8) 0; box-shadow: var(--shadow-sm);
+}
+.tool-frame__label {
+  font-size: .72rem; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--color-primary); font-weight: 700; margin-bottom: var(--space-3); font-family: var(--font-heading);
+}
+
+/* ============================ Dashboard ============================ */
+.wrap { max-width: var(--measure-wide); margin: 0 auto; padding: var(--space-8) var(--space-6); }
+.objective-band {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-left: 5px solid var(--color-accent); border-radius: var(--radius-md);
+  padding: var(--space-6); margin: var(--space-8) 0; box-shadow: var(--shadow-sm);
+}
+.objective-band .label { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--color-primary); font-weight: 700; font-family: var(--font-heading); }
+.module-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6); }
+.module-card {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-sm);
+  text-decoration: none; color: var(--color-text); display: block; transition: .15s; border-top: 4px solid var(--color-primary);
+}
+.module-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--color-primary-soft); }
+.module-card h3 { margin: var(--space-2) 0; }
+.module-card .module-num { font-family: var(--font-mono); font-size: .78rem; color: var(--color-primary); }
+
+/* ============================ The Team (central tool) ============================ */
+.team-grid { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.agent-card {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-md); padding: var(--space-4); cursor: pointer;
+  text-align: center; transition: .15s; border-top: 4px solid var(--cat, var(--color-border-strong)); font-family: inherit;
+}
+.agent-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.agent-card.is-active { box-shadow: var(--shadow-md); border-color: var(--cat); }
+.agent-card .emoji { font-size: 2rem; display: block; margin-bottom: var(--space-2); }
+.agent-card .name { display: block; font-weight: 600; font-size: var(--size-sm); font-family: var(--font-heading); line-height: 1.3; }
+.agent-card .role { display: block; margin-top: var(--space-1); font-size: .72rem; color: var(--color-text-muted); }
+.cat-label { font-family: var(--font-heading); font-weight: 600; font-size: var(--size-sm); margin: var(--space-6) 0 var(--space-2); }
+.agent-detail {
+  background: var(--color-deep); color: #e8e2f5; border-radius: var(--radius-lg);
+  padding: var(--space-8); margin-top: var(--space-6); box-shadow: var(--shadow-md);
+}
+.agent-detail h3 { color: #fff; margin-top: 0; }
+.agent-detail .craft { color: var(--color-accent); font-weight: 500; }
+.agent-detail .deeper { background: var(--color-deep-2); border-radius: var(--radius-md); padding: var(--space-4); margin-top: var(--space-4); }
+.agent-detail a { color: var(--color-accent); }
+
+/* ============================ Sources / recap / nav ============================ */
+.lesson__sources { margin-top: var(--space-12); border-top: 1px solid var(--color-border); padding-top: var(--space-4); font-size: var(--size-sm); }
+.lesson__sources summary { cursor: pointer; font-weight: 600; color: var(--color-primary); font-family: var(--font-heading); }
+.lesson__sources ol { color: var(--color-text-muted); }
+.recap { background: var(--color-bg-subtle); border-radius: var(--radius-md); padding: var(--space-6); margin: var(--space-8) 0; }
+.recap h3 { margin-top: 0; }
+.lesson-nav { display: flex; justify-content: space-between; gap: var(--space-4); margin: var(--space-12) auto; max-width: var(--measure-prose); }
+
+/* ============================ Footer ============================ */
+.site-footer { background: var(--color-deep); color: #b0a4cf; text-align: center; padding: var(--space-8) var(--space-6); font-size: var(--size-sm); margin-top: var(--space-16); }
+.site-footer a { color: var(--color-accent); }
+
+/* ============================ Responsive ============================ */
+@media (max-width: 640px) {
+  :root { --size-h1: 1.85rem; --size-h2: 1.35rem; }
+  .lesson__body { padding: var(--space-8) var(--space-4); font-size: var(--size-base); }
+  .site-nav { padding: var(--space-3) var(--space-4); }
+  .lesson-nav { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto; } }
+:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; border-radius: var(--radius-sm); }

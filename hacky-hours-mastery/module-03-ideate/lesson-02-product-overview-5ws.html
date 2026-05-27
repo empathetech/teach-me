@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The product overview &amp; the 5 Ws — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-getting-it-out.html">Module 3 · Ideate</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">The product overview &amp; the 5 Ws</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 3 · Lesson 2 · 📊 the ideate step</p>
+  <h1>The product overview &amp; the 5 Ws</h1>
+  <p>Once your messy free-write exists, the next move is to turn it into something a stranger could
+  read and understand. That's the product overview — five plain questions that quietly decide how
+  smoothly the rest of your project goes.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: product thinking</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#what">What the product overview is</a></li>
+      <li><a href="#fivew">The five Ws, one at a time</a></li>
+      <li><a href="#neighborboard">A worked example: NeighborBoard</a></li>
+      <li><a href="#why">Why clarity now saves pain later</a></li>
+      <li><a href="#try">Try it: build your own 5 Ws</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="what">What the product overview is</h2>
+
+  <p>After your free-writing in <code>IDEATION.md</code>, 📊 Maya Tanaka helps you synthesize it
+  into a second file: <code>PRODUCT_OVERVIEW.md</code>. Where <code>IDEATION.md</code> was a pile of
+  raw thoughts, this one is tidy. It answers five questions — the classic
+  <strong>five Ws</strong>: Who, What, Where, When, and Why.</p>
+
+  <p>The skill is clear about what "done" looks like for this step:</p>
+
+  <aside class="callout callout--quote">
+    <strong>The bar for a finished overview</strong>
+    "Someone unfamiliar with the project could read PRODUCT_OVERVIEW.md and understand what's being
+    built." That's the test. Not "impressive" — just <em>understandable</em>.
+  </aside>
+
+  <p>Maya doesn't fire all five questions at once. The skill instructs her to "go one W at a time,
+  ask focused questions, and reflect the user's words back to them." It's a calm conversation, not
+  an interrogation.</p>
+
+  <hr class="divider">
+
+  <h2 id="fivew">The five Ws, one at a time</h2>
+
+  <p>Here's what each W is actually asking, in plain terms:</p>
+
+  <ul>
+    <li><strong>Who</strong> — the target audience, stated <em>specifically</em>. The skill warns
+    against the answer "anyone." A real audience has edges.</li>
+    <li><strong>What</strong> — what the product does, and what form it takes (an app? a site? a
+    tool?).</li>
+    <li><strong>Where</strong> — the platform: mobile, web, desktop, an API, and so on.</li>
+    <li><strong>When</strong> — a rough timeline or sense of priority. "No rush" is a valid answer.</li>
+    <li><strong>Why</strong> — the problem it solves and why that matters. This is the heart of it.</li>
+  </ul>
+
+  <aside class="callout callout--note">
+    <strong>Why "Who" can't be "everyone"</strong>
+    A product built for everyone tends to delight no one, because every design choice is a tug-of-war
+    between people who want opposite things. Naming a specific first user gives every later decision
+    a clear tie-breaker: <em>does this help them?</em>
+  </aside>
+
+  <h2 id="neighborboard">A worked example: NeighborBoard</h2>
+
+  <p>Let's walk a real-feeling idea through the five Ws. NeighborBoard is a small board where people
+  in a neighborhood can post and find local events. Here's how its overview might read:</p>
+
+  <figure class="code-block" data-lang="markdown">
+    <header class="code-block__header"><span class="code-block__lang">PRODUCT_OVERVIEW.md · NeighborBoard</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code># NeighborBoard — Product Overview
+
+Who:   Residents of a single neighborhood (roughly 200–800
+       households) who want to know what's happening nearby.
+       First user: my own street's community group.
+
+What:  A simple shared board where neighbors post local events
+       (yard sales, cleanups, meetups) and browse what's coming up.
+
+Where: Web first — works on a phone browser, no app to install.
+
+When:  A usable version before this summer's block party season.
+
+Why:   Local events get lost in group chats and flyers no one
+       sees. People miss things happening 200 feet away. A calm,
+       shared board means fewer "I wish I'd known" moments.</code></pre>
+  </figure>
+
+  <p>Read that and you can picture the whole thing — who it's for, what it is, and why it should
+  exist. That's the entire goal. Notice "Who" names an actual street, not "communities." Notice
+  "Where" already leans toward the framework's <em>less infrastructure</em> value: a phone browser,
+  no app to install.</p>
+
+  <h2 id="why">Why clarity now saves pain later</h2>
+
+  <p>It's tempting to skip this and start building. But every later step leans on this file. The
+  Design step reads your "What" and "Where" to choose how things should work. The Roadmap step uses
+  your "When" to decide what comes first. And whenever the team faces a choice, your "Why" is the
+  tie-breaker.</p>
+
+  <p>A fuzzy overview doesn't disappear — it just turns into expensive confusion later, when changing
+  course means redoing work instead of editing a sentence. Spending twenty calm minutes here is the
+  cheapest course-correction you'll ever get.</p>
+
+  <p class="pullquote">"A sentence is cheap to rewrite. A half-built feature aimed at the wrong person is not."</p>
+
+  <h2 id="try">Try it: build your own 5 Ws</h2>
+
+  <p>Fill in your own idea below. As you type, the boxes assemble into a tidy overview preview —
+  the same shape the real <code>PRODUCT_OVERVIEW.md</code> takes. Nothing is saved; this is just to
+  feel how the pieces fit together.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">📊 Interactive · the 5 Ws builder (nothing is saved)</div>
+    <div style="display:grid; gap:var(--space-3);">
+      <label style="font-size:var(--size-sm);">Who is it for? <span style="color:var(--color-text-muted);">(specific, not "everyone")</span><br>
+        <input id="w-who" type="text" placeholder="e.g. residents of my street" style="width:100%; padding:var(--space-2); border:1px solid var(--color-border-strong); border-radius:var(--radius-sm); font-family:var(--font-body);"></label>
+      <label style="font-size:var(--size-sm);">What does it do?<br>
+        <input id="w-what" type="text" placeholder="e.g. a board to post local events" style="width:100%; padding:var(--space-2); border:1px solid var(--color-border-strong); border-radius:var(--radius-sm); font-family:var(--font-body);"></label>
+      <label style="font-size:var(--size-sm);">Where does it live?<br>
+        <input id="w-where" type="text" placeholder="e.g. web, on a phone browser" style="width:100%; padding:var(--space-2); border:1px solid var(--color-border-strong); border-radius:var(--radius-sm); font-family:var(--font-body);"></label>
+      <label style="font-size:var(--size-sm);">When do you want it?<br>
+        <input id="w-when" type="text" placeholder="e.g. before this summer" style="width:100%; padding:var(--space-2); border:1px solid var(--color-border-strong); border-radius:var(--radius-sm); font-family:var(--font-body);"></label>
+      <label style="font-size:var(--size-sm);">Why does it matter?<br>
+        <input id="w-why" type="text" placeholder="e.g. local events get lost in group chats" style="width:100%; padding:var(--space-2); border:1px solid var(--color-border-strong); border-radius:var(--radius-sm); font-family:var(--font-body);"></label>
+    </div>
+    <div id="w-preview" role="status" style="margin-top:var(--space-4); background:#211a3a; color:#ece7f7; font-family:var(--font-mono); font-size:.85rem; padding:var(--space-4); border-radius:var(--radius-md); white-space:pre-wrap;"># Your Product Overview
+
+Who:   …
+What:  …
+Where: …
+When:  …
+Why:   …</div>
+  </div>
+
+  <p>When you're ready to do this for real, run it in your terminal — Maya will take it one W at a
+  time with you:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">your terminal</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours step 1</code></pre>
+  </figure>
+
+  <aside class="callout callout--grow">
+    <strong>Grow your product instincts 🌱</strong>
+    The strongest "Why" answers describe the job a person is trying to get done, not the feature you
+    want to build. <a href="https://jtbd.info/2-what-is-jobs-to-be-done-jtbd-796b82081cca">Jobs To
+    Be Done</a> is a whole way of thinking about this — read it and your fifth W will sharpen on
+    every project you ever take on.
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li><code>PRODUCT_OVERVIEW.md</code> answers five Ws: Who, What, Where, When, Why.</li>
+      <li>"Done" means a stranger could read it and understand what you're building.</li>
+      <li>Maya goes one W at a time and reflects your own words back to you.</li>
+      <li>"Who" should be specific — "everyone" is not an audience.</li>
+      <li>Clarity here is the cheapest course-correction in the whole project.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · the five W definitions, the "specific,
+      not anyone" guidance, "go one W at a time," and the "someone unfamiliar could read it"
+      done-condition quoted from <code>SKILL.md / steps/01-ideate.md</code>.</li>
+      <li><strong>What is Jobs To Be Done (JTBD)?</strong> · jtbd.info ·
+      <a href="https://jtbd.info/2-what-is-jobs-to-be-done-jtbd-796b82081cca">jtbd.info</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-01-getting-it-out.html">◂ Lesson 1 · Getting the idea out</a>
+  <a class="btn btn--primary" href="lesson-03-constraints-and-values.html">Lesson 3 · Constraints &amp; values ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var ids = ["who","what","where","when","why"];
+  var labels = {who:"Who:  ", what:"What: ", where:"Where:", when:"When: ", why:"Why:  "};
+  var preview = document.getElementById('w-preview');
+  function render(){
+    var lines = ["# Your Product Overview", ""];
+    ids.forEach(function(id){
+      var v = document.getElementById('w-' + id).value.trim();
+      lines.push(labels[id] + " " + (v || "…"));
+    });
+    preview.textContent = lines.join("\n");
+  }
+  ids.forEach(function(id){
+    document.getElementById('w-' + id).addEventListener('input', render);
+  });
+})();
+</script>
+
+</body>
+</html>

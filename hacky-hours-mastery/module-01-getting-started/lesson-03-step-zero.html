@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Step 0 — exploring safely — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-what-is-hacky-hours.html">Module 1 · Getting started</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Step 0 — exploring safely</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 1 · Lesson 3 · 🧭 first contact</p>
+  <h1>Step 0 — exploring safely</h1>
+  <p>If you've been a little nervous to actually run anything — worried you might break something
+  or commit to a path you can't back out of — this lesson is for you. Step 0 exists precisely so
+  you can look around first and touch nothing.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">6 min read</span> <span class="tag">hands-on</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>You've installed Hacky Hours and picked your mode. Now comes the part people quietly dread:
+  pressing a key and seeing what happens. Good news — Hacky Hours has a setting built exactly for
+  cautious first contact.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#what">What Step 0 is</a></li>
+      <li><a href="#why">Why it's safe to try right now</a></li>
+      <li><a href="#try">Try it: the practice terminal</a></li>
+      <li><a href="#real">Now do it for real</a></li>
+      <li><a href="#grow">Going deeper</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="what">What Step 0 is</h2>
+
+  <p>Most of the framework's steps eventually write files to your project — your ideation notes,
+  your design docs, and so on. <strong>Step 0 is different: it explores without writing files.</strong>
+  The skill's own help text describes it in five words: "Explore without writing files — safe to
+  try anytime."</p>
+
+  <p>When you run it, Hacky Hours surveys your project — it reads what's there to figure out where
+  you are — and then walks you through what it found and what you <em>could</em> do next. But it's
+  in what's called <strong>dry-run mode</strong>: a mode where it shows you what it <em>would</em>
+  do instead of actually doing it. Anywhere it would normally save a file, it instead displays the
+  contents on screen with a little note like <code>↳ would write to &lt;path&gt;</code>.</p>
+
+  <figure class="code-block" data-lang="text">
+    <header class="code-block__header"><span class="code-block__lang">in Claude Code</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours step 0</code></pre>
+  </figure>
+
+  <h2 id="why">Why it's safe to try right now</h2>
+
+  <p>Here's the reassurance, stated plainly: running Step 0 changes nothing on your computer. No
+  files are created, edited, or deleted. Nothing is committed to git. Nothing is sent anywhere or
+  charged to a paid account. You are simply looking around.</p>
+
+  <p class="pullquote">You can open the door, peer inside, and walk back out — and the room is
+  exactly as you left it.</p>
+
+  <p>This matters because the biggest barrier for most new builders isn't capability — it's the
+  fear of doing something irreversible. Step 0 removes that fear. You can run it as many times as
+  you like, on any project, just to see what Hacky Hours notices.</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>One honest clarification</strong>
+    Step 0 not writing files is a real, designed behavior of the framework. But "safe to explore"
+    is not the same as "safe to ship." Once you move past Step 0 into the steps that <em>do</em>
+    write files and build software, the responsibility to review what's produced — and to verify
+    it does what you intend — is yours. Step 0 is a safe place to start, not a guarantee about
+    everything that follows.
+  </aside>
+
+  <h2 id="try">Try it: the practice terminal</h2>
+
+  <p>Before you run anything for real, get a feel for it here. Click a command and see, in plain
+  language, what it would do. Nothing below touches your machine — it's a mock-up for practice.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🧭 Interactive · click a command to see what it does</div>
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-2); margin-bottom:var(--space-4);">
+      <button class="btn btn--ghost cmdbtn" type="button" data-cmd="help">/hacky-hours help</button>
+      <button class="btn btn--ghost cmdbtn" type="button" data-cmd="step0">/hacky-hours step 0</button>
+      <button class="btn btn--ghost cmdbtn" type="button" data-cmd="team">/hacky-hours team</button>
+    </div>
+    <div style="font-family:var(--font-mono); font-size:.9rem; background:#211a3a; color:#ece7f7; border-radius:var(--radius-md); padding:var(--space-4); min-height:6em;">
+      <div style="color:var(--color-accent);">practice terminal — nothing here is real</div>
+      <div id="termPrompt" style="margin-top:var(--space-2); color:#8b7fb0;">$ <span id="termCmd">click a command above…</span></div>
+      <div id="termOut" role="status" style="margin-top:var(--space-3); white-space:pre-wrap; line-height:1.6;"></div>
+    </div>
+  </div>
+
+  <h2 id="real">Now do it for real</h2>
+
+  <p>That's the practice version. Here's your real assignment — and it's genuinely safe to do right
+  now, in your own terminal, while this lesson is open beside you.</p>
+
+  <aside class="callout callout--note">
+    <strong>🛠️ Try it in your terminal</strong>
+    <ol style="margin:.5rem 0 0;">
+      <li>Run <code>/hacky-hours</code> on its own and read how it greets you and describes what it found.</li>
+      <li>Run <code>/hacky-hours help</code> and skim the full list of commands. You don't need to understand them all.</li>
+      <li>Run <code>/hacky-hours step 0</code> and let it survey a project (or an empty folder) without writing a thing.</li>
+    </ol>
+    Then sit with one question: did anything change on your computer? (It didn't.) Notice how that
+    feels — that's the confidence Step 0 is meant to build.
+  </aside>
+
+  <p>If you ran into the first-run setup the very first time — a quick "welcome to v4" that creates
+  a small private folder at <code>~/.hacky-hours/</code> for your settings and team — that's
+  expected. It happens once per machine, it's local and private, and then control returns to
+  whatever you were doing.</p>
+
+  <h2 id="grow">Going deeper 🌱</h2>
+
+  <p>The instinct behind Step 0 — try things in a safe, reversible space before committing — is
+  one of the most valuable habits in all of software, far beyond Hacky Hours.</p>
+
+  <aside class="callout callout--grow">
+    <strong>A door worth walking through</strong>
+    The biggest real-world version of "safe to explore" is <strong>version control</strong> — the
+    ability to undo, branch, and experiment without fear. If you've never learned it, the free,
+    beginner-friendly
+    <a href="https://docs.github.com/en/get-started/start-your-journey">"Start your journey" guide
+    from GitHub</a> is a gentle on-ramp. Once you trust that you can always undo, your whole
+    relationship to building changes.
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Step 0 explores your project <em>without writing files</em> — "safe to try anytime."</li>
+      <li>It runs in dry-run mode: it shows what it <em>would</em> write instead of writing it.</li>
+      <li>Running it changes nothing — no files, no commits — so it's the perfect first move for a nervous beginner.</li>
+      <li>Your real assignment: run <code>/hacky-hours</code>, <code>/hacky-hours help</code>, and <code>/hacky-hours step 0</code>.</li>
+      <li>"Safe to explore" isn't "safe to ship" — once you move into file-writing steps, reviewing the output is on you.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · Step 0's "explore without writing
+      files — safe to try anytime" description, the dry-run "would write to" behavior, the survey,
+      and first-run setup all from <code>SKILL.md</code> and <code>tools/v4-first-run.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Start your journey</strong> · GitHub Docs (intro to version control) ·
+      <a href="https://docs.github.com/en/get-started/start-your-journey">docs.github.com</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-02-install-and-modes.html">◂ Lesson 2 · Installing it &amp; modes</a>
+  <a class="btn btn--primary" href="../module-02-meet-the-team/lesson-01-the-twelve-agents.html">Module 2 · The twelve agents ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var DESCS = {
+    help: {cmd:"/hacky-hours help",
+      out:"Prints the full menu of commands — the five steps, team tools, audit, export, and more — each with a one-line description. Writes nothing. The best command when you forget what something is called."},
+    step0: {cmd:"/hacky-hours step 0",
+      out:"Surveys your project and walks you through what it found and what you could do next — all in dry-run mode. Anywhere it would save a file, it shows the contents with a '↳ would write to …' note instead. Changes nothing on disk."},
+    team: {cmd:"/hacky-hours team",
+      out:"Opens your persistent team of twelve stakeholder-role AI agents — Product, Design, Security, and the rest — so you can browse and manage who's on the crew. A window into the people-shaped roles behind every recommendation."}
+  };
+  var cmdEl = document.getElementById('termCmd');
+  var outEl = document.getElementById('termOut');
+  document.querySelectorAll('.cmdbtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var d = DESCS[btn.dataset.cmd];
+      cmdEl.textContent = d.cmd;
+      outEl.style.color = "#ece7f7";
+      outEl.textContent = d.out;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cutting scope without losing the vision — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-mvp-v1-v2.html">Module 5 · Roadmap</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Cutting scope without losing the vision</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 5 · Lesson 2 · 🗺️ the roadmap</p>
+  <h1>Cutting scope without losing the vision</h1>
+  <p>"Cutting scope" sounds like giving up on your dream. It isn't. It's the skill that gets your
+  dream into someone's hands instead of leaving it stuck in a planning document forever. Here's how
+  to say "later" without losing the "someday."</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">7 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: scope discipline</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>Most first projects don't fail because the idea was bad. They stall because the first version
+  was too big to ever finish. Step 3 exists to prevent exactly that. The Hacky Hours skill states
+  the rule plainly:</p>
+
+  <aside class="callout callout--quote">
+    <strong>From Hacky Hours · Step 3</strong>
+    "Pushes back on scope creep — if the MVP feels huge, it's too big."
+  </aside>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#creep">What scope creep feels like</a></li>
+      <li><a href="#home">"Later" is a real home, not a graveyard</a></li>
+      <li><a href="#ask">The one question that does the work</a></li>
+      <li><a href="#say">How to say "later" out loud</a></li>
+      <li><a href="#try">Try it: is this MVP?</a></li>
+      <li><a href="#grow">Growing your scope discipline</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="creep">What scope creep feels like</h2>
+
+  <p><strong>Scope creep</strong> is the slow growth of "wouldn't it also be nice if…" until the
+  first version quietly becomes the whole dream. It rarely feels like a mistake in the moment —
+  each addition seems small and reasonable. The damage shows up later, as a build that never ends.</p>
+
+  <p>The skill gives you a concrete gut-check. After your MVP list is set, it asks: <em>"how long do
+  you realistically think this would take to build?"</em> And it warns: <em>"if the answer suggests
+  months, the MVP is probably still too big."</em></p>
+
+  <hr class="divider">
+
+  <h2 id="home">"Later" is a real home, not a graveyard</h2>
+
+  <p>The reason cutting scope doesn't hurt is the same reason from the last lesson: the roadmap
+  finishes only when <em>every</em> planned feature has a home. A feature you move to V2+ is written
+  down, sequenced, and waiting. It is not deleted.</p>
+
+  <aside class="callout callout--note">
+    <strong>The vision is safe</strong>
+    Your ambitious idea lives in your design documents and your V1/V2+ buckets. Cutting scope
+    decides the <em>order</em> you build in. It never decides whether something gets built at all.
+  </aside>
+
+  <h2 id="ask">The one question that does the work</h2>
+
+  <p>You don't need a complicated framework to cut scope well. You need one honest question, asked
+  of every feature:</p>
+
+  <p class="pullquote">"Can the product prove its value without this?"</p>
+
+  <p>If the answer is yes, the feature is not MVP. Move it out. This single question, applied without
+  flinching, will keep your first version small enough to actually ship — which is the only way you
+  ever learn whether the idea works.</p>
+
+  <h2 id="say">How to say "later" out loud</h2>
+
+  <p>Saying "later" gets easier when you say it specifically. Compare these:</p>
+
+  <ul>
+    <li>❌ "Let's cut reviews." — sounds like loss.</li>
+    <li>✅ "Reviews are a V1 feature — we'll add them right after people can book." — sounds like a
+    plan.</li>
+  </ul>
+
+  <p>When you're working with the team, you can say this directly to the Product agent. A natural
+  way to keep yourself honest:</p>
+
+  <figure class="code-block" data-lang="terminal">
+    <header class="code-block__header"><span class="code-block__lang">talking to the team</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>"This MVP feels too big. Help me move everything that isn't
+strictly required to prove the idea into V1 or V2+."</code></pre>
+  </figure>
+
+  <h2 id="try">Try it: is this MVP?</h2>
+
+  <p>Below are scenarios for our dog-walking app. For each one, decide: is this truly MVP, or does it
+  belong in "later"? Use the test — <em>can the idea prove its value without it?</em></p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🗺️ Interactive · the "is this MVP?" judgment quiz</div>
+    <p id="quizScenario" style="font-weight:600; margin-top:0;"></p>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button type="button" class="btn btn--primary" id="btnMvp">It's MVP</button>
+      <button type="button" class="btn btn--ghost" id="btnLater">It can wait (V1/V2+)</button>
+    </div>
+    <p id="quizFeedback" role="status" style="margin:var(--space-4) 0 0; min-height:2.5em;"></p>
+    <p id="quizScore" style="margin:0; font-size:var(--size-sm); color:var(--color-text-muted);"></p>
+  </div>
+
+  <h2 id="grow">Growing your scope discipline 🌱</h2>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Read the original "Minimum Viable Product" idea from Eric Ries'
+      <a href="http://theleanstartup.com/principles">Lean Startup</a> principles — it's where the
+      "build to learn" mindset comes from.</li>
+      <li>Take your own idea and force yourself to write an MVP of three features or fewer. Notice
+      how uncomfortable — and clarifying — that is.</li>
+      <li>Run <code>/hacky-hours step 3</code> and let the Product agent challenge your MVP. Saying
+      "you're right, that's V1" is a skill you build by reps.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>"If the MVP feels huge, it's too big" — and a months-long MVP is the warning sign.</li>
+      <li>Cutting scope sets the order you build in; it never deletes the dream.</li>
+      <li>One question does most of the work: "Can the product prove its value without this?"</li>
+      <li>Say "later" specifically — name the version a feature belongs to.</li>
+      <li>Next up: Step 4, where you actually start building, one safe change at a time.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>The Lean Startup — Principles</strong> · Eric Ries ·
+      <a href="http://theleanstartup.com/principles">theleanstartup.com/principles</a></li>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · "if the MVP feels huge, it's too big"
+      and the realistic-timeline check quoted from <code>SKILL.md</code> and
+      <code>steps/03-roadmap.md</code>.</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-01-mvp-v1-v2.html">◂ Lesson 1 · MVP vs. V1 vs. V2+</a>
+  <a class="btn btn--primary" href="../module-06-build/lesson-01-branches-and-commits.html">Module 6 · Branches &amp; commits ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var scenarios = [
+    {text:"Owners can find a walker and book a single walk.", mvp:true,
+     why:"Yes — this is the core idea. Without it, there's nothing to prove."},
+    {text:"Walkers can upload a profile photo gallery and write a bio.", mvp:false,
+     why:"It can wait. People can book a walk without a photo gallery. Nice for V1, not required to prove the idea."},
+    {text:"Owners can pay for the walk inside the app.", mvp:true,
+     why:"For a booking marketplace, completing a paid booking is usually the value being proven. This is a defensible MVP feature."},
+    {text:"The app sends a weekly digest email summarizing your bookings.", mvp:false,
+     why:"It can wait. A digest is a polish feature — the idea proves itself without it. Park it in V2+."},
+    {text:"Owners earn loyalty points redeemable for free walks.", mvp:false,
+     why:"It can wait. Rewards are a retention idea, not a proof-of-value idea. Solidly V2+."}
+  ];
+  var i = 0, correct = 0, answered = 0;
+  var sc = document.getElementById('quizScenario');
+  var fb = document.getElementById('quizFeedback');
+  var score = document.getElementById('quizScore');
+  function show(){
+    if(i >= scenarios.length){
+      sc.textContent = "That's all of them.";
+      fb.style.color = "var(--color-primary)";
+      fb.innerHTML = "You scored <strong>" + correct + " / " + scenarios.length + "</strong>. The goal isn't a perfect score — it's the reflex of asking \"can the idea prove its value without this?\" every single time.";
+      document.getElementById('btnMvp').disabled = true;
+      document.getElementById('btnLater').disabled = true;
+      return;
+    }
+    sc.textContent = "Scenario " + (i+1) + ": " + scenarios[i].text;
+    fb.textContent = "";
+  }
+  function answer(saidMvp){
+    var s = scenarios[i];
+    answered++;
+    if(saidMvp === s.mvp){
+      correct++;
+      fb.style.color = "var(--color-success)";
+      fb.innerHTML = "✅ " + s.why;
+    } else {
+      fb.style.color = "var(--color-warning)";
+      fb.innerHTML = "Worth reconsidering. " + s.why;
+    }
+    score.textContent = "Answered: " + answered + " · Matched the lean call: " + correct;
+    i++;
+    setTimeout(show, 1600);
+  }
+  document.getElementById('btnMvp').addEventListener('click', function(){ answer(true); });
+  document.getElementById('btnLater').addEventListener('click', function(){ answer(false); });
+  show();
+})();
+</script>
+
+</body>
+</html>

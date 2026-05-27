@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The pre-merge checklist — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-branches-and-commits.html">Module 6 · Build</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">The pre-merge checklist</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 6 · Lesson 2 · 🔨 the build</p>
+  <h1>The pre-merge checklist</h1>
+  <p>Before any change becomes part of your real app, Step 4 runs it past five questions. They're
+  short, they're plain, and they catch the mistakes that hurt beginners most. Let's go through all
+  five — and be honest about what passing them does and doesn't mean.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: review habits</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <aside class="callout callout--responsibility">
+    <strong>Read this first — what passing the checklist means</strong>
+    Running this checklist helps you avoid some <strong>common, well-known mistakes</strong>. It is
+    <strong>not</strong> proof that your app is safe, private, legal, or bug-free. No checklist can
+    promise that. If you're handling sensitive data — health, money, anything that could hurt
+    someone if leaked — get a qualified human review as well. Passing this list is a floor, not a
+    finish line.
+  </aside>
+
+  <p>In Step 4, the skill says you "verify against the pre-merge checklist" <em>before</em> marking
+  any task complete. Here is the checklist, word for word from the skill:</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#list">The five items, verbatim</a></li>
+      <li><a href="#plain">Each item, in plain language</a></li>
+      <li><a href="#habit">The stay-in-charge habit</a></li>
+      <li><a href="#try">Try it: tick the checklist</a></li>
+      <li><a href="#grow">Growing your review habits</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="list">The five items, verbatim</h2>
+
+  <aside class="callout callout--note">
+    <strong>The Step 4 pre-merge checklist</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Implementation matches the relevant design document</li>
+      <li>No secrets, API keys, or credentials in code or commit history</li>
+      <li>All user input that crosses a trust boundary is validated</li>
+      <li>Error messages don't expose internal system state</li>
+      <li>Change has been manually tested against the relevant user journey</li>
+    </ul>
+  </aside>
+
+  <hr class="divider">
+
+  <h2 id="plain">Each item, in plain language</h2>
+
+  <h3>1. Implementation matches the relevant design document</h3>
+  <p>Did the team build the thing you actually designed in Step 2 — not a different thing it decided
+  was easier? You can check this without reading code: ask it to describe what the change does and
+  compare that to your design doc.</p>
+
+  <h3>2. No secrets, API keys, or credentials in code or commit history</h3>
+  <p>A <strong>secret</strong> is any value that proves identity to another service — a password, an
+  API key, a token. None of these should ever be written into the code or its saved history, because
+  once committed, they can leak publicly. (We covered this with the security agent in Module 4.)</p>
+
+  <h3>3. All user input that crosses a trust boundary is validated</h3>
+  <p>A <strong>trust boundary</strong> is the line where data from the outside world (a form, a URL,
+  an upload) enters your app. "Validated" means the app checks that input is the right shape and safe
+  before using it — instead of trusting whatever a stranger typed.</p>
+
+  <h3>4. Error messages don't expose internal system state</h3>
+  <p>When something breaks, the message a user sees should be friendly and vague ("Something went
+  wrong"), not a wall of internal detail that hands an attacker a map of how your app works.</p>
+
+  <h3>5. Change has been manually tested against the relevant user journey</h3>
+  <p>Someone actually clicked through the real steps a person would take and confirmed it works. Not
+  "the code looks right" — actually used it. For a non-engineer, this is often <em>your</em> strongest
+  contribution, and the next lesson is all about it.</p>
+
+  <h2 id="habit">The stay-in-charge habit</h2>
+
+  <p>You don't have to drive every step by hand — but you do stay in charge of the standard. The
+  habit is one plain sentence, said before any merge:</p>
+
+  <p class="pullquote">"Run the pre-merge checklist before we merge — and tell me anything you're
+  unsure about."</p>
+
+  <p>That second half matters as much as the first. Asking the AI to <em>name its uncertainty</em>
+  turns a silent "all good" into a real conversation — and the things it flags are exactly where your
+  attention belongs.</p>
+
+  <h2 id="try">Try it: tick the checklist</h2>
+
+  <p>Here's the live checklist for a change you're about to merge. Tick each item — and click "What
+  does this mean?" on any item to see the plain-language explanation.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🔨 Interactive · the pre-merge checklist</div>
+    <div id="checklist"></div>
+    <p id="checkFeedback" role="status" style="margin:var(--space-4) 0 0; min-height:1.5em; font-weight:600;"></p>
+  </div>
+
+  <aside class="callout callout--responsibility">
+    <strong>A ticked box is a claim, not a guarantee</strong>
+    Ticking every item here means "I checked these five things." It does not certify your app is
+    secure or correct. Treat a fully-ticked checklist as permission to merge a small change with
+    reasonable confidence — never as a substitute for real review on anything sensitive.
+  </aside>
+
+  <h2 id="grow">Growing your review habits 🌱</h2>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Skim the <a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a> — you'll see
+      items 2, 3, and 4 of this checklist appear there as the most common web risks.</li>
+      <li>For the next change you merge, write down which checklist item you understood least, then
+      ask your team to teach you that one.</li>
+      <li>Run <code>/hacky-hours audit</code> on a project — it re-checks several of these items
+      across your whole codebase, not just one change.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Step 4 runs five checks before any change merges — you saw all five verbatim.</li>
+      <li>In plain terms: it matches the design, hides secrets, validates input, stays quiet in
+      errors, and was actually tested by a human.</li>
+      <li>The habit: ask the AI to run the checklist and to say what it's unsure about.</li>
+      <li>Passing the checklist avoids common mistakes — it does not prove your app is safe.</li>
+      <li>For sensitive data, add a qualified human review on top.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>OWASP Top 10</strong> ·
+      <a href="https://owasp.org/www-project-top-ten/">owasp.org/www-project-top-ten</a></li>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · the five-item pre-merge checklist
+      quoted verbatim from <code>SKILL.md</code>; build cycle from <code>steps/04-build.md</code>.</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-01-branches-and-commits.html">◂ Lesson 1 · Branches &amp; commits</a>
+  <a class="btn btn--primary" href="lesson-03-reading-what-the-ai-wrote.html">Lesson 3 · Reading what the AI wrote ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var items = [
+    {label:"Implementation matches the relevant design document",
+     tip:"Did it build what you designed — not a different, easier thing? Ask it to describe the change and compare to your Step 2 doc."},
+    {label:"No secrets, API keys, or credentials in code or commit history",
+     tip:"Passwords, keys, and tokens belong in environment variables — never typed into code or its saved history."},
+    {label:"All user input that crosses a trust boundary is validated",
+     tip:"Anything a stranger types (forms, URLs, uploads) gets checked for the right shape and safety before the app uses it."},
+    {label:"Error messages don't expose internal system state",
+     tip:"When things break, users see a friendly, vague message — not internal detail an attacker could use."},
+    {label:"Change has been manually tested against the relevant user journey",
+     tip:"A human actually clicked through the real steps and confirmed it works — not just \"the code looks right.\""}
+  ];
+  var box = document.getElementById('checklist');
+  var fb = document.getElementById('checkFeedback');
+  items.forEach(function(it, idx){
+    var row = document.createElement('div');
+    row.style.cssText = "border-bottom:1px solid var(--color-border); padding:8px 0;";
+    var top = document.createElement('div');
+    top.style.cssText = "display:flex; align-items:flex-start; gap:8px;";
+    var cb = document.createElement('input');
+    cb.type = "checkbox"; cb.id = "ck"+idx; cb.style.marginTop = "5px";
+    var lbl = document.createElement('label');
+    lbl.htmlFor = "ck"+idx; lbl.textContent = it.label; lbl.style.flex = "1";
+    var btn = document.createElement('button');
+    btn.type = "button"; btn.className = "tag"; btn.style.cursor = "pointer";
+    btn.textContent = "What does this mean?";
+    var tip = document.createElement('p');
+    tip.textContent = it.tip;
+    tip.style.cssText = "display:none; margin:6px 0 0; font-size:var(--size-sm); color:var(--color-text-muted);";
+    btn.addEventListener('click', function(){
+      tip.style.display = tip.style.display === "none" ? "block" : "none";
+    });
+    cb.addEventListener('change', update);
+    top.appendChild(cb); top.appendChild(lbl); top.appendChild(btn);
+    row.appendChild(top); row.appendChild(tip);
+    box.appendChild(row);
+  });
+  function update(){
+    var total = items.length;
+    var done = box.querySelectorAll('input[type=checkbox]:checked').length;
+    if(done === total){
+      fb.style.color = "var(--color-success)";
+      fb.innerHTML = "✅ All five checked — reasonable confidence for a small change. Remember: this is a floor, not a safety guarantee.";
+    } else {
+      fb.style.color = "var(--color-text-muted)";
+      fb.textContent = done + " of " + total + " checked. Don't merge until you've genuinely confirmed each one.";
+    }
+  }
+  update();
+})();
+</script>
+
+</body>
+</html>

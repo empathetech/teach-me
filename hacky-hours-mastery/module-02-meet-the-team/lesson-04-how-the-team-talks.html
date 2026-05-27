@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How the team talks (chat modes) — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-the-twelve-agents.html">Module 2 · Meet the team</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">How the team talks</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 2 · Lesson 4 · chat modes</p>
+  <h1>How the team talks (chat modes)</h1>
+  <p>You can decide how much of the team you actually <em>hear</em>. Sometimes you want one calm
+  narrator; sometimes you want to watch the agents debate. That dial is called <strong>chat
+  mode</strong>, and it has a real cost tradeoff worth understanding.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">7 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: cost awareness</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <aside class="callout callout--note">
+    <strong>First, a word on tokens</strong>
+    AI models charge by <strong>tokens</strong> — roughly, chunks of text they read and write. More
+    visible back-and-forth means more tokens, which means more cost. Chat mode is really a dial
+    between "show me less, spend less" and "show me everything, spend more."
+  </aside>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#three">The three modes</a></li>
+      <li><a href="#cost">The cost tradeoff</a></li>
+      <li><a href="#set">Setting your mode</a></li>
+      <li><a href="#try">Try it: see the same moment three ways</a></li>
+      <li><a href="#read">Reading a single agent</a></li>
+      <li><a href="#grow">Going further</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="three">The three modes</h2>
+
+  <p>Chat mode controls how visible the team is while it works. There are three settings, quoted
+  here from the framework itself:</p>
+
+  <ul>
+    <li><strong>off</strong> — "single narrator, no team voices (cheapest)." One steady voice
+    speaks for the whole team. Calmest, least expensive.</li>
+    <li><strong>minimal</strong> — "speaker attribution at meaningful moments only." The team is
+    mostly quiet, but individual agents speak up when it matters — a concern, a disagreement, a
+    hand-off. No filler.</li>
+    <li><strong>full</strong> — "closed-captioned multi-agent dialogue." You see the agents talk to
+    each other, labelled by name, like reading a transcript of a meeting. Most vivid, most
+    expensive.</li>
+  </ul>
+
+  <h2 id="cost">The cost tradeoff</h2>
+
+  <p>The framework is refreshingly honest about this. Turning on <strong>full</strong> mode runs
+  what it calls "real per-role fan-out" — it genuinely asks each role to weigh in — and that
+  "costs meaningfully more tokens than <code>off</code> or <code>minimal</code>."</p>
+
+  <aside class="callout callout--quote">
+    <strong>The framework's own heads-up for full mode</strong>
+    "Heads up: full mode runs real per-role fan-out and costs meaningfully more tokens than
+    <code>off</code> or <code>minimal</code>. We don't have calibration data to quantify by how
+    much… Switch back with <code>/hacky-hours team chat minimal</code> if it feels expensive."
+  </aside>
+
+  <p>So there's no single "best" mode. A common rhythm: keep <strong>minimal</strong> for everyday
+  work, flip to <strong>full</strong> when you want to learn how the team reasons or you're making
+  a big decision, and drop to <strong>off</strong> when you just want quiet, cheap output.</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>A cost dial, not a quality switch</strong>
+    A quieter mode doesn't mean the work is sloppier, and a louder one doesn't guarantee it's
+    better — it changes how much you <em>see</em> and spend, not whether the underlying decisions
+    are sound. Reviewing the output still falls to you in every mode.
+  </aside>
+
+  <hr class="divider">
+
+  <h2 id="set">Setting your mode</h2>
+
+  <p>Check your current mode by running the command with no extra word:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">terminal · try this</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours team chat</code></pre>
+  </figure>
+
+  <p>Then set it by adding the mode you want:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">terminal · set the mode</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours team chat minimal</code></pre>
+  </figure>
+
+  <p>The setting is saved in <code>~/.hacky-hours/settings.yml</code> and, per the framework, "takes
+  effect on the <strong>next</strong> multi-role verb you run." Anything already in progress keeps
+  the mode it started with.</p>
+
+  <h2 id="try">Try it: see the same moment three ways</h2>
+
+  <p>Here's the same little moment — the team noticing a sign-up form asks for more data than it
+  needs — rendered in each mode. Toggle between them to feel the difference in volume and detail.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🔊 Interactive · the same moment, three modes</div>
+    <div id="modeToggle" style="display:flex; gap:8px; margin-bottom:var(--space-3);">
+      <button class="btn btn--primary modebtn" type="button" data-m="off">off</button>
+      <button class="btn btn--ghost modebtn" type="button" data-m="minimal">minimal</button>
+      <button class="btn btn--ghost modebtn" type="button" data-m="full">full</button>
+    </div>
+    <div id="modeStage" role="status" style="font-family:var(--font-mono); font-size:.9rem; background:#211a3a; color:#ece7f7; border-radius:var(--radius-md); padding:16px; line-height:1.6; min-height:6em;"></div>
+    <p id="modeNote" style="margin-bottom:0; font-size:var(--size-sm); color:var(--color-text-muted); margin-top:var(--space-3);"></p>
+  </div>
+
+  <p class="pullquote">"Off is a calm narrator. Full is the meeting with the captions on. Minimal is the team that only speaks when it matters."</p>
+
+  <h2 id="read">Reading a single agent</h2>
+
+  <p>Chat mode is about live conversation. If you just want to read one agent on their own — their
+  background, how they work, what they produce — use <code>team show</code>:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">terminal · read an agent</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours team show emma</code></pre>
+  </figure>
+
+  <p>This works no matter your chat mode — it's a profile, not a conversation.</p>
+
+  <h2 id="grow">Going further 🌱</h2>
+
+  <aside class="callout callout--grow">
+    <strong>Understand what you're spending</strong>
+    Token costs are worth getting comfortable with as you build more. Anthropic's
+    <a href="https://docs.claude.com/en/docs/about-claude/glossary">glossary entry on tokens</a>
+    is a short, plain explanation of what a token actually is — a useful thing to understand before
+    you leave full mode on for a long session.
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Chat mode sets how visible the team is: <strong>off</strong> (one narrator), <strong>minimal</strong> (speaks up when it matters), <strong>full</strong> (captioned multi-agent dialogue).</li>
+      <li>Full costs meaningfully more tokens; the framework warns you and tells you how to switch back.</li>
+      <li>Set it with <code>/hacky-hours team chat &lt;mode&gt;</code>; it applies to the next multi-role action.</li>
+      <li>Mode changes what you see and spend — not whether the underlying work is sound. Review still falls to you.</li>
+      <li><code>/hacky-hours team show &lt;id&gt;</code> reads one agent regardless of chat mode.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · chat mode descriptions, the full-mode cost warning, settings location, and <code>team show</code> behavior quoted from <code>tools/team.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Anthropic glossary — tokens</strong> · Anthropic ·
+      <a href="https://docs.claude.com/en/docs/about-claude/glossary">docs.claude.com</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-03-calibrating-the-team.html">◂ Lesson 3 · Calibrating the team</a>
+  <a class="btn btn--primary" href="../module-03-ideate/lesson-01-getting-it-out.html">Module 3 · Getting it out ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+var RENDER = {
+  off: {
+    html: "I noticed the sign-up form collects a phone number, which the app doesn’t actually use. I’ve removed it to keep things lean. Let me know if you’d like it back.",
+    note: "One narrator speaks for the whole team. Calmest and cheapest — you don’t see who flagged it."
+  },
+  minimal: {
+    html: "<strong style='color:#9be3a0;'>📈 Yuki (Data):</strong> The form asks for a phone number we never use.<br><br>Removed it — collecting less data is the safer default. Want it back?",
+    note: "Mostly quiet, but the relevant agent speaks up at the moment that matters. No filler."
+  },
+  full: {
+    html: "<strong style='color:#9be3a0;'>📈 Yuki (Data):</strong> The sign-up form has a phone-number field, but nothing in the app reads it.<br><strong style='color:#f6c177;'>🛡️ Alex (Security):</strong> Agreed — data we don’t collect can’t leak. Drop it.<br><strong style='color:#c4a7f0;'>🎨 Felix (Design):</strong> Fine by me, the form’s shorter without it. Better.<br><strong style='color:#ece7f7;'>Narrator:</strong> Removing the phone-number field. Say the word if you need it later.",
+    note: "Closed-captioned multi-agent dialogue — vivid and great for learning, but it runs every relevant role, so it costs meaningfully more tokens."
+  }
+};
+function show(mode){
+  document.getElementById('modeStage').innerHTML = RENDER[mode].html;
+  document.getElementById('modeNote').textContent = RENDER[mode].note;
+  document.querySelectorAll('.modebtn').forEach(function(b){
+    if(b.dataset.m === mode){ b.classList.remove('btn--ghost'); b.classList.add('btn--primary'); }
+    else { b.classList.remove('btn--primary'); b.classList.add('btn--ghost'); }
+  });
+}
+document.querySelectorAll('.modebtn').forEach(function(b){
+  b.addEventListener('click', function(){ show(this.dataset.m); });
+});
+show('off');
+</script>
+
+</body>
+</html>

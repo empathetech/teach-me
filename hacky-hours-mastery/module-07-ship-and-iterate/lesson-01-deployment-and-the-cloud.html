@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deployment &amp; the cloud — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-deployment-and-the-cloud.html">Module 7 · Ship &amp; iterate</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Deployment &amp; the cloud</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 7 · Lesson 1 · 🚀 Ops with Jordan Kim</p>
+  <h1>Deployment &amp; the cloud</h1>
+  <p>You've built something on your own computer. Now you want other people to be able to use it.
+  That step has a name — <strong>deployment</strong> — and it's less mysterious than it sounds.
+  Let's walk through what actually happens, and what changes the moment you go live.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: how the web works</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>Hi — I'm <strong>Jordan Kim</strong> 🚀, the Ops agent on your Hacky Hours team. "Ops" is
+  short for operations: my job is everything about running your software in the real world —
+  getting it online, keeping it online, and making sure secrets don't leak when it goes there.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#deploy">What "deploy" actually means</a></li>
+      <li><a href="#cloud">"The cloud" in plain terms</a></li>
+      <li><a href="#hosting">Hosting: push to GitHub, it goes live</a></li>
+      <li><a href="#env">Secrets in production: environment variables</a></li>
+      <li><a href="#try">Try it: order the steps</a></li>
+      <li><a href="#grow">Going further</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="deploy">What "deploy" actually means</h2>
+
+  <p>To <strong>deploy</strong> is to make your app available on the internet so that real people,
+  on their own devices, can open it. Up to now your project has run on your laptop — only you can
+  see it. Deploying copies it onto a computer that's always on and connected to the internet, and
+  gives it a web address (a URL) anyone can visit.</p>
+
+  <p>That's the whole idea. The word sounds heavy, but it's just "put it where others can reach
+  it."</p>
+
+  <h2 id="cloud">"The cloud" in plain terms</h2>
+
+  <p>People say software runs "in the cloud" as if it floats somewhere abstract. It doesn't. The
+  cloud is simply <strong>someone else's computers, in a building somewhere, that you rent a slice
+  of</strong>. Instead of buying and maintaining a server yourself, a company runs the machines and
+  lets your app live on them. You pay for what you use — often nothing at all for small projects.</p>
+
+  <aside class="callout callout--note">
+    <strong>Why this fits the Hacky Hours values</strong>
+    One of the framework's guiding principles is <em>"less infrastructure before more — prefer a
+    simple hosted solution over a self-managed one."</em> Renting a slice of someone's well-run
+    machines is almost always simpler and safer than operating your own server. Let someone whose
+    full-time job is keeping computers online do that part.
+  </aside>
+
+  <hr class="divider">
+
+  <h2 id="hosting">Hosting: push to GitHub, it goes live</h2>
+
+  <p><strong>Hosting</strong> is the service that holds your deployed app and serves it to visitors.
+  For the kind of web projects you'll build early on, two popular, free-to-start hosts are
+  <a href="https://www.netlify.com/">Netlify</a> and <a href="https://vercel.com/">Vercel</a>. They
+  work in a way that fits beautifully with everything you've already learned about git and
+  GitHub.</p>
+
+  <p>You connect your GitHub repository (your project's online home) to the host once. After that,
+  the flow is automatic:</p>
+
+  <ol>
+    <li>You write or change code on your computer.</li>
+    <li>You <code>git push</code> to GitHub, exactly as you already do.</li>
+    <li>The host notices the new code and <strong>builds</strong> it — assembles the final files
+    visitors will receive.</li>
+    <li>Within a minute or two, the live URL updates. Your change is online.</li>
+  </ol>
+
+  <p class="pullquote">You don't "upload a website." You push code, and the host turns it into a live site for you.</p>
+
+  <p>That automatic step — code change to live site with no manual upload — is sometimes called
+  <strong>continuous deployment</strong>. You don't need the term. You just need to know that once
+  it's wired up, shipping is one <code>git push</code>.</p>
+
+  <h2 id="env">Secrets in production: environment variables</h2>
+
+  <p>Back in Module 4, Alex (Security) showed you that secrets — API keys, passwords, tokens —
+  never belong in your code. That rule doesn't relax when you deploy; it matters <em>more</em>,
+  because your code is now reachable from the whole internet.</p>
+
+  <p>An <strong>environment variable</strong> is a named value your app reads at runtime, stored
+  <em>outside</em> the code. On your laptop it lives in a <code>.env</code> file that git ignores.
+  In production, it lives in <strong>your host's settings</strong> — Netlify and Vercel both have a
+  dashboard page literally called "Environment variables" where you paste the real value.</p>
+
+  <figure class="code-block" data-lang="text">
+    <header class="code-block__header"><span class="code-block__lang">where the secret lives</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>Local laptop  →  .env file (git ignores it)
+Production    →  Host dashboard → "Environment variables"
+In your code  →  process.env.STRIPE_SECRET_KEY   ← only ever reads the name</code></pre>
+  </figure>
+
+  <p>Your code asks for the value by name; the real value is entered separately, in a place that
+  never enters your repository. Same key, two safe homes — never the code itself.</p>
+
+  <aside class="callout callout--grow">
+    <strong>🌱 Learn the idea behind this</strong>
+    The practice of keeping configuration and secrets out of code and in the environment is part of
+    a widely-followed set of principles called the Twelve-Factor App. Its short, readable page on
+    configuration is worth a look: <a href="https://12factor.net/config">12factor.net/config</a>.
+  </aside>
+
+  <aside class="callout callout--responsibility">
+    <strong>Going live changes your exposure — read this honestly</strong>
+    The moment you deploy, your app is reachable by anyone on the internet, including automated bots
+    that scan constantly. A few things follow from that, and they are your responsibility, not the
+    host's:
+    <ul style="margin:.5rem 0 0;">
+      <li>Every secret goes in the <strong>host's settings</strong>, never in code — a key pushed to
+      a public repo can be found and abused within minutes.</li>
+      <li>If your app collects anyone's personal data, you are now responsible for handling it
+      lawfully and carefully. That's a real obligation, not a checkbox.</li>
+      <li>Hosting being easy does not make your app secure. For anything that handles sensitive
+      information, get a qualified review before you put it in front of real users.</li>
+    </ul>
+  </aside>
+
+  <h2 id="try">Try it: order the steps</h2>
+
+  <p>Here are the four moments of a deploy, shuffled. Click them in the order they happen, from
+  first to last.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🚀 Interactive · build the deploy flow in order</div>
+    <p style="font-size:var(--size-base); color:var(--color-text-muted); margin-top:0;">Click the steps in order. Click a chosen step again to undo it.</p>
+    <div id="deployPool" style="display:flex; flex-wrap:wrap; gap:var(--space-2);"></div>
+    <ol id="deployBuilt" style="margin-top:var(--space-4); padding-left:1.4em; min-height:1.5em;"></ol>
+    <p id="deployFeedback" role="status" style="margin-bottom:0; min-height:1.5em;"></p>
+  </div>
+
+  <h2 id="grow">Going further 🌱</h2>
+
+  <p>None of this is required to finish the course — but if you want to actually put something
+  online, the best next move is to read a real host's getting-started guide and follow it once with
+  a tiny project. The hands-on repetition is where it stops feeling abstract.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Read <a href="https://docs.netlify.com/get-started/">Netlify's Get started guide</a> — it
+      walks you from a GitHub repo to a live URL, exactly the flow above.</li>
+      <li>Find the "Environment variables" page in your host's dashboard before you ever need it, so
+      you know where secrets go.</li>
+      <li>Ask your Ops agent directly: <code>/hacky-hours team show jordan --prompt</code> to see how
+      I think about deployment.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li><strong>Deploy</strong> = make your app reachable on the internet for real users.</li>
+      <li>"The cloud" is just rented computers someone else keeps running for you.</li>
+      <li><strong>Hosting</strong> (Netlify, Vercel) deploys automatically when you push to GitHub.</li>
+      <li>In production, secrets live in the <strong>host's settings</strong> as environment
+      variables — never in code.</li>
+      <li>Going live increases your exposure and your responsibility; easy hosting is not the same
+      as a secure app.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Netlify — Get started</strong> · official documentation ·
+      <a href="https://docs.netlify.com/get-started/">docs.netlify.com/get-started</a></li>
+      <li><strong>The Twelve-Factor App — Config</strong> ·
+      <a href="https://12factor.net/config">12factor.net/config</a></li>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · "less infrastructure before more"
+      value quoted from <code>SKILL.md</code>; environment-variable handling from
+      <code>reviews/01-audit.md</code> (secrets scan).</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="../module-06-build/lesson-04-changelog-and-record.html">◂ Module 6 · The CHANGELOG &amp; record</a>
+  <a class="btn btn--primary" href="lesson-02-the-three-lane-audit.html">Lesson 2 · The three-lane audit ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var steps = [
+    {order:1, label:"You write or change code on your computer"},
+    {order:2, label:"You git push to GitHub"},
+    {order:3, label:"The host builds your code"},
+    {order:4, label:"The live URL updates — you're online"}
+  ];
+  var shuffled = steps.slice().sort(function(){ return Math.random() - 0.5; });
+  var pool = document.getElementById('deployPool');
+  var built = document.getElementById('deployBuilt');
+  var fb = document.getElementById('deployFeedback');
+  var chosen = [];
+  function render(){
+    pool.innerHTML = ''; built.innerHTML = '';
+    shuffled.forEach(function(s){
+      if(chosen.indexOf(s) !== -1) return;
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'btn btn--ghost'; b.textContent = s.label;
+      b.style.fontSize = '.85rem';
+      b.addEventListener('click', function(){ chosen.push(s); check(); render(); });
+      pool.appendChild(b);
+    });
+    chosen.forEach(function(s){
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'btn btn--ghost'; b.textContent = s.label + '  ✕';
+      b.style.fontSize = '.85rem';
+      b.addEventListener('click', function(){ chosen.splice(chosen.indexOf(s),1); fb.textContent=''; render(); });
+      li.appendChild(b); built.appendChild(li);
+    });
+  }
+  function check(){
+    if(chosen.length < steps.length) return;
+    var right = chosen.every(function(s,i){ return s.order === i+1; });
+    if(right){
+      fb.style.color = 'var(--color-success)';
+      fb.innerHTML = '✅ Exactly right. Code change → push → host builds → live URL. After the first setup, shipping really is just <code>git push</code>.';
+    } else {
+      fb.style.color = 'var(--color-warning)';
+      fb.innerHTML = 'Not quite. Remember: it starts on <em>your</em> computer, and the live URL is the very last thing. Click a step to remove it and try again.';
+    }
+  }
+  render();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The twelve agents — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-the-twelve-agents.html">Module 2 · Meet the team</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">The twelve agents</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 2 · Lesson 1 · meet the team</p>
+  <h1>The twelve agents</h1>
+  <p>When you run <code>/hacky-hours</code>, you don't get one all-purpose assistant. You get a
+  team of twelve, each one focused on a different part of building software. This lesson
+  introduces all of them by name — and shows you that each one is also a doorway into a real
+  craft you can learn.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: the whole map</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <aside class="callout callout--note">
+    <strong>Where these names come from</strong>
+    The twelve agents are part of Hacky Hours itself — they ship with the framework as a
+    persistent <strong>team</strong> stored on your computer. We'll cover how to manage that team
+    in the next few lessons. For now, just meet them.
+  </aside>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#why">Why twelve, not one</a></li>
+      <li><a href="#idea">Shaping the idea</a></li>
+      <li><a href="#build">Building it</a></li>
+      <li><a href="#real">Making it work for real people</a></li>
+      <li><a href="#bigger">The bigger picture</a></li>
+      <li><a href="#try">Try it: which agent would worry about this?</a></li>
+      <li><a href="#grow">Each agent is someone to learn from</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="why">Why twelve, not one</h2>
+
+  <p>A real software team isn't one person wearing every hat. It's a product person who asks who
+  the thing is for, an engineer who builds it, a security person who asks what could go wrong, and
+  several more. Each role notices things the others would miss.</p>
+
+  <p>Hacky Hours gives a solo builder that same range. When you describe what you want, the right
+  roles speak up at the right moments — so you end up with the kind of thinking a whole team would
+  bring, even though it's just you.</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>What the team is and isn't</strong>
+    These agents give you <strong>direction</strong> — good questions, sensible defaults, and a
+    record of decisions. They are not a substitute for your own judgment, and they don't guarantee
+    your software is correct, safe, or finished. You stay the decision-maker. Think of them as
+    knowledgeable colleagues, not an autopilot.
+  </aside>
+
+  <p>The framework groups the twelve into four clusters. Here they are.</p>
+
+  <hr class="divider">
+
+  <h2 id="idea">Shaping the idea — what are we building, and for whom?</h2>
+
+  <ul>
+    <li>📊 <strong>Maya Tanaka — Product.</strong> Figures out who the software is for and what
+    problem it actually solves, before any code exists. Her craft is <em>product management</em>.</li>
+    <li>🎨 <strong>Felix Okafor — Design.</strong> How the thing looks, and more importantly how it
+    feels to use. His craft is <em>UX design</em> (user experience).</li>
+    <li>🏗️ <strong>Priya Chen — Architect.</strong> The overall shape: what pieces exist, how they
+    connect, which technologies to pick (and avoid). Her craft is <em>software architecture</em>.</li>
+  </ul>
+
+  <h2 id="build">Building it — making it real and reasonably solid</h2>
+
+  <ul>
+    <li>🖥️ <strong>Marcus Rivera — Frontend.</strong> Everything the user touches in the browser:
+    screens, buttons, forms. His craft is <em>frontend engineering</em>.</li>
+    <li>⚙️ <strong>Sam Park — Backend.</strong> The server and logic users never see that makes
+    everything work. His craft is <em>backend engineering</em>.</li>
+    <li>🛡️ <strong>Alex Davies — Security.</strong> How things could go wrong: leaked secrets, bad
+    input, who can reach what. His craft is <em>application security</em> — and he gives direction,
+    never a guarantee.</li>
+  </ul>
+
+  <h2 id="real">Making it work for real people — running, testing, access</h2>
+
+  <ul>
+    <li>🚀 <strong>Jordan Kim — Ops.</strong> Getting your app off your laptop and onto the
+    internet, then keeping it running. His craft is <em>operations and deployment</em>.</li>
+    <li>🔍 <strong>Emma Wright — QA.</strong> Deliberately trying to break things before your users
+    do. Her craft is <em>quality assurance</em> — testing and edge cases.</li>
+    <li>♿ <strong>Lena Mwangi — Accessibility.</strong> Making sure people with disabilities can
+    use what you build: screen readers, keyboard use, contrast. Her craft is <em>accessibility</em>,
+    and it's central to Empathetech's mission.</li>
+  </ul>
+
+  <h2 id="bigger">The bigger picture — rights, data, and AI</h2>
+
+  <ul>
+    <li>📜 <strong>Diego Romano — Licensing.</strong> Who may use your code, and whose code you may
+    use. His craft is <em>software licensing</em> — the legal layer most beginners skip until it
+    bites.</li>
+    <li>📈 <strong>Yuki Nakamura — Data.</strong> What information your app stores and how the
+    pieces relate. Her craft is <em>data modeling</em> — this is where databases live.</li>
+    <li>🤖 <strong>Kai Patel — AI/ML.</strong> When (and whether) your app should use AI, and how to
+    do it responsibly. Often the answer is "not yet." His craft is <em>machine learning</em>.</li>
+  </ul>
+
+  <aside class="callout callout--grow">
+    <strong>🌱 Your full directory</strong>
+    We've built an interactive directory of all twelve. Click any agent to see what they do, what
+    they produce, a plain sentence for working with them, and one link to start learning that
+    discipline yourself: <a href="../tools/team.html"><strong>open The Team directory</strong></a>.
+    Bookmark it — you'll come back to it all course long.
+  </aside>
+
+  <hr class="divider">
+
+  <h2 id="try">Try it: which agent would worry about this?</h2>
+
+  <p>You don't need to memorize twelve names. What's worth building is the instinct for
+  <em>which kind of question belongs to which role</em> — so when something feels off, you know who
+  to call on. Read each concern, then pick the agent it belongs to.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🧭 Interactive · match the concern to the agent</div>
+    <p id="matchPrompt" style="font-size:var(--size-base); margin-top:0;"></p>
+    <div id="matchChoices" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+    <p id="matchFeedback" role="status" style="margin-bottom:0; min-height:1.5em; margin-top:var(--space-3);"></p>
+    <button id="matchNext" class="btn btn--ghost" type="button" style="display:none; margin-top:var(--space-2);">Next concern ▸</button>
+  </div>
+
+  <p class="pullquote">"You're not learning twelve names. You're learning twelve kinds of question — and which one to ask when something feels off."</p>
+
+  <h2 id="grow">Each agent is someone to learn from 🌱</h2>
+
+  <p>Here's the quiet promise of this team. Every time an agent raises a concern, it's a window
+  into a whole field that professionals spend careers in. You don't have to become an expert in all
+  twelve. But over a few projects, you'll absorb how each one thinks — and that's how a non-engineer
+  grows into a genuine builder.</p>
+
+  <aside class="callout callout--grow">
+    <strong>A first step into the map</strong>
+    Each discipline these agents represent is a recognized field of software practice. For a
+    plain-language overview of what software engineering as a whole even covers, the
+    <a href="https://developer.mozilla.org/en-US/docs/Learn">MDN Learn Web Development</a> path is
+    a kind, free place to wander. Don't rush it — the point is curiosity, not completion.
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Hacky Hours engages a team of twelve role-based agents, not one assistant.</li>
+      <li>They group into four clusters: shaping the idea, building it, making it work for real people, and the bigger picture.</li>
+      <li>Each agent is a doorway into a real discipline you can learn over time.</li>
+      <li>You don't memorize names — you build an instinct for which kind of question belongs to which role.</li>
+      <li>The full interactive directory lives at <a href="../tools/team.html">The Team</a>.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · agent names, roles, and disciplines from <code>tools/team.md</code> &amp; <code>SKILL.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>MDN Learn Web Development</strong> · Mozilla ·
+      <a href="https://developer.mozilla.org/en-US/docs/Learn">developer.mozilla.org/en-US/docs/Learn</a></li>
+      <li><strong>The Team directory</strong> · this course · <a href="../tools/team.html">tools/team.html</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="../module-01-getting-started/lesson-03-step-zero.html">◂ Module 1 · Lesson 3 · Step zero</a>
+  <a class="btn btn--primary" href="lesson-02-the-eight-values.html">Lesson 2 · The eight values ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+var CONCERNS = [
+  {q:"\"Where do we store the password?\"", a:"alex"},
+  {q:"\"Can a blind user navigate this with a screen reader?\"", a:"lena"},
+  {q:"\"What do we store, and how do the pieces connect?\"", a:"yuki"},
+  {q:"\"Who is this really for, and what's the one thing they need?\"", a:"maya"},
+  {q:"\"Do any of our dependencies have a license that conflicts with ours?\"", a:"diego"},
+  {q:"\"What's the simplest way to get this live and keep it running?\"", a:"jordan"},
+  {q:"\"Do we actually need AI here, or is a simple rule enough?\"", a:"kai"},
+  {q:"\"What's the weirdest thing a user could do, and what happens then?\"", a:"emma"}
+];
+var AGENTS = {
+  maya:"📊 Maya · Product", felix:"🎨 Felix · Design", priya:"🏗️ Priya · Architect",
+  marcus:"🖥️ Marcus · Frontend", sam:"⚙️ Sam · Backend", alex:"🛡️ Alex · Security",
+  jordan:"🚀 Jordan · Ops", emma:"🔍 Emma · QA", lena:"♿ Lena · A11y",
+  diego:"📜 Diego · Licensing", yuki:"📈 Yuki · Data", kai:"🤖 Kai · AI/ML"
+};
+var idx = 0;
+function shuffle(arr){ return arr.slice().sort(function(){ return Math.random()-0.5; }); }
+function loadConcern(){
+  var c = CONCERNS[idx];
+  document.getElementById('matchPrompt').textContent = c.q;
+  document.getElementById('matchFeedback').textContent = '';
+  document.getElementById('matchNext').style.display = 'none';
+  var host = document.getElementById('matchChoices');
+  host.innerHTML = '';
+  var options = [c.a];
+  var keys = Object.keys(AGENTS).filter(function(k){ return k !== c.a; });
+  shuffle(keys).slice(0,3).forEach(function(k){ options.push(k); });
+  shuffle(options).forEach(function(k){
+    var b = document.createElement('button');
+    b.className = 'btn btn--ghost';
+    b.type = 'button';
+    b.textContent = AGENTS[k];
+    b.addEventListener('click', function(){ choose(k, c.a, host); });
+    host.appendChild(b);
+  });
+}
+function choose(picked, correct, host){
+  var fb = document.getElementById('matchFeedback');
+  host.querySelectorAll('button').forEach(function(b){ b.disabled = true; });
+  if(picked === correct){
+    fb.style.color = 'var(--color-success)';
+    fb.innerHTML = '✅ That\'s the one. ' + AGENTS[correct] + ' owns that question.';
+  } else {
+    fb.style.color = 'var(--color-warning)';
+    fb.innerHTML = 'Close — that\'s a fair guess, but this one belongs to <strong>' + AGENTS[correct] + '</strong>.';
+  }
+  document.getElementById('matchNext').style.display = 'inline-flex';
+}
+document.getElementById('matchNext').addEventListener('click', function(){
+  idx = (idx + 1) % CONCERNS.length;
+  loadConcern();
+});
+CONCERNS = shuffle(CONCERNS);
+loadConcern();
+</script>
+
+</body>
+</html>

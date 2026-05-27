@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting the idea out (Step 1) — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-getting-it-out.html">Module 3 · Ideate</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Getting the idea out</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 3 · Lesson 1 · 📊 the ideate step</p>
+  <h1>Getting the idea out of your head (Step 1)</h1>
+  <p>Before anyone designs a screen or writes a line of code, there's a quieter first move:
+  getting the thing in your head out where you can actually look at it. That's what Step 1 is for,
+  and it asks almost nothing of you except honesty.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">6 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: product thinking</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>Welcome to the Ideate step. If you've ever had an idea that felt clear in your mind but fell
+  apart the moment you tried to explain it, you already understand the problem this step solves.
+  Ideas are slippery while they live only in your head. Step 1 gives them somewhere to land.</p>
+
+  <p>When you run <code>/hacky-hours step 1</code>, the framework opens a file called
+  <code>IDEATION.md</code>. A <strong>.md file</strong> is just a plain text file (Markdown) — no
+  special software needed, you can open it in any editor. This one is your free-writing space.</p>
+
+  <h2 id="messy">Messy is not just allowed — it's the point</h2>
+
+  <p>Here's the most important thing to know before you start: <strong>there are no rules in
+  <code>IDEATION.md</code></strong>. Half-sentences are fine. Contradicting yourself is fine.
+  Writing "I don't know who this is for yet" is fine. The skill itself describes this file in one
+  line:</p>
+
+  <aside class="callout callout--quote">
+    <strong>Straight from the skill</strong>
+    "IDEATION.md is a free-writing space. No rules — just capture everything."
+  </aside>
+
+  <p>This is brainstorming, not commitment. Nothing you write here locks you into anything. You're
+  not signing off on a plan; you're emptying your pockets onto the table so you can see what you
+  actually have. The shaping comes later — and you won't do it alone.</p>
+
+  <aside class="callout callout--note">
+    <strong>Who helps you shape it</strong>
+    Most of Step 1 is guided by <strong>📊 Maya Tanaka — Product</strong>, the agent whose whole
+    job is making sure you're building the right thing before you build any thing. She reads what
+    you wrote and reflects it back to you. You don't have to arrive organized; that's her part.
+  </aside>
+
+  <hr class="divider">
+
+  <h2 id="prompts">Maya's opening prompts</h2>
+
+  <p>To get you moving, Step 1 offers a few questions. You don't have to answer all of them, or any
+  of them in order. They're starting points, not a form:</p>
+
+  <ul>
+    <li>"Who is the first person you'd want to use this, and what would they do with it?"</li>
+    <li>"What problem have you personally experienced that this solves?"</li>
+    <li>"What would have to be true for this to be considered a success in one year?"</li>
+  </ul>
+
+  <p>Notice that none of these ask <em>how</em> to build anything. That's deliberate. Step 1 cares
+  about the problem and the person, not the technology. The instinct to jump straight to features
+  and screens is exactly what this step asks you to resist for a little while.</p>
+
+  <p class="pullquote">"The idea doesn't have to be good yet. It just has to be out of your head."</p>
+
+  <h2 id="try">Try it: a no-stakes free-write</h2>
+
+  <p>Below is a practice version of the free-writing space — a place to feel what it's like to just
+  start typing. The prompt rotates if you want a nudge, and a counter tracks your words. There's no
+  right length and nothing here is saved or sent anywhere.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">📊 Interactive · practice free-write (nothing is saved)</div>
+    <p id="fwPrompt" role="status" style="font-family:var(--font-heading); font-weight:500; color:var(--color-primary); margin-top:0;">What problem annoys you enough to fix?</p>
+    <button id="fwNext" class="btn btn--ghost" type="button" style="font-size:.8rem; padding:var(--space-2) var(--space-4); margin-bottom:var(--space-3);">↻ Different prompt</button>
+    <label for="fwBox" style="display:block; font-size:var(--size-sm); color:var(--color-text-muted); margin-bottom:var(--space-2);">Just start typing. Half-sentences welcome.</label>
+    <textarea id="fwBox" rows="6" style="width:100%; font-family:var(--font-body); font-size:var(--size-base); padding:var(--space-3); border:1px solid var(--color-border-strong); border-radius:var(--radius-md); resize:vertical;" placeholder="The thing that bugs me is…"></textarea>
+    <p id="fwCount" role="status" style="margin-bottom:0; font-size:var(--size-sm); color:var(--color-text-muted);">0 words — every one of them counts.</p>
+  </div>
+
+  <p>That feeling of "I can write anything here" is the entire mood of Step 1. The real
+  <code>IDEATION.md</code> works the same way, except your words land in a file you keep — and Maya
+  reads along.</p>
+
+  <h2 id="hands-on">Your turn, for real</h2>
+
+  <p>When you're ready to do this with an idea you actually care about, open your terminal and run:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">your terminal</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours step 1</code></pre>
+  </figure>
+
+  <p>The skill checks whether an <code>IDEATION.md</code> already exists. If it does, it reads what
+  you wrote first, so you never have to repeat yourself — you can pick up a brainstorm days later
+  right where you left it. If it doesn't exist yet, you're starting fresh, with the prompts above to
+  lean on.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Grow your product instincts 🌱</strong>
+    Step 1's questions echo a framework called <strong>Jobs To Be Done</strong> — the idea that
+    people don't want products, they want a problem solved. Reading
+    <a href="https://jtbd.info/2-what-is-jobs-to-be-done-jtbd-796b82081cca">this plain-language
+    introduction to JTBD</a> will make Maya's "what problem does this solve?" questions click into
+    place, and it's a skill that outlasts any single project.
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Step 1 (Ideate) starts by opening <code>IDEATION.md</code>, a no-rules free-writing space.</li>
+      <li>Messy is fine — this is brainstorming, not commitment; nothing locks you in.</li>
+      <li>📊 Maya Tanaka (Product) helps shape what you wrote later; you don't have to arrive organized.</li>
+      <li>The opening prompts focus on the problem and the person, not the technology.</li>
+      <li>Run <code>/hacky-hours step 1</code> to begin; it remembers what you wrote before.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · IDEATION.md description, opening
+      prompts, and "reads it before asking" behavior quoted from
+      <code>SKILL.md / steps/01-ideate.md</code>.</li>
+      <li><strong>What is Jobs To Be Done (JTBD)?</strong> · jtbd.info ·
+      <a href="https://jtbd.info/2-what-is-jobs-to-be-done-jtbd-796b82081cca">jtbd.info</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="../module-02-meet-the-team/lesson-04-how-the-team-talks.html">◂ Module 2 · L4 · How the team talks</a>
+  <a class="btn btn--primary" href="lesson-02-product-overview-5ws.html">Lesson 2 · The product overview &amp; the 5 Ws ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var prompts = [
+    "What problem annoys you enough to fix?",
+    "Who else has this problem besides you?",
+    "What would the first person to use this actually do with it?",
+    "If this existed a year from now and worked, what changed?",
+    "What problem have you personally lived through that this solves?",
+    "Describe the moment someone reaches for this. Where are they?"
+  ];
+  var i = 0;
+  var promptEl = document.getElementById('fwPrompt');
+  var box = document.getElementById('fwBox');
+  var count = document.getElementById('fwCount');
+  document.getElementById('fwNext').addEventListener('click', function(){
+    i = (i + 1) % prompts.length;
+    promptEl.textContent = prompts[i];
+    box.setAttribute('placeholder', prompts[i].replace(/\?$/, "…"));
+  });
+  box.addEventListener('input', function(){
+    var words = box.value.trim() ? box.value.trim().split(/\s+/).length : 0;
+    if(words === 0){ count.textContent = "0 words — every one of them counts."; }
+    else if(words < 25){ count.textContent = words + " words — keep going, no need to be tidy."; }
+    else { count.textContent = words + " words — that's real material. Maya can work with this."; }
+  });
+})();
+</script>
+
+</body>
+</html>

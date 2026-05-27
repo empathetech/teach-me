@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Branches &amp; commits (Step 4) — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-branches-and-commits.html">Module 6 · Build</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Branches &amp; commits</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 6 · Lesson 1 · 🔨 the build</p>
+  <h1>Branches &amp; commits (Step 4)</h1>
+  <p>Step 4 is where your design becomes a working app. The team builds it one small, reviewable
+  change at a time — and a few simple habits keep your work safe while you do. Let's learn the
+  three words you'll see most: branch, commit, and merge.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: version-control literacy</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>In Step 4 — <strong>Build</strong> — the team picks one task at a time from your backlog (a
+  to-do list of work to build), writes the code, checks it against your design, and only then calls
+  it done. The skill describes the loop as: pick a task, make a branch, implement, verify, commit,
+  open a pull request, then merge. Three of those words are worth learning slowly.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#branch">Branch — a safe parallel copy</a></li>
+      <li><a href="#commit">Commit — a saved checkpoint</a></li>
+      <li><a href="#merge">Merge — folding the work back in</a></li>
+      <li><a href="#why">Why this protects you</a></li>
+      <li><a href="#try">Try it: write a commit message</a></li>
+      <li><a href="#terminal">Try it in your terminal</a></li>
+      <li><a href="#grow">Growing your git literacy</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="branch">Branch — a safe parallel copy</h2>
+
+  <p>A <strong>branch</strong> is a separate copy of your project where you can make changes without
+  touching the main, working version. If the change goes wrong, your main copy is untouched — you
+  just throw the branch away. When the change is good, you fold it back in.</p>
+
+  <p>Branches are named for the task. The skill suggests names like <code>feat/user-signup</code>
+  (a new feature) or <code>fix/login-error</code> (a bug fix). The prefix tells you at a glance what
+  kind of change it is.</p>
+
+  <aside class="callout callout--note">
+    <strong>The main branch stays working</strong>
+    The idea is that your <code>main</code> branch always holds a version that works. All the messy,
+    in-progress work happens on a separate branch first.
+  </aside>
+
+  <h2 id="commit">Commit — a saved checkpoint</h2>
+
+  <p>A <strong>commit</strong> is a saved checkpoint of your work, with a short message describing
+  what changed. Each commit is a point you can return to. Together, your commits form a clear,
+  dated history of how the project came to be.</p>
+
+  <p>The message matters more than beginners expect. A good message tells future-you (and any
+  reviewer) <em>what changed and why</em>, in plain present tense.</p>
+
+  <figure class="code-block" data-lang="text">
+    <header class="code-block__header"><span class="code-block__lang">commit messages</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>✅ Add email confirmation after a booking is made
+🚫 stuff
+🚫 fix</code></pre>
+  </figure>
+
+  <h2 id="merge">Merge — folding the work back in</h2>
+
+  <p>To <strong>merge</strong> is to fold a finished branch back into your main copy, so the change
+  becomes part of the real app. Before merging, the skill has you open a <strong>pull request</strong>
+  (often shortened to <em>PR</em>) — a request to review and accept the change. Even working solo, a
+  PR gives you a moment to look at everything together before it's final.</p>
+
+  <p>The last word: a <strong>tag</strong>. When a milestone is complete, you mark that exact version
+  with a label like <code>v0.1.0</code>. A tag is a permanent bookmark on a release. We'll come back
+  to tags and the changelog later in this module.</p>
+
+  <hr class="divider">
+
+  <h2 id="why">Why this protects you</h2>
+
+  <p>These habits aren't bureaucracy — they're a safety net for someone who can't read every line of
+  code at expert speed:</p>
+
+  <ul>
+    <li><strong>A branch</strong> means a bad change can't break your working app — you can always
+    discard it.</li>
+    <li><strong>Commits</strong> mean you can step back to any earlier checkpoint if something goes
+    wrong.</li>
+    <li><strong>A pull request</strong> gives you one clear place to review what the AI built before
+    it becomes permanent.</li>
+  </ul>
+
+  <p class="pullquote">You don't have to trust the AI blindly. The branch-and-PR habit gives you a
+  spot to look before you leap.</p>
+
+  <h2 id="try">Try it: write a commit message</h2>
+
+  <p>Type a commit message for an imaginary change — say, adding a "forgot password" link to the
+  login screen. The widget will tell you whether it reads like a strong message.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🔨 Interactive · commit-message check</div>
+    <label for="commitInput" style="display:block; font-size:var(--size-sm); color:var(--color-text-muted); margin-bottom:6px;">Your commit message:</label>
+    <input id="commitInput" type="text" placeholder="e.g. Add forgot-password link to login screen"
+      style="width:100%; padding:10px 12px; border:1px solid var(--color-border-strong); border-radius:var(--radius-md); font-family:var(--font-mono); font-size:.9rem;">
+    <button type="button" class="btn btn--primary" id="commitCheck" style="margin-top:var(--space-3);">Check my message</button>
+    <p id="commitFeedback" role="status" style="margin:var(--space-4) 0 0; min-height:2.5em;"></p>
+  </div>
+
+  <h2 id="terminal">Try it in your terminal</h2>
+
+  <p>You don't type the git commands yourself — the team does. You start the build with one command:</p>
+
+  <figure class="code-block" data-lang="terminal">
+    <header class="code-block__header"><span class="code-block__lang">your terminal</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours step 4</code></pre>
+  </figure>
+
+  <p>The team reads your backlog, picks a task, and walks the branch-implement-verify-commit-PR loop
+  with you, explaining each step in plain language as it goes.</p>
+
+  <h2 id="grow">Growing your git literacy 🌱</h2>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Read GitHub's gentle overview,
+      <a href="https://docs.github.com/en/get-started/using-git/about-git">About Git</a> — it
+      explains branches and commits without assuming you're an engineer.</li>
+      <li>Ask your team mid-build: "Show me what's on this branch and explain it like I'm new." It
+      will, and you'll learn faster than from any tutorial.</li>
+      <li>Watch your own commit history grow on GitHub — it's the most honest record of your
+      progress you'll ever keep.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>A <strong>branch</strong> is a safe parallel copy; <code>feat/</code> and <code>fix/</code>
+      name what it's for.</li>
+      <li>A <strong>commit</strong> is a saved checkpoint with a clear, present-tense message.</li>
+      <li>A <strong>merge</strong> folds a finished branch back into your working app — after a
+      <strong>pull request</strong> review.</li>
+      <li>A <strong>tag</strong> permanently marks a released version.</li>
+      <li>These habits let you review and undo — your safety net while building.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>About Git</strong> · GitHub Docs ·
+      <a href="https://docs.github.com/en/get-started/using-git/about-git">docs.github.com</a></li>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · the task cycle and branch-naming
+      examples quoted from <code>SKILL.md</code> and <code>steps/04-build.md</code>.</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="../module-05-roadmap/lesson-02-cutting-scope.html">◂ Module 5 · Cutting scope</a>
+  <a class="btn btn--primary" href="lesson-02-the-pre-merge-checklist.html">Lesson 2 · The pre-merge checklist ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var input = document.getElementById('commitInput');
+  var fb = document.getElementById('commitFeedback');
+  var weakWords = ["stuff","things","fix","fixes","update","updates","wip","misc","changes","stuff done","asdf","test"];
+  document.getElementById('commitCheck').addEventListener('click', function(){
+    var msg = input.value.trim();
+    var lower = msg.toLowerCase();
+    if(!msg){
+      fb.style.color = "var(--color-warning)";
+      fb.textContent = "Type a message first, then check it.";
+      return;
+    }
+    var isVague = weakWords.indexOf(lower) !== -1;
+    var tooShort = msg.split(/\s+/).length < 3;
+    var firstWord = msg.split(/\s+/)[0].toLowerCase();
+    var goodVerbs = ["add","fix","remove","update","change","rename","move","create","handle","show","hide","validate","prevent","support","improve","refactor"];
+    var startsWithVerb = goodVerbs.indexOf(firstWord) !== -1;
+
+    if(isVague || tooShort){
+      fb.style.color = "var(--color-warning)";
+      fb.innerHTML = "⚠️ That's a weak message — it doesn't say <em>what</em> changed. Try naming the actual change in present tense, like “Add forgot-password link to login screen.”";
+    } else if(startsWithVerb){
+      fb.style.color = "var(--color-success)";
+      fb.innerHTML = "✅ Strong message — it starts with an action verb and describes what changed. Future-you will thank present-you.";
+    } else {
+      fb.style.color = "var(--color-primary)";
+      fb.innerHTML = "Decent. To make it even clearer, try starting with a present-tense verb (Add, Fix, Remove…) so it reads as “this change does ___.”";
+    }
+  });
+  input.addEventListener('keydown', function(e){ if(e.key === "Enter"){ document.getElementById('commitCheck').click(); } });
+})();
+</script>
+
+</body>
+</html>

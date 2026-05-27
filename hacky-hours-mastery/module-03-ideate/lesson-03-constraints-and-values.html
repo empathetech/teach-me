@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constraints &amp; values — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-getting-it-out.html">Module 3 · Ideate</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Constraints &amp; values</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 3 · Lesson 3 · 📊 the ideate step</p>
+  <h1>Constraints &amp; values</h1>
+  <p>The five Ws describe what you're building. The last part of Step 1 asks something different:
+  what you're <em>willing</em> to do to build it. Three quiet questions — about licensing, privacy,
+  and infrastructure — that shape everything downstream.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: judgment</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <aside class="callout callout--responsibility">
+    <strong>Read this first</strong>
+    This lesson talks about collecting people's data. Hacky Hours can point you toward safer
+    defaults, but it cannot decide for you, and neither can this lesson. <strong>What data you
+    collect is your call, and the responsibility for it stays with you.</strong> The honest rule of
+    thumb: collecting less is almost always safer.
+  </aside>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#why">Why Step 1 asks these now</a></li>
+      <li><a href="#three">The three questions</a></li>
+      <li><a href="#values">How they connect to the framework's values</a></li>
+      <li><a href="#try">Try it: the constraints checklist</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="why">Why Step 1 asks these now</h2>
+
+  <p>After you finish the five Ws, the skill instructs 📊 Maya Tanaka to "always ask the Constraints
+  &amp; Values questions before moving to Step 2." This isn't paperwork. These answers feed directly
+  into later files — a <code>LICENSING.md</code> and an <code>ARCHITECTURE.md</code> in the Design
+  step.</p>
+
+  <p>The reason they come up <em>now</em> is that they're cheap to decide on paper and expensive to
+  unwind once built. Choosing to collect someone's phone number is a sentence today; removing it
+  after launch can mean migrations, notifications, and apologies.</p>
+
+  <hr class="divider">
+
+  <h2 id="three">The three questions</h2>
+
+  <p>Here's what Maya actually asks, with the spirit behind each:</p>
+
+  <h3>1. Licensing</h3>
+  <p>"Do you want your code to be open source — meaning others can see, use, and build on it — or do
+  you want to keep it private? Are you planning to charge money for it?" There's no wrong answer; the
+  point is to decide on purpose. <strong>Open source</strong> means your code is publicly readable
+  and reusable under a license you choose.</p>
+
+  <h3>2. Privacy</h3>
+  <p>"How much user data does this product really need to collect? Less is almost always safer,
+  cheaper, and easier to comply with legally." Notice the framing: not "what could you collect" but
+  "what does it <em>really need</em>." Those are very different questions.</p>
+
+  <h3>3. Infrastructure</h3>
+  <p>"Do you want someone else to manage the servers, or are you comfortable managing your own?"
+  <strong>Infrastructure</strong> is the machinery your app runs on — servers, databases, hosting.
+  Letting someone else run it (a managed service) is usually simpler and safer for a first project.</p>
+
+  <h2 id="values">How they connect to the framework's values</h2>
+
+  <p>These three questions aren't random — each maps to one of Hacky Hours' guiding values, quoted
+  here directly:</p>
+
+  <aside class="callout callout--quote">
+    <strong>From the Hacky Hours values</strong>
+    "Free before paid." · "Privacy-preserving before data-rich. Collect the minimum data needed." ·
+    "Less infrastructure before more. Prefer a simple hosted solution over a self-managed one."
+  </aside>
+
+  <p>For NeighborBoard, those values point somewhere concrete. Open source, because a neighborhood
+  tool benefits from being shareable. Collect almost nothing — maybe just an event title, date, and
+  a poster's first name, no accounts at first. And lean on a simple managed host rather than running
+  a server yourself. Each choice is the lighter, safer one.</p>
+
+  <p class="pullquote">"The data you don't collect is the data you can never leak, lose, or be asked to hand over."</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>Your call, your responsibility</strong>
+    Deciding what personal data to collect is genuinely yours to make — not Maya's, not the
+    framework's. If you do collect personal information, you take on real duties: protecting it,
+    being honest about it, and in many places following privacy laws. None of that is a reason to be
+    afraid of building. It's a reason to collect only what you truly need, so the responsibility you
+    carry stays small.
+  </aside>
+
+  <h2 id="try">Try it: the constraints checklist</h2>
+
+  <p>Tick the choices you're leaning toward for your own idea. One of them — collecting personal
+  data — reveals a plain note about what comes with it. Nothing is saved; this is just to make the
+  trade-offs visible.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">📊 Interactive · constraints checklist (nothing is saved)</div>
+    <div style="display:grid; gap:var(--space-3);">
+      <label><input type="checkbox" id="c-oss"> I want my code to be open source</label>
+      <label><input type="checkbox" id="c-charge"> I plan to charge money for it</label>
+      <label><input type="checkbox" id="c-data"> I'll collect personal data (names, emails, locations…)</label>
+      <label><input type="checkbox" id="c-self"> I'll manage my own servers</label>
+    </div>
+    <p id="c-feedback" role="status" style="margin:var(--space-4) 0 0; min-height:1.5em; font-size:var(--size-base);">Tick what you're leaning toward — notes will appear here.</p>
+  </div>
+
+  <p>When you're ready, the real questions come up at the end of Step 1, right after your five Ws:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">your terminal</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours step 1</code></pre>
+  </figure>
+
+  <p>Answer honestly, even if the answer is "I'm not sure yet." Maya can work with uncertainty —
+  what she can't work with is a decision you made by accident.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Grow your judgment 🌱</strong>
+    Privacy thinking is a craft of its own. A great free starting point is the data-minimization
+    principle — collect only what you need, keep it only as long as you need it. The
+    <a href="https://gdpr.eu/data-minimization/">GDPR explainer on data minimization</a> lays it out
+    in plain language, and the instinct it builds protects every user you'll ever have.
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Step 1 ends with three Constraints &amp; Values questions: licensing, privacy, infrastructure.</li>
+      <li>They map to the framework's values: free before paid, privacy-preserving, less infrastructure.</li>
+      <li>What data you collect is your call — and your responsibility; collecting less is usually safer.</li>
+      <li>These answers seed <code>LICENSING.md</code> and <code>ARCHITECTURE.md</code> in Step 2.</li>
+      <li>"I'm not sure yet" is fine; an accidental decision is not.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · the three Constraints &amp; Values
+      questions, the "always ask before moving to Step 2" instruction, the LICENSING.md/ARCHITECTURE.md
+      seeding, and the values quoted from <code>SKILL.md / steps/01-ideate.md</code>.</li>
+      <li><strong>Data minimisation</strong> · GDPR.eu ·
+      <a href="https://gdpr.eu/data-minimization/">gdpr.eu/data-minimization</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-02-product-overview-5ws.html">◂ Lesson 2 · The product overview &amp; the 5 Ws</a>
+  <a class="btn btn--primary" href="../module-04-design/lesson-01-what-design-means.html">Module 4 · L1 · What design means ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var fb = document.getElementById('c-feedback');
+  function render(){
+    var notes = [];
+    if(document.getElementById('c-data').checked){
+      notes.push("⚠️ Collecting personal data brings real responsibility: you must protect it, be honest about what you gather, and in many places follow privacy laws. That's not a reason to stop — it's a reason to collect only what you truly need. The framework's instinct: privacy-preserving before data-rich.");
+    }
+    if(document.getElementById('c-self').checked){
+      notes.push("Managing your own servers is more work and more risk than a managed host. The framework leans the other way: less infrastructure before more. Fine to choose it on purpose — just know it's the heavier path.");
+    }
+    if(document.getElementById('c-charge').checked){
+      notes.push("Charging money is a valid choice; the framework just nudges toward free before paid, and toward flagging costs honestly to your users.");
+    }
+    if(document.getElementById('c-oss').checked){
+      notes.push("Open source means others can read and build on your code under a license you pick — a great fit for community tools. Maya turns this into your LICENSING.md.");
+    }
+    if(notes.length === 0){
+      fb.style.color = "var(--color-text-muted)";
+      fb.textContent = "Tick what you're leaning toward — notes will appear here.";
+    } else {
+      fb.style.color = "var(--color-text)";
+      fb.innerHTML = notes.join("<br><br>");
+    }
+  }
+  ["c-oss","c-charge","c-data","c-self"].forEach(function(id){
+    document.getElementById(id).addEventListener('change', render);
+  });
+})();
+</script>
+
+</body>
+</html>

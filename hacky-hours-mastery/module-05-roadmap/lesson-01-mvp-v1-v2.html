@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MVP vs. V1 vs. V2+ (Step 3) — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-mvp-v1-v2.html">Module 5 · Roadmap</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">MVP vs. V1 vs. V2+</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 5 · Lesson 1 · 🗺️ the roadmap</p>
+  <h1>MVP vs. V1 vs. V2+ (Step 3)</h1>
+  <p>You've designed something you're excited about. Now comes the moment that protects every
+  excited builder from burning out: deciding what to build <em>first</em>, and being honest that
+  the first version is supposed to be small. Let's make peace with that.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: planning judgment</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>In Step 2 you and the team wrote down what your app should do. That list is almost always
+  bigger than what you can — or should — build right away. Step 3, the <strong>Roadmap</strong>, is
+  where you take every feature from your design documents and decide <em>when</em> each one gets
+  built.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#mvp">What "MVP" actually means</a></li>
+      <li><a href="#three">The three buckets: MVP, V1, V2+</a></li>
+      <li><a href="#semver">Version numbers, in plain language</a></li>
+      <li><a href="#try">Try it: sort the features</a></li>
+      <li><a href="#terminal">Try it in your terminal</a></li>
+      <li><a href="#grow">Growing your planning judgment</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="mvp">What "MVP" actually means</h2>
+
+  <p><strong>MVP</strong> stands for <em>minimum viable product</em>. In plain terms: the smallest
+  version of your app that proves the core idea is worth building at all. It is supposed to be
+  incomplete. That's not a compromise — it's the point.</p>
+
+  <p>The Hacky Hours skill describes the MVP this way:</p>
+
+  <aside class="callout callout--quote">
+    <strong>From Step 3 — Roadmap</strong>
+    "MVP — the smallest version that proves the core value proposition. Push back hard. 'Can the
+    product prove its value without this?' If yes, it's not MVP."
+  </aside>
+
+  <p>A useful test for every feature: imagine your app without it. If the core idea still works and
+  someone could still get value, then that feature is not MVP. It has a home later — just not now.</p>
+
+  <hr class="divider">
+
+  <h2 id="three">The three buckets: MVP, V1, V2+</h2>
+
+  <p>During Step 3, the team — led by <strong>the Product agent</strong>, with the Architect
+  weighing in on sequencing — walks through every feature and drops each into one of three
+  buckets:</p>
+
+  <ul>
+    <li><strong>MVP</strong> — the bare core that proves the idea. Deliberately small.</li>
+    <li><strong>V1</strong> — the MVP <em>plus</em> what it needs to be genuinely useful to real
+    people, not just a proof.</li>
+    <li><strong>V2+</strong> — genuinely valuable ideas that are not required yet. The dream isn't
+    cut; it's parked.</li>
+  </ul>
+
+  <p>One detail worth noticing: the skill asks you to write milestones as <em>outcomes</em>, not
+  tasks. "Users can complete a purchase" is an outcome. "Implement checkout UI" is a task. Outcomes
+  keep you focused on what a person can actually do.</p>
+
+  <aside class="callout callout--note">
+    <strong>Every feature gets a home</strong>
+    Sorting into V2+ is not the same as deleting. The roadmap is finished when "every planned
+    feature has a home" — MVP, V1, or V2+. You are sequencing, not abandoning.
+  </aside>
+
+  <h2 id="semver">Version numbers, in plain language</h2>
+
+  <p>Software is labeled with version numbers like <code>0.1.0</code> or <code>2.3.1</code>. This
+  follows a shared convention called <strong>semantic versioning</strong>, written as
+  <code>MAJOR.MINOR.PATCH</code>. You don't need the full rules to start — two anchors matter for
+  your roadmap:</p>
+
+  <ul>
+    <li>Your <strong>MVP ships as <code>0.1.0</code></strong>. The leading zero is a quiet, honest
+    signal: "this is early, and things may still change."</li>
+    <li>Your <strong>V1 ships as <code>1.0.0</code></strong>. Reaching <code>1.0.0</code> says "this
+    is the real thing now."</li>
+  </ul>
+
+  <p class="pullquote">An MVP at 0.1.0 isn't a lesser version of your app. It's the first honest
+  step toward it.</p>
+
+  <h2 id="try">Try it: sort the features</h2>
+
+  <p>Here's a sample app: a small site where local dog walkers list their availability and owners
+  book a walk. Click each feature into the bucket where you think it belongs. There's no single
+  perfect answer — but the widget will gently warn you if your MVP starts getting crowded.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🗺️ Interactive · sort each feature into a bucket</div>
+    <p style="font-size:var(--size-base); color:var(--color-text-muted); margin-top:0;">Click a feature, then click MVP, V1, or V2+. Aim to keep the MVP lean.</p>
+
+    <div id="featurePool" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:var(--space-4);"></div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px;">
+      <div class="bucket" data-bucket="MVP" style="border:1px dashed var(--color-border-strong); border-radius:var(--radius-md); padding:8px; min-height:90px;">
+        <strong style="font-family:var(--font-heading); font-size:.85rem;">MVP · 0.1.0</strong>
+        <div class="bucket-items"></div>
+      </div>
+      <div class="bucket" data-bucket="V1" style="border:1px dashed var(--color-border-strong); border-radius:var(--radius-md); padding:8px; min-height:90px;">
+        <strong style="font-family:var(--font-heading); font-size:.85rem;">V1 · 1.0.0</strong>
+        <div class="bucket-items"></div>
+      </div>
+      <div class="bucket" data-bucket="V2" style="border:1px dashed var(--color-border-strong); border-radius:var(--radius-md); padding:8px; min-height:90px;">
+        <strong style="font-family:var(--font-heading); font-size:.85rem;">V2+ · later</strong>
+        <div class="bucket-items"></div>
+      </div>
+    </div>
+    <p id="sortFeedback" role="status" style="margin:var(--space-4) 0 0; min-height:1.5em;"></p>
+  </div>
+
+  <h2 id="terminal">Try it in your terminal</h2>
+
+  <p>When your design docs are written and you're ready to sequence, this is the one command that
+  starts Step 3:</p>
+
+  <figure class="code-block" data-lang="terminal">
+    <header class="code-block__header"><span class="code-block__lang">your terminal</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours step 3</code></pre>
+  </figure>
+
+  <p>The Product agent will read your Step 2 documents, list every feature it finds, and walk you
+  through sorting them — pushing back when the MVP starts looking too big. You stay in charge of the
+  final call.</p>
+
+  <h2 id="grow">Growing your planning judgment 🌱</h2>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Read the official spec for version numbers at
+      <a href="https://semver.org/">semver.org</a> — short, plain, and worth ten minutes.</li>
+      <li>Look at a real project's release history on GitHub and notice how versions climb from
+      <code>0.x</code> toward <code>1.0.0</code> and beyond.</li>
+      <li>Run <code>/hacky-hours step 3</code> on your own idea and watch which features the Product
+      agent challenges.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>The MVP is the smallest version that proves your core idea — it's meant to be incomplete.</li>
+      <li>Step 3 sorts every feature into MVP, V1, or V2+ — no feature is deleted, just sequenced.</li>
+      <li>Milestones are written as outcomes ("users can book a walk"), not tasks.</li>
+      <li>Your MVP ships as <code>0.1.0</code>; your V1 ships as <code>1.0.0</code>.</li>
+      <li>If everything feels like MVP, that's the signal to cut — which is exactly the next lesson.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Semantic Versioning 2.0.0</strong> ·
+      <a href="https://semver.org/">semver.org</a></li>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · MVP / V1 / V2+ definitions and the
+      "push back hard" guidance quoted from <code>SKILL.md</code> and <code>steps/03-roadmap.md</code>.</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="../module-04-design/lesson-05-data-and-the-erd.html">◂ Module 4 · Data &amp; the ERD</a>
+  <a class="btn btn--primary" href="lesson-02-cutting-scope.html">Lesson 2 · Cutting scope ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var features = [
+    {id:"f1", label:"Owners can book a walk", ideal:"MVP"},
+    {id:"f2", label:"Walkers list availability", ideal:"MVP"},
+    {id:"f3", label:"Email confirmation of a booking", ideal:"V1"},
+    {id:"f4", label:"Star ratings & reviews", ideal:"V1"},
+    {id:"f5", label:"In-app chat between owner & walker", ideal:"V2"},
+    {id:"f6", label:"Loyalty points & referral rewards", ideal:"V2"}
+  ];
+  var pool = document.getElementById('featurePool');
+  var fb = document.getElementById('sortFeedback');
+  var selected = null;
+
+  function chip(f){
+    var b = document.createElement('button');
+    b.type = "button";
+    b.className = "tag";
+    b.style.cursor = "pointer";
+    b.textContent = f.label;
+    b.dataset.id = f.id;
+    b.dataset.ideal = f.ideal;
+    b.addEventListener('click', function(){
+      if(selected){ selected.style.outline = ""; }
+      selected = b;
+      b.style.outline = "3px solid var(--color-accent)";
+      fb.style.color = "var(--color-text-muted)";
+      fb.textContent = "Now click MVP, V1, or V2+ to place “" + f.label + "”.";
+    });
+    return b;
+  }
+  features.forEach(function(f){ pool.appendChild(chip(f)); });
+
+  function countMVP(){
+    return document.querySelector('.bucket[data-bucket="MVP"] .bucket-items').children.length;
+  }
+  document.querySelectorAll('.bucket').forEach(function(bk){
+    bk.addEventListener('click', function(){
+      if(!selected){
+        fb.style.color = "var(--color-warning)";
+        fb.textContent = "Pick a feature first, then a bucket.";
+        return;
+      }
+      var target = bk.querySelector('.bucket-items');
+      var bucket = bk.dataset.bucket;
+      var ideal = selected.dataset.ideal;
+      var label = selected.textContent;
+      selected.style.outline = "";
+      target.appendChild(selected);
+      selected.style.display = "block";
+      selected.style.margin = "4px 0";
+      selected = null;
+      if(bucket === "MVP" && countMVP() > 3){
+        fb.style.color = "var(--color-warning)";
+        fb.innerHTML = "⚠️ Your MVP has more than three features now. Ask yourself for each: <em>can the idea prove its value without it?</em> If yes, it probably belongs in V1 or V2+.";
+      } else if(bucket === ideal){
+        fb.style.color = "var(--color-success)";
+        fb.innerHTML = "✅ Nice — “" + label + "” sits comfortably in " + (bucket==="V2"?"V2+":bucket) + ".";
+      } else {
+        fb.style.color = "var(--color-primary)";
+        fb.innerHTML = "Reasonable call. Many builders would park “" + label + "” in " + (ideal==="V2"?"V2+":ideal) + " instead — but there's no single right answer. What matters is keeping the MVP lean.";
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

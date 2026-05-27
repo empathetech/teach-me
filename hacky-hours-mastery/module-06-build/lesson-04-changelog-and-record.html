@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog &amp; keeping a record — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-branches-and-commits.html">Module 6 · Build</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Changelog &amp; keeping a record</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 6 · Lesson 4 · 🔨 the build</p>
+  <h1>Changelog &amp; keeping a record</h1>
+  <p>When a milestone is done, Step 4 has you write down what changed and cut a tagged release. It's
+  a small habit with a big payoff — even when you're the only person on the team. Let's see why a
+  record matters, and how to write a clean changelog entry.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">7 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: project memory</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>You've sorted your roadmap, built on branches, run the pre-merge checklist, and reviewed the
+  code. When all the tasks for a milestone are merged, one piece of housekeeping remains. The Step 4
+  loop ends with: "Merge, update <code>CHANGELOG.md</code>, tag a release when a milestone is
+  complete." This lesson is about that last step.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#what">What a changelog is</a></li>
+      <li><a href="#why">Why a record matters — even solo</a></li>
+      <li><a href="#types">Added, Fixed, Changed</a></li>
+      <li><a href="#try">Try it: write a changelog entry</a></li>
+      <li><a href="#terminal">Try it in your terminal</a></li>
+      <li><a href="#grow">Growing your project memory</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="what">What a changelog is</h2>
+
+  <p>A <strong>changelog</strong> is a plain file — <code>CHANGELOG.md</code> — that lists, in human
+  language, what changed in each version of your app. Not the code; the <em>story</em> of the code,
+  written for people. Each release gets a heading with its version number and a short list of what's
+  new, fixed, or different.</p>
+
+  <p>The skill ties this to milestones: you append a milestone entry to the changelog when your
+  backlog is empty, then tag the release. Recall a <strong>tag</strong> is a permanent label on a
+  released version — like <code>v0.1.0</code> for your MVP.</p>
+
+  <h2 id="why">Why a record matters — even solo</h2>
+
+  <p>It's tempting to skip this when no one else is watching. Don't. A record pays you back later:</p>
+
+  <ul>
+    <li><strong>You forget.</strong> In three months, "why did I change that?" has a written answer.</li>
+    <li><strong>Bugs need history.</strong> When something breaks, the changelog tells you what
+    changed and roughly when — your first clue.</li>
+    <li><strong>It's a paper trail.</strong> Your commits and pull requests already record every
+    change; the changelog turns that raw history into a readable summary anyone (including
+    future-you) can follow.</li>
+  </ul>
+
+  <aside class="callout callout--note">
+    <strong>A "paper trail" in plain terms</strong>
+    Every commit and pull request you make is automatically dated and saved. Together they're an
+    honest, time-stamped record of how your app came to be — proof of what changed, when, and why.
+    The changelog is the friendly cover summary on top of that record.
+  </aside>
+
+  <p class="pullquote">Solo doesn't mean no record. Future-you is the teammate you're writing it
+  for.</p>
+
+  <hr class="divider">
+
+  <h2 id="types">Added, Fixed, Changed</h2>
+
+  <p>A widely-used convention (called <em>Keep a Changelog</em>) groups entries by type. The three
+  you'll reach for most:</p>
+
+  <ul>
+    <li><strong>Added</strong> — a new feature or capability.</li>
+    <li><strong>Fixed</strong> — a bug that's now repaired.</li>
+    <li><strong>Changed</strong> — existing behavior that now works differently.</li>
+  </ul>
+
+  <p>Each line is short, present-tense, and written for a person, not a machine — the same instinct
+  as a good commit message.</p>
+
+  <h2 id="try">Try it: write a changelog entry</h2>
+
+  <p>Pick a type, write one line describing the change, and see how it would look formatted in your
+  <code>CHANGELOG.md</code>.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🔨 Interactive · changelog-entry writer</div>
+    <label style="display:block; font-size:var(--size-sm); color:var(--color-text-muted); margin-bottom:6px;">Type of change:</label>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:var(--space-3);">
+      <button type="button" class="btn btn--ghost typeBtn" data-type="Added">Added</button>
+      <button type="button" class="btn btn--ghost typeBtn" data-type="Fixed">Fixed</button>
+      <button type="button" class="btn btn--ghost typeBtn" data-type="Changed">Changed</button>
+    </div>
+    <label for="clLine" style="display:block; font-size:var(--size-sm); color:var(--color-text-muted); margin-bottom:6px;">Describe the change:</label>
+    <input id="clLine" type="text" placeholder="e.g. Owners can now book a walk and pay in the app"
+      style="width:100%; padding:10px 12px; border:1px solid var(--color-border-strong); border-radius:var(--radius-md); font-family:var(--font-body); font-size:.95rem;">
+    <button type="button" class="btn btn--primary" id="clPreview" style="margin-top:var(--space-3);">Preview entry</button>
+    <div id="clOut" role="status" style="margin-top:var(--space-4);"></div>
+  </div>
+
+  <h2 id="terminal">Try it in your terminal</h2>
+
+  <p>You don't hand-write the file format — the team does the housekeeping when your milestone
+  finishes. You stay in Step 4 the whole time:</p>
+
+  <figure class="code-block" data-lang="terminal">
+    <header class="code-block__header"><span class="code-block__lang">your terminal</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours step 4</code></pre>
+  </figure>
+
+  <p>When the backlog is empty, the team appends the milestone entry to <code>CHANGELOG.md</code> and
+  cuts a tagged release — your MVP ships as <code>v0.1.0</code>, your V1 as <code>v1.0.0</code>. You
+  review the summary before it's final.</p>
+
+  <h2 id="grow">Growing your project memory 🌱</h2>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Read <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a> — the short, plain
+      convention behind Added / Fixed / Changed.</li>
+      <li>Revisit <a href="https://semver.org/">semver.org</a> to connect each changelog version to
+      its version number.</li>
+      <li>Browse a project you admire on GitHub and read its changelog top to bottom — it's the story
+      of the whole app in a few screens.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li><code>CHANGELOG.md</code> is the human-readable story of what changed in each version.</li>
+      <li>Step 4 updates it on milestone completion, then cuts a tagged release.</li>
+      <li>A record matters even solo: you forget, bugs need history, and commits/PRs are your paper
+      trail.</li>
+      <li>Entries are grouped Added / Fixed / Changed, each a short present-tense line.</li>
+      <li>That's the build loop complete — next, your app meets the real world.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Keep a Changelog 1.1.0</strong> ·
+      <a href="https://keepachangelog.com/en/1.1.0/">keepachangelog.com</a></li>
+      <li><strong>Semantic Versioning 2.0.0</strong> ·
+      <a href="https://semver.org/">semver.org</a></li>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · "update CHANGELOG.md, tag a release"
+      and milestone housekeeping from <code>SKILL.md</code> and <code>steps/04-build.md</code>.</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-03-reading-what-the-ai-wrote.html">◂ Lesson 3 · Reading what the AI wrote</a>
+  <a class="btn btn--primary" href="../module-07-ship-and-iterate/lesson-01-deployment-and-the-cloud.html">Module 7 · Deployment &amp; the cloud ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var chosen = null;
+  document.querySelectorAll('.typeBtn').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.typeBtn').forEach(function(x){
+        x.className = "btn btn--ghost typeBtn";
+      });
+      b.className = "btn btn--primary typeBtn";
+      chosen = b.dataset.type;
+    });
+  });
+  document.getElementById('clPreview').addEventListener('click', function(){
+    var out = document.getElementById('clOut');
+    var line = document.getElementById('clLine').value.trim();
+    if(!chosen){
+      out.innerHTML = "<p style='color:var(--color-warning); margin:0;'>Pick a type (Added, Fixed, or Changed) first.</p>";
+      return;
+    }
+    if(!line){
+      out.innerHTML = "<p style='color:var(--color-warning); margin:0;'>Write a short description of the change.</p>";
+      return;
+    }
+    out.innerHTML =
+      "<figure class='code-block' data-lang='markdown' style='margin:0;'>" +
+      "<header class='code-block__header'><span class='code-block__lang'>CHANGELOG.md</span></header>" +
+      "<pre><code>## [0.1.0] - 2026-05-26\n\n### " + chosen + "\n- " +
+      line.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') +
+      "</code></pre></figure>" +
+      "<p style='font-size:var(--size-sm); color:var(--color-text-muted); margin:8px 0 0;'>That's exactly the shape your team writes into the file on a milestone — grouped by type, dated, under the version's tag.</p>";
+  });
+})();
+</script>
+
+</body>
+</html>

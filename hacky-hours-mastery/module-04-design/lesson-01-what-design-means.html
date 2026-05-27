@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What "design" means here (Step 2) — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-what-design-means.html">Module 4 · Design</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">What "design" means here</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 4 · Lesson 1 · 📐 Step 2 overview</p>
+  <h1>What "design" means here (Step 2)</h1>
+  <p>Before anyone writes code, Hacky Hours pauses to answer one question: <em>how does this
+  product actually work?</em> Not how it looks — how it's built. This lesson walks you through
+  what Step 2 produces and which parts of it your particular project needs.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: design literacy</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>You've shaped the idea in Step 1. Step 2 — <strong>Design</strong> — is where that idea
+  becomes a plan detailed enough to build from. The skill describes its purpose in one plain
+  sentence: <em>"Define how the product works in enough detail to build it."</em></p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#what">What Step 2 produces</a></li>
+      <li><a href="#docs">The ten design documents, in plain language</a></li>
+      <li><a href="#mermaid">Diagrams and safety-first defaults</a></li>
+      <li><a href="#try">Try it: which docs does your project need?</a></li>
+      <li><a href="#done">When Step 2 is finished</a></li>
+      <li><a href="#grow">Learning more on your own</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="what">What Step 2 produces</h2>
+
+  <p>Step 2 fans out across several of the team's agents at once. Each writes a short
+  <strong>design document</strong> — a focused write-up of one part of how the product works.
+  Together they answer the questions a builder would otherwise have to guess at: what pieces
+  exist, what data is stored, who can do what, how it stays usable for everyone.</p>
+
+  <p>You don't need every document. The skill is clear about this — it
+  <a href="https://github.com/empathetech/hacky-hours-docs">starts by asking</a> which documents
+  your project actually needs, then only writes those. A small personal tool needs far less than
+  a public app with accounts.</p>
+
+  <hr class="divider">
+
+  <h2 id="docs">The ten design documents, in plain language</h2>
+
+  <p>Here are all ten documents Step 2 can produce, with what each is for. Jargon is explained the
+  first time it appears.</p>
+
+  <aside class="callout callout--note">
+    <strong>The Step 2 design documents</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li><strong>ARCHITECTURE</strong> — the big shape of the product: what pieces exist and how
+      they connect. Lesson 2.</li>
+      <li><strong>DATA_MODEL</strong> — what information the product stores and how those pieces
+      relate. Lesson 5.</li>
+      <li><strong>USER_JOURNEYS</strong> — the step-by-step paths people take through the product
+      to get something done.</li>
+      <li><strong>STYLE_GUIDE</strong> — the visual rules: colors, type, spacing, so the
+      interface stays consistent.</li>
+      <li><strong>ACCESSIBILITY</strong> — how the product stays usable for people with
+      disabilities. Lesson 4.</li>
+      <li><strong>MARKET_FIT</strong> — who the users are and why they'd choose this over
+      alternatives.</li>
+      <li><strong>BUSINESS_LOGIC</strong> — the rules and calculations specific to your product
+      (for example, how a price or a score is worked out).</li>
+      <li><strong>SECURITY_PRIVACY</strong> — what data you collect, who can reach what, and a
+      baseline of safety checks. Lesson 3.</li>
+      <li><strong>LICENSING</strong> — the legal terms for your code and the outside code it uses,
+      decided early before problems pile up.</li>
+      <li><strong>TESTING</strong> — how you'll check the product works, and what "done" means.</li>
+    </ul>
+  </aside>
+
+  <p>An <strong>interface</strong>, by the way, is simply the part of the product a person sees
+  and interacts with — buttons, screens, forms. We'll use that word a lot.</p>
+
+  <h2 id="mermaid">Diagrams and safety-first defaults</h2>
+
+  <p>Two things make these documents easier to live with than a wall of text.</p>
+
+  <p>First, the design agents <strong>generate Mermaid diagrams</strong> as they go. Mermaid is a
+  way of writing a diagram as plain text that <a href="https://mermaid.js.org/">GitHub renders</a>
+  into an actual picture — boxes, arrows, and labels — automatically. You get a readable diagram
+  without anyone hand-drawing one, and it stays in your project's text files.</p>
+
+  <p>Second, the agents apply <strong>safety-first defaults</strong>. Left to choose, they lean
+  toward the cautious option: free before paid, less data before more, fewer outside dependencies
+  before more. You can always override them — but the starting point is the safer one.</p>
+
+  <p class="pullquote">Design isn't decoration. It's the set of decisions that make the build
+  predictable instead of a surprise.</p>
+
+  <h2 id="try">Try it: which docs does your project need?</h2>
+
+  <p>Answer a few questions about something you might build. The relevant documents will light
+  up. This is the same conversation the skill opens Step 2 with.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">📐 Interactive · which design docs does my project need?</div>
+    <p style="font-size:var(--size-base); color:var(--color-text-muted); margin-top:0;">Tick what's true about your project.</p>
+    <div id="picker" style="display:grid; gap:8px;">
+      <label style="cursor:pointer;"><input type="checkbox" id="q-ui"> It has an interface people see and click</label>
+      <label style="cursor:pointer;"><input type="checkbox" id="q-data"> It stores or transforms information</label>
+      <label style="cursor:pointer;"><input type="checkbox" id="q-users"> It has accounts, logins, or payments</label>
+      <label style="cursor:pointer;"><input type="checkbox" id="q-multi"> It has several systems or services</label>
+      <label style="cursor:pointer;"><input type="checkbox" id="q-rules"> It has its own rules or calculations</label>
+    </div>
+    <p id="pickerOut" role="status" style="margin:var(--space-4) 0 0; min-height:1.5em; font-size:var(--size-base);"></p>
+  </div>
+
+  <p>Notice that some documents — LICENSING, TESTING, and usually SECURITY_PRIVACY — show up
+  almost no matter what. The skill flags those as "almost always," because nearly every real
+  project needs them.</p>
+
+  <aside class="callout callout--quote">
+    <strong>Try it in your terminal</strong>
+    When you're ready on a real idea, run <code>/hacky-hours step 2</code>. The design agents will
+    ask you this same set of questions, then write only the documents your project actually needs.
+  </aside>
+
+  <h2 id="done">When Step 2 is finished</h2>
+
+  <p>The skill gives a refreshingly human definition of done for the whole step:</p>
+
+  <aside class="callout callout--success">
+    <strong>Done when</strong>
+    "A new collaborator could understand how the product works." If a person who has never seen
+    your project could read the design documents and grasp how it's built, Step 2 has done its
+    job.
+  </aside>
+
+  <p>The next four lessons each sit with one design agent: the architecture agent (Lesson 2), the
+  security agent (Lesson 3), the accessibility agent (Lesson 4), and the data agent (Lesson 5).
+  By the end you'll know what each one is asking you and why.</p>
+
+  <h2 id="grow">Learning more on your own 🌱</h2>
+
+  <p>None of this is required to finish the course — but understanding the shape of good design
+  documents is how you grow from following a process into making the calls yourself.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Read Martin Fowler's <a href="https://martinfowler.com/bliki/MonolithFirst.html">Monolith First</a>
+      — a short, plain piece on why starting simple beats starting complicated. It sets up Lesson 2 well.</li>
+      <li>Skim the <a href="https://mermaid.js.org/">Mermaid documentation</a> to see how a few lines of
+      text turn into a diagram.</li>
+      <li>Run <code>/hacky-hours step 2 help</code> to see the live list of design documents.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Step 2 — Design — defines how the product works in enough detail to build it.</li>
+      <li>It produces up to ten focused design documents; your project only needs some of them.</li>
+      <li>The agents generate Mermaid diagrams and lean on safety-first defaults.</li>
+      <li>It's done when a new collaborator could understand how the product works.</li>
+      <li>Lessons 2–5 each cover one design agent: architecture, security, accessibility, data.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · Step 2 purpose, document list, Mermaid &amp;
+      safety-first defaults, and "done when" quoted from <code>SKILL.md</code> / <code>steps/02-design.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Mermaid</strong> · diagrams-as-text documentation · <a href="https://mermaid.js.org/">mermaid.js.org</a></li>
+      <li><strong>Monolith First</strong> · Martin Fowler · <a href="https://martinfowler.com/bliki/MonolithFirst.html">martinfowler.com</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="../module-03-ideate/lesson-03-constraints-and-values.html">◂ Module 3 · Constraints &amp; values</a>
+  <a class="btn btn--primary" href="lesson-02-architecture-agent.html">Lesson 2 · The architecture agent ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var out = document.getElementById('pickerOut');
+  function update(){
+    var ui = document.getElementById('q-ui').checked;
+    var data = document.getElementById('q-data').checked;
+    var users = document.getElementById('q-users').checked;
+    var multi = document.getElementById('q-multi').checked;
+    var rules = document.getElementById('q-rules').checked;
+    var docs = ["LICENSING", "TESTING"]; // almost always
+    if(ui){ docs.push("STYLE_GUIDE", "ACCESSIBILITY", "USER_JOURNEYS"); }
+    if(data){ docs.push("DATA_MODEL"); }
+    if(users){ docs.push("SECURITY_PRIVACY"); }
+    if(multi){ docs.push("ARCHITECTURE"); }
+    if(rules){ docs.push("BUSINESS_LOGIC"); }
+    // de-dupe, keep order
+    var seen = {}, list = [];
+    docs.forEach(function(d){ if(!seen[d]){ seen[d]=1; list.push(d); } });
+    out.style.color = "var(--color-primary)";
+    out.innerHTML = "Your project likely needs: <strong>" + list.join(" · ") +
+      "</strong> <span style='color:var(--color-text-muted)'>(LICENSING and TESTING show up almost always)</span>";
+  }
+  document.querySelectorAll('#picker input').forEach(function(c){ c.addEventListener('change', update); });
+  update();
+})();
+</script>
+
+</body>
+</html>

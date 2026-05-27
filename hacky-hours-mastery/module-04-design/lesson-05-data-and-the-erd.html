@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The data agent &amp; the ERD — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-what-design-means.html">Module 4 · Design</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">The data agent &amp; the ERD</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 4 · Lesson 5 · 📈 the data agent</p>
+  <h1>The data agent &amp; the ERD</h1>
+  <p>Almost every product remembers something — a user, an order, an event. This lesson introduces
+  the agent who decides what gets stored and how it connects, explains what a data model and an
+  ERD actually are, and is clear about whose responsibility the stored data is.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">9 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: data literacy</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <aside class="callout callout--responsibility">
+    <strong>Read this first — data about people is your responsibility</strong>
+    The data agent helps you store information sensibly and collect less of it. It does
+    <strong>not</strong> make you compliant with privacy laws, and neither does this lesson. The
+    moment your product stores information about real people, the responsibility for what you keep,
+    how you protect it, and what you're allowed to do with it is yours. This lesson helps you make
+    better decisions — not skip the ones that matter.
+  </aside>
+
+  <p>When your project stores or transforms information of any kind, Step 2 brings in
+  <strong>Yuki Nakamura — Data</strong> 📈. Yuki writes <code>DATA_MODEL.md</code>: a clear
+  description of what your product remembers and how the pieces relate.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#db">Databases, tables, and relationships</a></li>
+      <li><a href="#erd">What an ERD is</a></li>
+      <li><a href="#value">The value: privacy-preserving before data-rich</a></li>
+      <li><a href="#try">Try it: build a mini data model</a></li>
+      <li><a href="#grow">Learning more on your own</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="db">Databases, tables, and relationships</h2>
+
+  <p>A <strong>database</strong> is an organized place a product stores its information so it can
+  find it again later. Most databases are made of <strong>tables</strong> — think of each table
+  as a single spreadsheet for one kind of thing.</p>
+
+  <p>Each kind of thing your product remembers is an <strong>entity</strong>. A
+  <code>User</code> is an entity; an <code>Event</code> is an entity. Each entity becomes a table.
+  The columns of that table are its <strong>fields</strong> — the specific pieces of information
+  you keep, like a user's email or an event's date.</p>
+
+  <p>The interesting part is the <strong>relationships</strong>: how entities connect. One user
+  might create many events. One event might have many attendees. Mapping those connections is most
+  of what a data model is.</p>
+
+  <hr class="divider">
+
+  <h2 id="erd">What an ERD is</h2>
+
+  <p>An <strong>ERD</strong> — entity-relationship diagram — is a picture of your entities and the
+  relationships between them. Boxes are entities; lines between them show how they connect. It's
+  the fastest way to see the shape of your data at a glance.</p>
+
+  <p>Yuki generates the ERD as a Mermaid diagram — that plain-text diagram format GitHub renders
+  into a picture — so it lives in your project's files and updates as text. Here's a tiny one in
+  words: a <code>User</code> box, an <code>Event</code> box, and a line between them reading "one
+  user creates many events."</p>
+
+  <h2 id="value">The value: privacy-preserving before data-rich</h2>
+
+  <p>This is where Yuki's strongest instinct comes in, straight from the framework's values:</p>
+
+  <aside class="callout callout--quote">
+    <strong>From the Hacky Hours values</strong>
+    "Privacy-preserving before data-rich. Collect the minimum data needed. Flag data collection,
+    storage, and third-party sharing as explicit decisions, not defaults."
+  </aside>
+
+  <p>In plain terms: don't collect information just because you can. Every field you store about a
+  person is something you then have to protect, justify, and eventually delete. The safest data is
+  the data you never collected. Yuki will push you to ask, of each field, <em>do we actually need
+  this?</em></p>
+
+  <p class="pullquote">The minimum data that does the job is almost always the right amount.</p>
+
+  <h2 id="try">Try it: build a mini data model</h2>
+
+  <p>Add a couple of entities and a field or two, and watch a simple text ERD assemble — the same
+  kind of artifact Yuki produces, just in miniature.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">📈 Interactive · build a mini data model</div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:var(--space-3);">
+      <input id="entName" type="text" placeholder="Entity (e.g. User)" style="padding:8px 12px; border:1px solid var(--color-border-strong); border-radius:var(--radius-sm); font-family:var(--font-body); flex:1; min-width:140px;">
+      <input id="fieldName" type="text" placeholder="A field (e.g. email)" style="padding:8px 12px; border:1px solid var(--color-border-strong); border-radius:var(--radius-sm); font-family:var(--font-body); flex:1; min-width:140px;">
+      <button class="btn btn--primary" id="addEnt" type="button">Add entity</button>
+    </div>
+    <p style="font-size:var(--size-sm); color:var(--color-text-muted); margin:0 0 var(--space-3);">Try adding <code>User</code> with field <code>email</code>, then <code>Event</code> with field <code>date</code>.</p>
+    <pre id="erdOut" role="status" style="margin:0; padding:var(--space-4); background:#211a3a; color:#ece7f7; font-family:var(--font-mono); font-size:.85rem; line-height:1.6; border-radius:var(--radius-md); overflow-x:auto; min-height:3em;">Your text ERD will appear here.</pre>
+    <button class="btn btn--ghost" id="resetErd" type="button" style="margin-top:var(--space-3);">Reset</button>
+  </div>
+
+  <aside class="callout callout--note">
+    <strong>Notice the question that comes free</strong>
+    Every time you add a field, it's worth pausing on Yuki's question: <em>do we truly need this
+    one?</em> A real data model is as much about what you leave out as what you put in.
+  </aside>
+
+  <aside class="callout callout--quote">
+    <strong>Try it in your terminal</strong>
+    Run <code>/hacky-hours step 2</code> on a project that stores anything. Yuki will help you name
+    your entities, decide the minimum fields, and draw the real ERD.
+  </aside>
+
+  <h2 id="grow">Learning more on your own 🌱</h2>
+
+  <p>Understanding data is one of the most transferable skills you can build — it shows up in
+  spreadsheets, products, and almost every software job.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Read freeCodeCamp's <a href="https://www.freecodecamp.org/news/dbms-and-sql-basics/">DBMS
+      and SQL basics</a> — a friendly intro to databases and how you ask them questions.</li>
+      <li>On a real idea, list every field you'd want to store, then cross out the ones you don't
+      actually need yet. That's the privacy-preserving instinct in action.</li>
+      <li>Read how the agent thinks: <code>/hacky-hours team show yuki --prompt</code>.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Yuki Nakamura writes DATA_MODEL.md: what your product stores and how the pieces relate.</li>
+      <li>Databases hold tables; entities become tables, fields are columns, relationships connect them.</li>
+      <li>An ERD is a picture of entities and their relationships — Yuki draws it as a Mermaid diagram.</li>
+      <li>The value is "privacy-preserving before data-rich" — collect the minimum.</li>
+      <li>Whatever you store about real people is your responsibility, not the tool's.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>DBMS and SQL Basics</strong> · freeCodeCamp ·
+      <a href="https://www.freecodecamp.org/news/dbms-and-sql-basics/">freecodecamp.org/news/dbms-and-sql-basics</a></li>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · "privacy-preserving before data-rich" value, DATA_MODEL doc
+      trigger, and Mermaid ERDs quoted from <code>SKILL.md</code> / <code>steps/02-design.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Hacky Hours team</strong> · agent roster · <code>tools/team.html</code>.</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-04-accessibility-agent.html">◂ Lesson 4 · The accessibility agent</a>
+  <a class="btn btn--primary" href="../module-05-roadmap/lesson-01-mvp-v1-v2.html">Module 5 · MVP, v1, v2 ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var model = []; // [{name, fields:[]}]
+  var out = document.getElementById('erdOut');
+  function render(){
+    if(model.length === 0){ out.textContent = "Your text ERD will appear here."; return; }
+    var lines = ["erDiagram"];
+    model.forEach(function(e){
+      lines.push("  " + e.name + " {");
+      if(e.fields.length === 0){ lines.push("    (no fields yet)"); }
+      e.fields.forEach(function(f){ lines.push("    string " + f); });
+      lines.push("  }");
+    });
+    if(model.length >= 2){
+      lines.push("  " + model[0].name + " ||--o{ " + model[1].name +
+        " : \"one " + model[0].name.toLowerCase() + " has many " + model[1].name.toLowerCase() + "\"");
+    }
+    out.textContent = lines.join("\n");
+  }
+  document.getElementById('addEnt').addEventListener('click', function(){
+    var n = document.getElementById('entName').value.trim();
+    var f = document.getElementById('fieldName').value.trim();
+    if(!n){ out.textContent = "Type an entity name first (e.g. User)."; return; }
+    var existing = model.filter(function(e){ return e.name.toLowerCase() === n.toLowerCase(); })[0];
+    if(existing){ if(f) existing.fields.push(f); }
+    else { model.push({name:n, fields: f ? [f] : []}); }
+    document.getElementById('entName').value = "";
+    document.getElementById('fieldName').value = "";
+    render();
+  });
+  document.getElementById('resetErd').addEventListener('click', function(){ model = []; render(); });
+})();
+</script>
+
+</body>
+</html>

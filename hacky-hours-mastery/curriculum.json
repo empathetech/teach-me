@@ -1,0 +1,121 @@
+{
+  "version": "1.1",
+  "topic": "Becoming effective with the /hacky-hours skill (v4.0.1)",
+  "learner": {
+    "name": null,
+    "objective": "Use /hacky-hours confidently to build real, shippable software — and treat its stakeholder agents as people you learn from, so you grow steadily in security, accessibility, data, and deployment instead of relying on the AI without understanding it.",
+    "audience": "Not a professional software engineer; using Hacky Hours to build real software. May not yet know code best practices, security, accessibility, deployment, cloud, databases, or serverless. Comprehensive coverage, gentle/incremental pace.",
+    "learning_style": ["hands-on", "worked-examples", "concept-first", "reference"],
+    "comfort_level": "non-technical, can run terminal commands with guidance",
+    "device_target": "desktop",
+    "timeframe": "~6 weeks, ~30 min/day, casual pace",
+    "preferred_tone": "warm, encouraging, plain-spoken, honest — never makes you feel dumb, no metaphors",
+    "growth_thread": "Each of the 12 stakeholder agents is a doorway into a real software discipline. The recurring pattern is: meet the discipline -> see why it matters -> learn to work with the agent -> go deeper on your own. Goal is self-growth, not aimless prompting."
+  },
+  "builder": {
+    "name": "Empathetech",
+    "links": {
+      "website": "https://www.empathetech.org/",
+      "github": "https://github.com/empathetech"
+    }
+  },
+  "design": {
+    "aesthetic": "Empathetech brand — deep purple (#642d9b) + indigo (#302653) with vibrant accents (amber #ffac32, teal #2a9d8f, terracotta, pink). Poppins headings, Inter body, JetBrains Mono code. Warm, joyful, accessible. No metaphor theming.",
+    "theme_css": "assets/theme.css",
+    "entry": "dashboard.html",
+    "primary_device": "desktop",
+    "central_tool": "tools/team.html (The Team — interactive directory of the 12 agents, each a doorway into a discipline)",
+    "responsibility_principle": "Security/privacy/correctness are framed as direction, not guarantees. The .callout--responsibility component states plainly that the learner remains responsible to review, learn, and understand what they put at risk."
+  },
+  "portfolio": {
+    "hub_path": "../",
+    "hub_url": "https://empathetech.github.io/teach-me/",
+    "slug": "hacky-hours-mastery"
+  },
+  "modules": [
+    {
+      "id": "module-01", "title": "Getting started", "status": "not_started",
+      "lessons": [
+        {"id": "lesson-01", "title": "What Hacky Hours actually is", "status": "not_started"},
+        {"id": "lesson-02", "title": "Installing it & builder vs. engineer mode", "status": "not_started"},
+        {"id": "lesson-03", "title": "Step 0 — exploring safely", "status": "not_started"}
+      ]
+    },
+    {
+      "id": "module-02", "title": "Meet the team", "status": "not_started",
+      "lessons": [
+        {"id": "lesson-01", "title": "The twelve agents", "status": "not_started"},
+        {"id": "lesson-02", "title": "The eight values that guide everything", "status": "not_started"},
+        {"id": "lesson-03", "title": "Calibrating the team to you", "status": "not_started"},
+        {"id": "lesson-04", "title": "How the team talks (chat modes)", "status": "not_started"}
+      ]
+    },
+    {
+      "id": "module-03", "title": "Ideate — getting it out of your head", "status": "not_started",
+      "lessons": [
+        {"id": "lesson-01", "title": "Getting the idea out (Step 1)", "status": "not_started"},
+        {"id": "lesson-02", "title": "The product overview & the 5 Ws", "status": "not_started"},
+        {"id": "lesson-03", "title": "Constraints & values", "status": "not_started"}
+      ]
+    },
+    {
+      "id": "module-04", "title": "Design — how it actually works", "status": "not_started",
+      "lessons": [
+        {"id": "lesson-01", "title": "What 'design' means here (Step 2)", "status": "not_started"},
+        {"id": "lesson-02", "title": "The architecture agent", "status": "not_started"},
+        {"id": "lesson-03", "title": "Working with the security agent", "status": "not_started"},
+        {"id": "lesson-04", "title": "The accessibility agent", "status": "not_started"},
+        {"id": "lesson-05", "title": "The data agent & the ERD", "status": "not_started"}
+      ]
+    },
+    {
+      "id": "module-05", "title": "Roadmap — deciding what's actually first", "status": "not_started",
+      "lessons": [
+        {"id": "lesson-01", "title": "MVP vs. V1 vs. V2+ (Step 3)", "status": "not_started"},
+        {"id": "lesson-02", "title": "Cutting scope without losing the vision", "status": "not_started"}
+      ]
+    },
+    {
+      "id": "module-06", "title": "Build — one safe step at a time", "status": "not_started",
+      "lessons": [
+        {"id": "lesson-01", "title": "Branches & commits (Step 4)", "status": "not_started"},
+        {"id": "lesson-02", "title": "The pre-merge checklist", "status": "not_started"},
+        {"id": "lesson-03", "title": "Reading what the AI wrote", "status": "not_started"},
+        {"id": "lesson-04", "title": "Changelog & keeping a record", "status": "not_started"}
+      ]
+    },
+    {
+      "id": "module-07", "title": "Ship & iterate", "status": "not_started",
+      "lessons": [
+        {"id": "lesson-01", "title": "Deployment & the cloud", "status": "not_started"},
+        {"id": "lesson-02", "title": "The three-lane audit", "status": "not_started"},
+        {"id": "lesson-03", "title": "Cutting a release", "status": "not_started"},
+        {"id": "lesson-04", "title": "The iterate loop (Step 5)", "status": "not_started"}
+      ]
+    },
+    {
+      "id": "module-08", "title": "Working with the team well", "status": "not_started",
+      "lessons": [
+        {"id": "lesson-01", "title": "Adopting an existing project", "status": "not_started"},
+        {"id": "lesson-02", "title": "Arbitrate & chat modes when agents disagree", "status": "not_started"},
+        {"id": "lesson-03", "title": "Teaching your team & exporting your docs", "status": "not_started"}
+      ]
+    },
+    {
+      "id": "module-09", "title": "Build your own thing, end to end (Capstone)", "status": "not_started",
+      "lessons": [
+        {"id": "lesson-01", "title": "Your capstone build", "status": "not_started"}
+      ]
+    }
+  ],
+  "progress": {
+    "started_at": null,
+    "last_session": null,
+    "modules_completed": 0,
+    "modules_total": 9,
+    "current_module": "module-01",
+    "current_lesson": "lesson-01",
+    "streak_days": 0,
+    "total_sessions": 0
+  }
+}

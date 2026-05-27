@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The architecture agent — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-what-design-means.html">Module 4 · Design</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">The architecture agent</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 4 · Lesson 2 · 🏗️ the architecture agent</p>
+  <h1>The architecture agent</h1>
+  <p>The biggest, most expensive decisions in a build are the structural ones — what pieces exist
+  and how they fit together. This lesson introduces the agent who helps you make them, and the one
+  instinct that saves more first-time builders than any other: start simple.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: architecture literacy</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>When you run <code>/hacky-hours step 2</code> for a project with more than one moving part,
+  you'll meet <strong>Priya Chen — Architect</strong> 🏗️. Priya's job is to write the
+  <code>ARCHITECTURE.md</code> document: the big shape of your product.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#what">What ARCHITECTURE.md captures</a></li>
+      <li><a href="#value">The value: less infrastructure before more</a></li>
+      <li><a href="#monolith">"Monolith first," in plain terms</a></li>
+      <li><a href="#try">Try it: simple vs. over-built</a></li>
+      <li><a href="#grow">Learning more on your own</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="what">What ARCHITECTURE.md captures</h2>
+
+  <p>The skill says to write an <code>ARCHITECTURE</code> document when "the product has multiple
+  systems or services." It answers three questions:</p>
+
+  <ul>
+    <li><strong>What pieces exist?</strong> For example: a website people visit, a place data is
+    stored, maybe a background job that sends emails.</li>
+    <li><strong>How do they connect?</strong> Which piece talks to which, and in what order.</li>
+    <li><strong>What technology should you pick — or avoid?</strong> The specific tools that run
+    each piece, chosen deliberately rather than by habit.</li>
+  </ul>
+
+  <p>A quick definition: <strong>infrastructure</strong> means the servers, databases, and outside
+  services your product runs on. A <strong>service</strong> is one running piece of your product
+  that does a job — like the part that handles logins, or the part that processes payments.</p>
+
+  <p>Priya generates a Mermaid diagram of all this — a plain-text diagram GitHub turns into a
+  picture — so the shape is something you can actually see, not just read.</p>
+
+  <hr class="divider">
+
+  <h2 id="value">The value: less infrastructure before more</h2>
+
+  <p>Of the framework's guiding values, one steers nearly every architecture decision:</p>
+
+  <aside class="callout callout--quote">
+    <strong>From the Hacky Hours values</strong>
+    "Less infrastructure before more. Prefer a simple hosted solution over a self-managed one. A
+    managed database over one the user has to operate. A single service over a microservices
+    architecture."
+  </aside>
+
+  <p>In plain terms: when there's a simpler option that does the job, take it. A
+  <strong>hosted</strong> service is one someone else runs for you, so you don't maintain the
+  servers. A <strong>managed database</strong> is a place to store data that a company keeps
+  running, backed up, and patched — you just use it. Both mean less for you to operate and fewer
+  ways for things to break.</p>
+
+  <h2 id="monolith">"Monolith first," in plain terms</h2>
+
+  <p>You'll hear two words in architecture conversations. A <strong>monolith</strong> is a product
+  built as one single service — everything in one place. <strong>Microservices</strong> means
+  splitting that into many small separate services that talk to each other over the network.</p>
+
+  <p>Microservices sound advanced, and for very large teams they can help. But for a new or small
+  project they add a lot of complexity — more pieces to deploy, more places to fail, more to
+  coordinate — usually before you have any of the problems they solve. The widely-cited advice,
+  from software writer Martin Fowler, is
+  <a href="https://martinfowler.com/bliki/MonolithFirst.html">"monolith first"</a>: start as one
+  service, and only split it later if and when you genuinely need to.</p>
+
+  <p class="pullquote">You can always add complexity later. It's far harder to remove it once
+  something depends on it.</p>
+
+  <p>This is exactly what Priya defaults to. If you ever feel a design getting elaborate before
+  you've shipped anything, one plain sentence is worth saying:</p>
+
+  <figure class="code-block" data-lang="text">
+    <header class="code-block__header"><span class="code-block__lang">say this to the agent</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>What's the simplest single-service version of this we could ship first?</code></pre>
+  </figure>
+
+  <h2 id="try">Try it: simple vs. over-built</h2>
+
+  <p>Here's the same small app — "a page where people sign up for a newsletter" — designed two
+  ways. Toggle between them and read the trade-offs in plain language.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🏗️ Interactive · simple vs. over-built</div>
+    <div style="display:flex; gap:8px; margin-bottom:var(--space-4);">
+      <button class="btn btn--primary" id="btnSimple" type="button">Simple (one service)</button>
+      <button class="btn btn--ghost" id="btnComplex" type="button">Over-built (microservices)</button>
+    </div>
+    <div id="archOut" role="status" style="font-size:var(--size-base);"></div>
+  </div>
+
+  <aside class="callout callout--note">
+    <strong>The honest nuance</strong>
+    Simpler isn't automatically better forever. Real products do sometimes outgrow a single
+    service. The point of "monolith first" is about <em>order</em>: start simple, and let actual
+    growth — not guesswork — be the thing that pushes you to add pieces.
+  </aside>
+
+  <aside class="callout callout--quote">
+    <strong>Try it in your terminal</strong>
+    Run <code>/hacky-hours step 2</code> on an idea with a few moving parts. Priya will walk you
+    through the pieces one at a time and draw the diagram as you go.
+  </aside>
+
+  <h2 id="grow">Learning more on your own 🌱</h2>
+
+  <p>Architecture is a deep craft, but the core instinct — prefer the simplest thing that works —
+  is something you can build today.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Read <a href="https://martinfowler.com/bliki/MonolithFirst.html">Monolith First</a> by
+      Martin Fowler — the short, plain-language case for starting simple.</li>
+      <li>On your next idea, ask Priya for both a "simplest version" and a "if it grows"
+      version, and compare them.</li>
+      <li>Read how the agent thinks: <code>/hacky-hours team show priya --prompt</code>.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Priya Chen writes ARCHITECTURE.md: what pieces exist, how they connect, what tech to use or avoid.</li>
+      <li>The guiding value is "less infrastructure before more" — prefer hosted, managed, single-service.</li>
+      <li>"Monolith first" means start as one service and only split it later if you truly need to.</li>
+      <li>When a design feels elaborate, ask for the simplest version you could ship.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Monolith First</strong> · Martin Fowler · <a href="https://martinfowler.com/bliki/MonolithFirst.html">martinfowler.com/bliki/MonolithFirst.html</a></li>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · "less infrastructure before more" value, ARCHITECTURE doc trigger,
+      and Mermaid diagrams quoted from <code>SKILL.md</code> / <code>steps/02-design.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Hacky Hours team</strong> · agent roster · <code>tools/team.html</code>.</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-01-what-design-means.html">◂ Lesson 1 · What design means</a>
+  <a class="btn btn--primary" href="lesson-03-security-agent.html">Lesson 3 · The security agent ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var out = document.getElementById('archOut');
+  var bs = document.getElementById('btnSimple');
+  var bc = document.getElementById('btnComplex');
+  var simple = "<p style='margin-top:0;'><strong>One small service + a managed database.</strong> The page, " +
+    "the sign-up handling, and the stored emails all live in one place, on a hosted platform someone else runs.</p>" +
+    "<p style='margin-bottom:0;'><strong>✅ Pros:</strong> one thing to deploy, one thing to watch, fast to ship, " +
+    "cheap or free to start, easy to understand. <strong>Trade-off:</strong> if it ever gets huge, you'll split it then — " +
+    "which is a good problem to have.</p>";
+  var complex = "<p style='margin-top:0;'><strong>A page service, a separate sign-up service, a separate email service, " +
+    "a message queue between them, and a database you operate yourself.</strong> Five moving parts for a newsletter form.</p>" +
+    "<p style='margin-bottom:0;'><strong>⚠️ Cons:</strong> five things to deploy and keep running, five places to fail, " +
+    "more cost, much harder to debug — all before you have a single subscriber. The complexity solves problems you don't have yet.</p>";
+  function show(which){
+    if(which==='simple'){
+      bs.className='btn btn--primary'; bc.className='btn btn--ghost';
+      out.style.color='var(--color-success)'; out.innerHTML=simple;
+    } else {
+      bc.className='btn btn--primary'; bs.className='btn btn--ghost';
+      out.style.color='var(--color-warning)'; out.innerHTML=complex;
+    }
+  }
+  bs.addEventListener('click', function(){ show('simple'); });
+  bc.addEventListener('click', function(){ show('complex'); });
+  show('simple');
+})();
+</script>
+
+</body>
+</html>

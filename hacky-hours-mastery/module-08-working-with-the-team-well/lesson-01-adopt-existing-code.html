@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adopting an existing project — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-adopt-existing-code.html">Module 8 · Working with the team well</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Adopting an existing project</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 8 · Lesson 1 · 🧩 adopt</p>
+  <h1>Adopting an existing project</h1>
+  <p>So far you've started fresh — an idea, then a design, then a build. But what if you
+  already have a pile of code you made by prompting and hoping? There's one command for exactly
+  that situation, and this lesson is about when to reach for it.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">7 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: working with existing code</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>You've learned the five-step flow for building something new. This module is about the other
+  half of real life: code that already exists, agents that disagree, and a team that gets smarter
+  over time. We start with bringing old code in.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#what">What <code>adopt</code> is for</a></li>
+      <li><a href="#does">What it actually does</a></li>
+      <li><a href="#vibe">The "vibe-coded" project</a></li>
+      <li><a href="#try">Try it: adopt or ideate?</a></li>
+      <li><a href="#grow">Going deeper</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="what">What <code>adopt</code> is for</h2>
+
+  <p>Most of the verbs you've met assume you're starting from nothing. <code>/hacky-hours adopt</code>
+  is different. It is, in the framework's own words, <strong>"the only operation on existing
+  code"</strong> in version 4. Everything else builds something new; adopt meets something that's
+  already there.</p>
+
+  <p>A quick definition before we go on. To <strong>adopt</strong> a codebase means to bring an
+  existing project into the Hacky Hours framework — so the team of agents can read what you've
+  built, document it, and help you take it forward with the same rigor a new project gets.</p>
+
+  <aside class="callout callout--note">
+    <strong>There is no "productionize" verb</strong>
+    You might expect a single button that makes code production-ready. There isn't one — and that's
+    honest. The framework's view is that production quality
+    <em>"emerges from continuous ensemble play after adoption."</em> In plain terms: you adopt
+    first, then keep working with the team. The quality grows from the ongoing work, not from one
+    command.
+  </aside>
+
+  <h2 id="does">What it actually does</h2>
+
+  <p>When you run <code>/hacky-hours adopt</code> inside a folder that has code, the whole team
+  "meets" your codebase. Here's the shape of it, without the technical detail:</p>
+
+  <ol>
+    <li><strong>It asks four quick questions</strong> — what is this, how serious is it (a rigor
+    "tier" from a weekend tool up to regulated software), what voice you want, and any files the
+    team shouldn't read.</li>
+    <li><strong>Each agent reads the code through its own lens</strong> — Security looks for risky
+    patterns, Accessibility checks the interface, and so on. Each one reports back how involved it
+    thinks it should be and what it found.</li>
+    <li><strong>You review the consolidated assessment</strong> — a single report with everyone's
+    findings and a punch list sorted by priority. You confirm or adjust before anything is written.</li>
+    <li><strong>The framework writes baseline documents</strong> — the same kind of design docs a
+    new project would have, plus a record of what the team found.</li>
+  </ol>
+
+  <p>Here's how you'd kick it off:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">in your project folder</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours adopt</code></pre>
+  </figure>
+
+  <aside class="callout callout--responsibility">
+    <strong>What adoption gives you — and what it doesn't</strong>
+    Adoption produces a thoughtful first read of your code and a prioritized list of things to look
+    at. It does <strong>not</strong> guarantee your code is correct, safe, or finished. The
+    findings are starting points written by AI agents — useful direction, not a clean bill of
+    health. You still own the decision of what to fix and the responsibility for what you ship.
+  </aside>
+
+  <hr class="divider">
+
+  <h2 id="vibe">The "vibe-coded" project</h2>
+
+  <p>A lot of people arrive here with what's often called a <strong>"vibe-coded" project</strong> —
+  something built by prompting an AI, accepting whatever it produced, and never writing down a plan.
+  It might even work. But there's no design doc, no record of decisions, and no clear sense of what's
+  risky.</p>
+
+  <p>That's the ideal case for <code>adopt</code>. It takes the thing you already have and brings it
+  up to the standard you'd get if you'd done the full flow from the start — without making you throw
+  it away and begin again.</p>
+
+  <p class="pullquote">Adopt is how a "it just sort of happened" project becomes one you can actually reason about.</p>
+
+  <h2 id="try">Try it: adopt or ideate?</h2>
+
+  <p>The one decision to get right: do you already have code, or are you starting from an idea? Answer
+  two questions below and the decider will route you.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🧩 Interactive · which command fits your situation?</div>
+    <p style="font-size:var(--size-base); color:var(--color-text-muted); margin-top:0;">Answer honestly — there's no wrong answer, just a right starting point.</p>
+    <div style="margin-bottom:var(--space-3);">
+      <p style="margin-bottom:var(--space-2);"><strong>1. Is there already code written for this project?</strong></p>
+      <button class="btn btn--ghost" type="button" onclick="setAns('code','yes',this)">Yes, code exists</button>
+      <button class="btn btn--ghost" type="button" onclick="setAns('code','no',this)">No, nothing yet</button>
+    </div>
+    <div style="margin-bottom:var(--space-3);">
+      <p style="margin-bottom:var(--space-2);"><strong>2. Is this mostly a fresh idea you haven't built?</strong></p>
+      <button class="btn btn--ghost" type="button" onclick="setAns('fresh','yes',this)">Yes, just an idea</button>
+      <button class="btn btn--ghost" type="button" onclick="setAns('fresh','no',this)">No, it's underway</button>
+    </div>
+    <p id="deciderOut" role="status" style="margin-bottom:0; min-height:1.5em;"></p>
+  </div>
+
+  <h2 id="grow">Going deeper 🌱</h2>
+
+  <p>Adoption produces design docs and, when something is decided, Architecture Decision Records —
+  short notes that capture <em>why</em> a choice was made. They're worth learning to read.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Learn what an ADR is and why teams keep them: <a href="https://adr.github.io/">adr.github.io</a>.
+      You'll see them generated throughout this module.</li>
+      <li>Run <code>/hacky-hours adopt</code> on any old project you have lying around — even a
+      finished one — and read the assessment. It's the fastest way to feel what the team sees.</li>
+      <li>Browse the framework docs: <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a>.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li><code>/hacky-hours adopt</code> is the only operation that works on existing code.</li>
+      <li>The team reads your code, reports findings, and writes baseline design docs after you confirm.</li>
+      <li>There's no single "productionize" button — quality comes from continuing to work with the team.</li>
+      <li>Adopt is perfect for a "vibe-coded" project you want to bring up to standard.</li>
+      <li>If there's no code yet, start at Step 1 (ideate) instead.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · adopt behavior &amp; "only operation on
+      existing code" quoted from <code>tools/adopt.md</code> and <code>SKILL.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Architecture Decision Records</strong> · <a href="https://adr.github.io/">adr.github.io</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="../module-07-ship-and-iterate/lesson-04-the-iterate-loop.html">◂ The iterate loop</a>
+  <a class="btn btn--primary" href="lesson-02-arbitrate-and-chat-modes.html">Lesson 2 · Arbitrate &amp; chat modes ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+var answers = { code: null, fresh: null };
+function setAns(key, val, btn){
+  answers[key] = val;
+  var sibs = btn.parentNode.querySelectorAll('.btn');
+  sibs.forEach(function(b){ b.classList.remove('btn--primary'); b.classList.add('btn--ghost'); });
+  btn.classList.remove('btn--ghost'); btn.classList.add('btn--primary');
+  render();
+}
+function render(){
+  var out = document.getElementById('deciderOut');
+  if(answers.code === null || answers.fresh === null){
+    out.style.color = "var(--color-text-muted)";
+    out.textContent = "Answer both questions and I'll point you to the right command.";
+    return;
+  }
+  if(answers.code === "yes"){
+    out.style.color = "var(--color-success)";
+    out.innerHTML = "➜ Reach for <code>/hacky-hours adopt</code>. You have code already, so let the team meet it and document it — even if it's a fresh-feeling idea, adopt is the only verb that works on existing code.";
+  } else if(answers.fresh === "yes"){
+    out.style.color = "var(--color-success)";
+    out.innerHTML = "➜ Start at <code>/hacky-hours ideate</code> (Step 1). There's no code yet, so begin the full flow from the idea. Come back to adopt only when there's a codebase to bring in.";
+  } else {
+    out.style.color = "var(--color-warning)";
+    out.innerHTML = "➜ No code and not a fresh idea? That usually means you're mid-planning. Start at <code>/hacky-hours ideate</code> — adopt is only for when real code exists on disk.";
+  }
+}
+</script>
+
+</body>
+</html>

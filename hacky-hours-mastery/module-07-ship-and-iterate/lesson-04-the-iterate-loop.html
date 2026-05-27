@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The iterate loop (Step 5) — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-deployment-and-the-cloud.html">Module 7 · Ship &amp; iterate</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">The iterate loop (Step 5)</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 7 · Lesson 4 · 🚀 Ops with Jordan Kim</p>
+  <h1>The iterate loop (Step 5)</h1>
+  <p>You shipped. Real people are using the thing you built. Now what? You <strong>iterate</strong>
+  — listen, decide what matters, update your docs, and build the next round. This is Step 5, and
+  it's the loop that turns a one-time launch into a living product.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">9 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: shipping as a habit</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>Jordan, one last time 🚀. To <strong>iterate</strong> means to improve something through
+  repeated rounds — ship, learn, adjust, ship again. Step 5 gives that loop a shape so it doesn't
+  become a pile of half-remembered "I should fix that someday" notes.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#five">The five moves of Step 5</a></li>
+      <li><a href="#adr">What an ADR is, and when to write one</a></li>
+      <li><a href="#try">Try it: triage your feedback</a></li>
+      <li><a href="#pivot">Iterate vs pivot</a></li>
+      <li><a href="#close">Closing the loop</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="five">The five moves of Step 5</h2>
+
+  <p>When you run <code>/hacky-hours iterate</code> (or <code>step 5</code>), the Ops agent walks
+  you through five moves in order:</p>
+
+  <ol>
+    <li><strong>Capture.</strong> Brain-dump everything — bugs, complaints, feature requests, things
+    you'd change now that you've seen it live. No filtering. It all goes into a file called
+    <code>ITERATION.md</code>. The agent first checks your <code>feedback/</code> folder and
+    summarizes anything users already left.</li>
+    <li><strong>Synthesize.</strong> The agent reads your brain-dump against your existing design
+    docs and asks, for each item: does this change how the product works (amend a design doc)?
+    introduce a new decision (note an ADR)? or is it just an implementation fix (straight to the
+    backlog)?</li>
+    <li><strong>Prioritize.</strong> Sort each item into one of three buckets — we'll practice this
+    below.</li>
+    <li><strong>Amend.</strong> Update the design docs that need it, and write ADRs for the
+    significant decisions.</li>
+    <li><strong>Build.</strong> Head back into the Step 4 build cycle with your updated backlog.</li>
+  </ol>
+
+  <p>The three prioritize buckets are worth memorizing, because you'll use them constantly:</p>
+
+  <aside class="callout callout--note">
+    <strong>The three triage buckets — straight from the skill</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li><strong>Hotfix</strong> — "broken in production, needs immediate attention."</li>
+      <li><strong>Next milestone</strong> — "important enough to be in the next planned release."</li>
+      <li><strong>Backlog</strong> — "valid but not urgent; add to BACKLOG.md without a milestone."</li>
+    </ul>
+  </aside>
+
+  <h2 id="adr">What an ADR is, and when to write one</h2>
+
+  <p>An <strong>ADR</strong> is an Architecture Decision Record — a short note that captures a
+  meaningful decision and <em>why</em> you made it. Not every change needs one. You write an ADR
+  when a decision is <strong>significant</strong>: when a future you (or a teammate) would otherwise
+  look at the project and wonder "wait, why did we do it this way?"</p>
+
+  <p>Capturing the "why" at the moment you decide is one of the kindest things you can do for your
+  future self. The reasons are obvious now; they won't be in six months.</p>
+
+  <hr class="divider">
+
+  <h2 id="try">Try it: triage your feedback</h2>
+
+  <p>Here's a fresh batch of post-launch feedback. Send each item to the bucket where it belongs:
+  <strong>Hotfix</strong>, <strong>Next milestone</strong>, or <strong>Backlog</strong>.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🗂️ Interactive · triage each item into a bucket</div>
+    <p id="triageItem" style="font-size:var(--size-lg); margin-top:0; min-height:2.5em;"></p>
+    <div style="display:flex; gap:var(--space-2); flex-wrap:wrap;">
+      <button type="button" class="btn btn--ghost" data-bucket="hotfix">🔴 Hotfix</button>
+      <button type="button" class="btn btn--ghost" data-bucket="next">🟡 Next milestone</button>
+      <button type="button" class="btn btn--ghost" data-bucket="backlog">🟢 Backlog</button>
+    </div>
+    <p id="triageFeedback" role="status" style="margin:var(--space-4) 0 0; min-height:1.5em;"></p>
+  </div>
+
+  <h2 id="pivot">Iterate vs pivot</h2>
+
+  <p>Most of the time you iterate: same product, made better. Occasionally something bigger
+  happens, and the right move is a <strong>pivot</strong> — a deliberate change of direction
+  (handled by the legacy <code>review 3</code>).</p>
+
+  <p>The line is clear. You pivot, rather than iterate, when <strong>the core changed</strong>:</p>
+
+  <ul>
+    <li><strong>Audience</strong> — you built it for hobbyists, but small businesses are the ones
+    who actually need it.</li>
+    <li><strong>Problem</strong> — the thing you set out to solve turned out not to be the real
+    pain; a different one is.</li>
+    <li><strong>Form-factor</strong> — you built a website, but it really wants to be a mobile app
+    or a command-line tool.</li>
+  </ul>
+
+  <p class="pullquote">If the core audience, problem, or form-factor changed, that's a pivot. Otherwise, you're iterating.</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>Iterating doesn't reset your responsibilities</strong>
+    Every iteration cycle ships new code to a live, public app. Run <code>/hacky-hours audit</code>
+    again before each release — a fix can introduce a fresh leaked secret or expose new data just as
+    easily as the first launch did. "We already shipped once safely" is not the same as "this
+    change is safe."
+  </aside>
+
+  <h2 id="close">Closing the loop 🎉</h2>
+
+  <p>That's the whole arc: <strong>ideate → design → roadmap → build → iterate → build → iterate
+  …</strong>. You don't graduate out of the loop — you live in it, and each lap your product gets a
+  little more solid. When you finish a Step 5 cycle, the agent archives your
+  <code>ITERATION.md</code> and your backlog reflects reality again.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Try it in your terminal</strong>
+    After your next release, sit down and run:
+    <figure class="code-block" data-lang="bash" style="margin-top:.5rem;">
+      <header class="code-block__header"><span class="code-block__lang">bash</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+      <pre><code>/hacky-hours iterate</code></pre>
+    </figure>
+    Let it pull your feedback, brain-dump freely, and triage together. That single habit — capture,
+    decide, amend, build — is what separates a project that fizzles from one that keeps getting
+    better.
+  </aside>
+
+  <p>You've now walked the entire build-and-ship arc, from a blank page to a live product you can
+  keep improving. That's worth celebrating.</p>
+
+  <div class="tool-frame" style="text-align:center;">
+    <div class="tool-frame__label">🎉 You finished the build-and-ship arc</div>
+    <p style="margin-top:0;">Give yourself the moment.</p>
+    <button type="button" id="celebrate" class="btn btn--primary">🎉 Celebrate finishing</button>
+    <p id="celebrateMsg" role="status" style="margin:var(--space-4) 0 0; min-height:1.5em;"></p>
+  </div>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Step 5 is five moves: <strong>Capture → Synthesize → Prioritize → Amend → Build</strong>,
+      with everything captured in <code>ITERATION.md</code>.</li>
+      <li>Triage into three buckets: <strong>hotfix</strong>, <strong>next milestone</strong>,
+      <strong>backlog</strong>.</li>
+      <li>Write an <strong>ADR</strong> (Architecture Decision Record) to capture the "why" behind
+      significant decisions.</li>
+      <li>You <strong>pivot</strong> (not iterate) when the core audience, problem, or form-factor
+      changed.</li>
+      <li>Run an audit before every release — iterating doesn't reset your responsibilities.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · Capture → Synthesize → Prioritize →
+      Amend → Build, the hotfix / next-milestone / backlog buckets, ITERATION.md, and "write ADRs
+      for significant decisions" quoted from <code>steps/05-iterate.md</code>.</li>
+      <li><strong>Hacky Hours v4.0.1</strong> · pivot via legacy <code>review 3</code> from
+      <code>SKILL.md</code> verb routing.</li>
+      <li><strong>canvas-confetti</strong> · used purely for celebration ·
+      <a href="https://github.com/catdad/canvas-confetti">github.com/catdad/canvas-confetti</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-03-cutting-a-release.html">◂ Lesson 3 · Cutting a release</a>
+  <a class="btn btn--primary" href="../module-08-working-with-the-team-well/lesson-01-adopt-existing-code.html">Module 8 · Adopt existing code ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var items = [
+    {text:'The login page crashes for everyone right now — nobody can sign in.', bucket:'hotfix',
+      why:'Broken in production and blocking all users. That’s a hotfix — fix it immediately.'},
+    {text:'Three users asked for a dark mode. It’s a nice-to-have, no rush.', bucket:'backlog',
+      why:'Valid but not urgent and nothing’s broken. Goes to the backlog without a milestone.'},
+    {text:'The export feature you promised in the next release still needs building.', bucket:'next',
+      why:'Important and already planned for the next release. That’s next milestone.'},
+    {text:'Payments are charging the wrong amount on checkout — money is involved.', bucket:'hotfix',
+      why:'Broken in production with real consequences. Hotfix, today.'},
+    {text:'You’d like to support a second language eventually, once the basics are solid.', bucket:'backlog',
+      why:'A genuine future want, but not urgent. Backlog.'}
+  ];
+  var i = 0, locked = false;
+  var item = document.getElementById('triageItem');
+  var fb = document.getElementById('triageFeedback');
+  var btns = document.querySelectorAll('[data-bucket]');
+  function show(){
+    if(i >= items.length){
+      item.innerHTML = '<strong>All triaged.</strong> That’s Step 5’s Prioritize move — every item now has a home. 🎉';
+      fb.textContent = '';
+      btns.forEach(function(b){ b.disabled = true; b.style.opacity = .5; });
+      return;
+    }
+    item.textContent = items[i].text;
+    fb.textContent = ''; locked = false;
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      if(locked || i >= items.length) return; locked = true;
+      var it = items[i];
+      if(b.dataset.bucket === it.bucket){
+        fb.style.color = 'var(--color-success)';
+        fb.innerHTML = '✅ Right. ' + it.why;
+      } else {
+        fb.style.color = 'var(--color-warning)';
+        fb.innerHTML = 'Reconsider — this belongs in <strong>' + it.bucket + '</strong>. ' + it.why;
+      }
+      i++;
+      setTimeout(show, 1600);
+    });
+  });
+  show();
+
+  document.getElementById('celebrate').addEventListener('click', function(){
+    var msg = document.getElementById('celebrateMsg');
+    msg.style.color = 'var(--color-success)';
+    msg.innerHTML = '🎉 You did it — ideate, design, roadmap, build, ship, iterate. Now go build the real thing.';
+    if(typeof confetti === 'function'){
+      var end = Date.now() + 1200;
+      (function frame(){
+        confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 } });
+        confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 } });
+        if(Date.now() < end) requestAnimationFrame(frame);
+      })();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

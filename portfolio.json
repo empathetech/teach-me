@@ -34,6 +34,22 @@
       "lessons_total": 8,
       "topic": "Cooking · Scrambled eggs & brunch composition",
       "started_at": "2026-05-22"
+    },
+    {
+      "slug": "hacky-hours-mastery",
+      "title": "Hacky Hours Mastery",
+      "tagline": "Use /hacky-hours confidently — and grow into a real builder.",
+      "path": "hacky-hours-mastery/",
+      "entry": "dashboard.html",
+      "format": "Dashboard + 9 modules of HTML lessons, embedded interactives, and 'The Team' agent directory.",
+      "emoji": "🛠️",
+      "color": "#642d9b",
+      "status": "active",
+      "designer": "Empathetech",
+      "designer_github": "empathetech",
+      "lessons_total": 29,
+      "topic": "LLM-assisted software development · the /hacky-hours framework (v4.0.1)",
+      "started_at": "2026-05-26"
     }
   ],
   "design": {

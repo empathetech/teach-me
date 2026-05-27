@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cutting a release — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-deployment-and-the-cloud.html">Module 7 · Ship &amp; iterate</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Cutting a release</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 7 · Lesson 3 · 🚀 Ops with Jordan Kim</p>
+  <h1>Cutting a release</h1>
+  <p>Your audit is green, your changes are pushed. Time to put a stake in the ground and say "this
+  version is official." That's a <strong>release</strong>, and <code>/hacky-hours update 1</code>
+  walks you through publishing one — carefully, and only with your say-so.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">9 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: versioning</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>Jordan here 🚀. "Cutting a release" is just industry slang for publishing an official version
+  of your software. A <strong>release</strong> is a named, frozen snapshot — "this is version 1.2.0,
+  here's what changed" — that lives on your GitHub repo's Releases page for anyone to see and
+  download.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#semver">Semantic versioning: patch, minor, major</a></li>
+      <li><a href="#try">Try it: pick the bump</a></li>
+      <li><a href="#update1">What update 1 actually does</a></li>
+      <li><a href="#update2">update 2: syncing your backlog</a></li>
+      <li><a href="#grow">Going further</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="semver">Semantic versioning: patch, minor, major</h2>
+
+  <p>Version numbers aren't random. The common scheme is <strong>semantic versioning</strong>,
+  written as three numbers: <code>MAJOR.MINOR.PATCH</code> — for example <code>1.4.2</code>. Each
+  number means something specific, and "bumping" a version means increasing one of them:</p>
+
+  <ul>
+    <li><strong>Patch</strong> (<code>1.4.2 → 1.4.3</code>) — you fixed a bug or made a small
+    correction. Nothing new, nothing broken.</li>
+    <li><strong>Minor</strong> (<code>1.4.2 → 1.5.0</code>) — you added a new feature, but existing
+    things still work the same way. The patch number resets to 0.</li>
+    <li><strong>Major</strong> (<code>1.4.2 → 2.0.0</code>) — you made a <em>breaking</em> change:
+    something that worked before now works differently or is gone. Both lower numbers reset.</li>
+  </ul>
+
+  <p>Two milestones have conventional numbers worth remembering:</p>
+
+  <aside class="callout callout--note">
+    <strong>The two numbers you'll meet first</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li><strong>MVP — <code>0.1.0</code></strong>. A version starting with <code>0.</code> signals
+      "early, things may still change." Your first shippable cut usually lands here.</li>
+      <li><strong>V1 — <code>1.0.0</code></strong>. Reaching <code>1.0.0</code> is a statement: "this
+      is stable enough to depend on."</li>
+    </ul>
+  </aside>
+
+  <h2 id="try">Try it: pick the bump</h2>
+
+  <p>Read each change and choose how it should bump the version. There's a right answer each time —
+  and a short reason.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🔢 Interactive · patch, minor, or major?</div>
+    <p id="bumpScenario" style="font-size:var(--size-lg); margin-top:0;"></p>
+    <div style="display:flex; gap:var(--space-2); flex-wrap:wrap;">
+      <button type="button" class="btn btn--ghost" data-pick="patch">Patch</button>
+      <button type="button" class="btn btn--ghost" data-pick="minor">Minor</button>
+      <button type="button" class="btn btn--ghost" data-pick="major">Major</button>
+    </div>
+    <p id="bumpFeedback" role="status" style="margin:var(--space-4) 0 0; min-height:1.5em;"></p>
+    <button type="button" id="bumpNext" class="btn btn--primary" style="display:none; margin-top:var(--space-2);">Next change ▸</button>
+  </div>
+
+  <hr class="divider">
+
+  <h2 id="update1">What update 1 actually does</h2>
+
+  <p>When you run <code>/hacky-hours update 1</code>, the Ops agent publishes a release for you,
+  step by careful step. It writes to a shared, public system, so the skill is explicit:
+  <em>"Always confirm before taking any action. Never run any action without explicit
+  confirmation."</em> Here's the sequence:</p>
+
+  <ol>
+    <li><strong>Check the gh CLI is ready.</strong> The <code>gh</code> CLI is GitHub's official
+    command-line tool. The agent runs <code>gh auth status</code>; if you're not logged in, it
+    stops and tells you to run <code>gh auth login</code> first.</li>
+    <li><strong>Read the latest CHANGELOG entry.</strong> It pulls the most recent version block
+    from your <code>CHANGELOG.md</code> and shows it: "Is this the release you want to publish?"</li>
+    <li><strong>Confirm the tag.</strong> A <strong>tag</strong> is a label git attaches to one
+    exact commit — a permanent bookmark for "this is where version 1.5.0 lives." The agent shows
+    you the exact <code>git tag</code> and <code>git push</code> commands and asks before running
+    them.</li>
+    <li><strong>Preview.</strong> It shows precisely what will be published and reminds you this
+    becomes visible on your repo's Releases page.</li>
+    <li><strong>Publish — only after you confirm.</strong> It runs
+    <code>gh release create</code> with your version and CHANGELOG notes, then tells you where to
+    find the result.</li>
+  </ol>
+
+  <aside class="callout callout--grow">
+    <strong>Try it in your terminal</strong>
+    Once your CHANGELOG has an entry and your audit is clean:
+    <figure class="code-block" data-lang="bash" style="margin-top:.5rem;">
+      <header class="code-block__header"><span class="code-block__lang">bash</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+      <pre><code>/hacky-hours update 1</code></pre>
+    </figure>
+    It will pause at each step and wait for your go-ahead. Read every preview before you confirm —
+    nothing is published until you say so.
+  </aside>
+
+  <aside class="callout callout--responsibility">
+    <strong>This goes out in public — and stays there</strong>
+    A release is published to your repository for the world to see, and a git tag is meant to be
+    permanent. Two things follow:
+    <ul style="margin:.5rem 0 0;">
+      <li>Read every preview the agent shows you. Confirm only what you actually intend to publish.
+      The framework will never publish without your explicit yes.</li>
+      <li>If a release accidentally contains a secret, deleting the release is not enough — treat the
+      secret as compromised and rotate it. Run an audit <em>before</em> you cut the release, not
+      after.</li>
+    </ul>
+  </aside>
+
+  <h2 id="update2">update 2: syncing your backlog</h2>
+
+  <p>A close cousin is <code>/hacky-hours update 2</code>. Your <code>BACKLOG.md</code> is your
+  local list of planned work; <strong>GitHub Issues</strong> are the same kind of list, but living
+  online where collaborators can see them. Over time the two drift apart.</p>
+
+  <p><code>update 2</code> does a <strong>two-way sync</strong> between them. Neither one is treated
+  as the boss — the skill says <em>"the user resolves all conflicts at sync time."</em> It sorts
+  everything into buckets (new in the backlog, new in Issues, changed in both, or done) and asks
+  you to confirm before it creates, updates, or closes anything.</p>
+
+  <p class="pullquote">Publishing and planning both follow the same rule: the framework proposes, you decide, nothing happens without your yes.</p>
+
+  <h2 id="grow">Going further 🌱</h2>
+
+  <aside class="callout callout--grow">
+    <strong>Learn the versioning standard</strong>
+    Semantic versioning is a real, written specification — short and readable. If you want the exact
+    rules behind patch / minor / major, read it at <a href="https://semver.org/">semver.org</a>.
+    You'll find the same MAJOR.MINOR.PATCH meanings you just practiced.
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>A <strong>release</strong> is an official, named snapshot published to your repo's
+      Releases page.</li>
+      <li><strong>Semantic versioning</strong>: patch = fix, minor = new feature, major = breaking
+      change. MVP is <code>0.1.0</code>, V1 is <code>1.0.0</code>.</li>
+      <li><code>update 1</code> publishes a release via the gh CLI: checks auth, reads the CHANGELOG,
+      creates a tag, previews, and publishes only on your confirmation.</li>
+      <li>A <strong>tag</strong> is a permanent label git puts on one commit.</li>
+      <li><code>update 2</code> two-way-syncs <code>BACKLOG.md</code> with GitHub Issues; you resolve
+      every conflict.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Semantic Versioning 2.0.0</strong> · <a href="https://semver.org/">semver.org</a></li>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · release flow, "always confirm before
+      taking any action," and gh CLI steps quoted from <code>update/01-version.md</code>.</li>
+      <li><strong>Hacky Hours v4.0.1</strong> · BACKLOG ↔ Issues two-way sync and "the user resolves
+      all conflicts at sync time" quoted from <code>update/02-project.md</code>.</li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-02-the-three-lane-audit.html">◂ Lesson 2 · The three-lane audit</a>
+  <a class="btn btn--primary" href="lesson-04-the-iterate-loop.html">Lesson 4 · The iterate loop ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var scenarios = [
+    {text:'You fixed a typo in a button label and corrected a calculation that gave the wrong total.', answer:'patch',
+      why:'No new features, nothing broken for users — just corrections. That’s a patch (e.g. 1.4.2 → 1.4.3).'},
+    {text:'You added a brand-new "export to PDF" feature. Everything that worked before still works exactly the same.', answer:'minor',
+      why:'New capability, but nothing existing changed or broke. That’s a minor bump (e.g. 1.4.2 → 1.5.0).'},
+    {text:'You renamed the main settings file and removed an old option, so projects built the old way will no longer load.', answer:'major',
+      why:'This breaks existing usage — people have to change how they use it. That’s a major bump (e.g. 1.4.2 → 2.0.0).'},
+    {text:'You shipped the very first usable cut of your app — your minimum viable product.', answer:'minor',
+      why:'By convention the first shippable cut is 0.1.0 — a minor-style bump from nothing, with a 0. major to signal "still early."'}
+  ];
+  var i = 0, locked = false;
+  var sc = document.getElementById('bumpScenario');
+  var fb = document.getElementById('bumpFeedback');
+  var next = document.getElementById('bumpNext');
+  var picks = document.querySelectorAll('[data-pick]');
+  function show(){
+    sc.textContent = scenarios[i].text;
+    fb.textContent = ''; locked = false;
+    next.style.display = 'none';
+  }
+  picks.forEach(function(b){
+    b.addEventListener('click', function(){
+      if(locked) return; locked = true;
+      var s = scenarios[i];
+      if(b.dataset.pick === s.answer){
+        fb.style.color = 'var(--color-success)';
+        fb.innerHTML = '✅ Correct. ' + s.why;
+      } else {
+        fb.style.color = 'var(--color-warning)';
+        fb.innerHTML = 'Not quite — the answer is <strong>' + s.answer + '</strong>. ' + s.why;
+      }
+      if(i < scenarios.length - 1){ next.style.display = 'inline-flex'; }
+      else { next.style.display = 'none'; fb.innerHTML += '<br>That’s the last one — you’ve got the pattern. 🎉'; }
+    });
+  });
+  next.addEventListener('click', function(){ i++; show(); });
+  show();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching your team &amp; exporting your docs — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-adopt-existing-code.html">Module 8 · Working with the team well</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Teaching your team &amp; exporting your docs</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 8 · Lesson 3 · 🎓 team update &amp; export</p>
+  <h1>Teaching your team &amp; exporting your docs</h1>
+  <p>Two ideas close out this module. First: your team can actually learn from you over time.
+  Second: the documents you've built aren't trapped in this folder — they're designed to graduate
+  into a real team's knowledge base.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: knowledge management</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>You've been giving the agents feedback all along — "be terser here," "lead with the risk." This
+  lesson shows where that feedback goes, and how to take your finished docs out into the world.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#update">Your team learns: <code>team update</code></a></li>
+      <li><a href="#family">The rest of the team family</a></li>
+      <li><a href="#export">Graduating your docs: <code>export</code></a></li>
+      <li><a href="#three">Three more verbs in one line each</a></li>
+      <li><a href="#try">Try it: match the verb to the goal</a></li>
+      <li><a href="#grow">Going deeper</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="update">Your team learns: <code>team update</code></h2>
+
+  <p>When you finish a multi-role task, the framework quietly collects any feedback you gave — like
+  "Alex, lead with blast radius before the threat model." That feedback sits as a draft until you
+  promote it. The command that promotes it is:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">make the team smarter</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours team update</code></pre>
+  </figure>
+
+  <p>The framework describes this plainly: it is <strong>"how agents learn. Without it, agents are
+  frozen at their starter prompts. With it, the team gets better the more you work together."</strong>
+  It walks you through each pending change — you can <em>accept</em>, <em>edit</em>, <em>reject</em>,
+  or <em>defer</em> it — and records the accepted ones permanently.</p>
+
+  <aside class="callout callout--note">
+    <strong>You review every change</strong>
+    Nothing about your team changes silently. The framework's rule:
+    <em>"Never silently overwrite system prompts. Always show the diff and require explicit accept."</em>
+    Your feedback becomes part of the team only when you say so.
+  </aside>
+
+  <h2 id="family">The rest of the team family</h2>
+
+  <p>A few sibling commands round out how the team manages its own memory. You won't need them often,
+  but it helps to know they exist:</p>
+
+  <ul>
+    <li><strong><code>team reflect</code></strong> — an agent looks back at its own track record and
+    refreshes how it describes itself.</li>
+    <li><strong><code>team resume</code></strong> — generates a "resume" for an agent, built from its
+    profile, history, and your feedback.</li>
+    <li><strong><code>team backfill</code></strong> — retroactively fills in an agent's history from
+    your project's changelog and git log, so a team adopted partway through still has a past.</li>
+  </ul>
+
+  <hr class="divider">
+
+  <h2 id="export">Graduating your docs: <code>export</code></h2>
+
+  <p>Throughout this course you've been told the artifacts are "team-grade" and can "leave home." The
+  <code>export</code> verb is what makes that real. It bundles your project's documentation into a
+  format you can drop into a real team's tools.</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">export &lt;target&gt;</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours export markdown-bundle   # one .md file for Notion, Confluence, Obsidian…
+/hacky-hours export html-bundle       # a static HTML site of your docs</code></pre>
+  </figure>
+
+  <p>The two targets in version 4:</p>
+
+  <ul>
+    <li><strong>markdown-bundle</strong> — gathers your overview, design docs, roadmap, decisions and
+    more into a single clean markdown file. The framework builds a table of contents, fixes the
+    cross-links between docs, and leaves out the messy internal notes. Paste it anywhere markdown is
+    accepted.</li>
+    <li><strong>html-bundle</strong> — a static website of the same docs. In version 4.0.1 the
+    framework will point you toward the markdown route plus a site generator as the recommended path,
+    and it tells you so honestly.</li>
+  </ul>
+
+  <p class="pullquote">The point of export: the work you did solo can walk into a real team and stand on its own.</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>An export is a snapshot, not a sign-off</strong>
+    A bundle is only as accurate as the docs behind it — and those docs were written with AI help. If
+    you hand them to real colleagues or rely on them for something consequential, read them yourself
+    first. Exporting doesn't transfer responsibility for what they say; that's still yours.
+  </aside>
+
+  <h2 id="three">Three more verbs in one line each</h2>
+
+  <ul>
+    <li><strong><code>feedback</code></strong> — capture friction you hit during a session, stored
+    locally only (it never leaves your machine on its own).</li>
+    <li><strong><code>issue</code></strong> — submit a GitHub issue to Empathetech; opt-in, so it only
+    happens when you choose.</li>
+    <li><strong><code>meta</code></strong> — cluster your local feedback into suggested improvements
+    to the framework itself.</li>
+  </ul>
+
+  <h2 id="try">Try it: match the verb to the goal</h2>
+
+  <p>Click a goal, then click the verb you think fits. Get it right and they lock in green.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🎓 Interactive · match the goal to its verb</div>
+    <p style="font-size:var(--size-base); color:var(--color-text-muted); margin-top:0;">Pick a goal on the left, then its verb on the right.</p>
+    <div style="display:flex; gap:var(--space-6); flex-wrap:wrap;">
+      <div style="flex:1; min-width:200px;">
+        <p style="margin-bottom:var(--space-2);"><strong>Goals</strong></p>
+        <div id="goals"></div>
+      </div>
+      <div style="flex:1; min-width:200px;">
+        <p style="margin-bottom:var(--space-2);"><strong>Verbs</strong></p>
+        <div id="verbs"></div>
+      </div>
+    </div>
+    <p id="matchOut" role="status" style="margin-bottom:0; min-height:1.5em; margin-top:var(--space-3);"></p>
+  </div>
+
+  <h2 id="grow">Going deeper 🌱</h2>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>After your next build, run <code>/hacky-hours team update</code> and read each pending
+      change before accepting — it's the habit that makes the team genuinely yours.</li>
+      <li>Try <code>/hacky-hours export markdown-bundle</code> on a finished project and open the
+      result. Seeing your own docs render cleanly is satisfying.</li>
+      <li>The framework's own thinking lives in the docs repo:
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a>.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li><code>team update</code> promotes your session feedback so agents genuinely learn — and you review every change.</li>
+      <li><code>team reflect / resume / backfill</code> help the team manage its own memory.</li>
+      <li><code>export markdown-bundle | html-bundle</code> graduates your docs into a real team's knowledge base.</li>
+      <li><code>feedback</code> (local), <code>issue</code> (opt-in to Empathetech), and <code>meta</code> (improve the framework) round things out.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · team update ("how agents learn"),
+      reflect/resume/backfill, export targets, and feedback/issue/meta quoted from
+      <code>tools/team-update.md</code>, <code>tools/export.md</code>, and <code>SKILL.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-02-arbitrate-and-chat-modes.html">◂ Arbitrate &amp; chat modes</a>
+  <a class="btn btn--primary" href="../module-09-capstone/lesson-01-build-your-own-thing.html">Module 9 · Your capstone build ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+var pairs = [
+  { id: "g1", goal: "Make my agents permanently smarter from my feedback", verb: "team update" },
+  { id: "g2", goal: "Turn my project docs into one file for Notion", verb: "export markdown-bundle" },
+  { id: "g3", goal: "Send a bug report to Empathetech", verb: "issue" },
+  { id: "g4", goal: "Note some friction I hit, just for myself", verb: "feedback" }
+];
+var selectedGoal = null;
+var solved = {};
+function buildGame(){
+  var gWrap = document.getElementById('goals');
+  var vWrap = document.getElementById('verbs');
+  var verbsShuffled = pairs.map(function(p){ return p; }).slice().sort(function(){ return Math.random() - 0.5; });
+  pairs.forEach(function(p){
+    var b = document.createElement('button');
+    b.className = 'btn btn--ghost'; b.type = 'button';
+    b.style.display = 'block'; b.style.width = '100%'; b.style.marginBottom = 'var(--space-2)'; b.style.textAlign = 'left';
+    b.textContent = p.goal; b.dataset.id = p.id;
+    b.onclick = function(){ selectGoal(p.id, b); };
+    gWrap.appendChild(b);
+  });
+  verbsShuffled.forEach(function(p){
+    var b = document.createElement('button');
+    b.className = 'btn btn--ghost'; b.type = 'button';
+    b.style.display = 'block'; b.style.width = '100%'; b.style.marginBottom = 'var(--space-2)'; b.style.fontFamily = 'var(--font-mono)';
+    b.textContent = p.verb; b.dataset.id = p.id;
+    b.onclick = function(){ selectVerb(p.id, b); };
+    vWrap.appendChild(b);
+  });
+}
+function selectGoal(id, btn){
+  if(solved[id]) return;
+  selectedGoal = { id: id, btn: btn };
+  document.querySelectorAll('#goals .btn').forEach(function(b){ if(!solved[b.dataset.id]){ b.classList.remove('btn--primary'); b.classList.add('btn--ghost'); } });
+  btn.classList.remove('btn--ghost'); btn.classList.add('btn--primary');
+  out("Now click the verb that achieves it.", "var(--color-text-muted)");
+}
+function selectVerb(id, btn){
+  if(solved[id]) return;
+  if(!selectedGoal){ out("Pick a goal on the left first.", "var(--color-warning)"); return; }
+  if(selectedGoal.id === id){
+    solved[id] = true;
+    selectedGoal.btn.style.background = "var(--color-success)"; selectedGoal.btn.style.color = "#fff"; selectedGoal.btn.style.borderColor = "var(--color-success)";
+    btn.style.background = "var(--color-success)"; btn.style.color = "#fff"; btn.style.borderColor = "var(--color-success)";
+    selectedGoal = null;
+    var done = Object.keys(solved).length;
+    if(done === pairs.length){ out("✅ All matched! You know what each verb is for.", "var(--color-success)"); }
+    else { out("✅ Match! " + (pairs.length - done) + " to go.", "var(--color-success)"); }
+  } else {
+    out("Not quite — that verb does something else. Try another.", "var(--color-warning)");
+  }
+}
+function out(msg, color){
+  var o = document.getElementById('matchOut');
+  o.style.color = color; o.textContent = msg;
+}
+buildGame();
+</script>
+
+</body>
+</html>

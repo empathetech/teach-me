@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arbitrate &amp; chat modes when agents disagree — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-adopt-existing-code.html">Module 8 · Working with the team well</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Arbitrate &amp; chat modes</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 8 · Lesson 2 · ⚖️ arbitrate</p>
+  <h1>Arbitrate &amp; chat modes when agents disagree</h1>
+  <p>A real team doesn't always agree — and neither does this one. Security might want more checks
+  while Product wants to ship. That tension is healthy. This lesson is about how you, the person in
+  charge, settle it.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: decision-making</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>When two agents pull in different directions, that's not a bug — it's the point of having
+  different roles. Your job isn't to make them agree. It's to <em>decide</em>, with their reasoning
+  in front of you.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#why">Why disagreement is good</a></li>
+      <li><a href="#modes">The three arbitrate modes</a></li>
+      <li><a href="#try">Try it: settle a real disagreement</a></li>
+      <li><a href="#chat">Team chat: off, minimal, full</a></li>
+      <li><a href="#grow">Going deeper</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="why">Why disagreement is good</h2>
+
+  <p>Imagine you're about to ship a feature. Security — Alex — wants two more input checks before it
+  goes out. Product — Maya — points out you promised this to users on Friday. Both are right from
+  where they sit. The framework calls the way you resolve this <strong>arbitration</strong>: settling
+  a disagreement between roles.</p>
+
+  <p>You run it like this, with a mode and a short description of the topic:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">the shape of the command</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours arbitrate &lt;mode&gt; &lt;topic&gt;
+
+# for example:
+/hacky-hours arbitrate decide "ship Friday vs. add two more input checks"</code></pre>
+  </figure>
+
+  <aside class="callout callout--note">
+    <strong>You always make the final call</strong>
+    None of these modes picks a winner for you. The framework is explicit that no mode
+    auto-decides — it surfaces the disagreement and the trade-offs, and <em>you</em> choose. The
+    modes just change how much detail you see before you do.
+  </aside>
+
+  <h2 id="modes">The three arbitrate modes</h2>
+
+  <p>The mode is the second word. It controls how deep the conversation goes — and how much time and
+  cost it spends.</p>
+
+  <aside class="callout callout--success">
+    <strong>decide</strong> — the cheapest and the default.
+    Each role states its position in a few words: what it wants, why, and the cost if it loses. You
+    read them side by side and choose. Fast and clear when you already have a sense of your
+    preference and just need the trade-offs laid out.
+  </aside>
+
+  <aside class="callout callout--note">
+    <strong>resolve</strong> — the middle option.
+    First <em>you</em> name the high-level concerns that matter ("we ship in two weeks", "don't break
+    user trust"). Then each role proposes a resolution weighed against those concerns. Use this when
+    the roles would propose the wrong thing without knowing what you care about.
+  </aside>
+
+  <aside class="callout callout--warning">
+    <strong>watch</strong> — the richest and most expensive.
+    Two or more roles actually talk to each other while you observe the back-and-forth. It ends when
+    they converge or when you step in. Reserve this for genuinely hard disagreements where you want
+    to see how the disciplines reason against each other. It's meant to be rare.
+  </aside>
+
+  <p>Whichever mode you pick, arbitration always writes an <strong>ADR</strong> — an Architecture
+  Decision Record, a short note capturing what was decided and why. As the framework puts it, this
+  matters <em>"otherwise the decision evaporates and the team will re-litigate it next month."</em></p>
+
+  <h2 id="try">Try it: settle a real disagreement</h2>
+
+  <p>Here's the Friday-vs-checks standoff. Pick a mode and see what would happen.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">⚖️ Interactive · 🛡️ Security vs 📊 Product</div>
+    <p style="font-size:var(--size-base); margin-top:0;"><strong>The topic:</strong> Alex (Security) wants two more input checks before launch. Maya (Product) wants to ship Friday as promised. You pick how to resolve it.</p>
+    <div style="margin-bottom:var(--space-3);">
+      <button class="btn btn--ghost" type="button" onclick="pickMode('decide',this)">decide</button>
+      <button class="btn btn--ghost" type="button" onclick="pickMode('resolve',this)">resolve</button>
+      <button class="btn btn--ghost" type="button" onclick="pickMode('watch',this)">watch</button>
+    </div>
+    <div id="arbOut" role="status" style="min-height:3em;"></div>
+  </div>
+
+  <hr class="divider">
+
+  <h2 id="chat">Team chat: off, minimal, full</h2>
+
+  <p>Arbitration is naturally a multi-voice moment, which is a good time to mention a separate
+  setting: how chatty the team is on screen during any multi-role work. You control it with:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">control how much the team "talks"</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours team chat off       # just the result, no role chatter
+/hacky-hours team chat minimal   # brief attributed turns (the default)
+/hacky-hours team chat full      # the full back-and-forth, every voice</code></pre>
+  </figure>
+
+  <ul>
+    <li><strong>off</strong> — you see the outcome with minimal role dialogue. Even then, positions
+    are still clearly attributed to roles during arbitration, because that's the whole point of it.</li>
+    <li><strong>minimal</strong> — short, attributed turns. This is the default, and a good balance.</li>
+    <li><strong>full</strong> — every voice, every turn. Great for learning how the team thinks;
+    more to read.</li>
+  </ul>
+
+  <p class="pullquote">A guiding rule from the framework: "No tokens for tokens' sake — every voice turn must add information."</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>The decision is yours to understand</strong>
+    The agents give you sharp, role-specific arguments — but they can't know your users, your legal
+    exposure, or your risk tolerance the way you do. An arbitration that lands on "ship now" is a
+    recommendation, not a guarantee that shipping is safe. For anything that touches real people's
+    money or data, the responsibility to slow down and verify stays with you.
+  </aside>
+
+  <h2 id="grow">Going deeper 🌱</h2>
+
+  <p>The ADRs that arbitration produces are a genuine professional practice — worth understanding
+  beyond this course.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Read what Architecture Decision Records are and why teams keep them:
+      <a href="https://adr.github.io/">adr.github.io</a>. Every arbitration writes one.</li>
+      <li>Next time two agents disagree in your own project, try <code>decide</code> first — it's
+      cheap, and you'll learn whether you needed more.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Disagreement between roles is healthy; <code>/hacky-hours arbitrate &lt;mode&gt; &lt;topic&gt;</code> is how you settle it.</li>
+      <li><strong>decide</strong> = quick positions side by side; <strong>resolve</strong> = roles propose against your concerns; <strong>watch</strong> = roles converse while you observe.</li>
+      <li>You always make the final call — no mode auto-picks a winner — and every arbitration writes an ADR.</li>
+      <li><code>team chat off | minimal | full</code> controls how visible the team is; minimal is the default.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · arbitrate modes (decide/resolve/watch),
+      the human-always-decides rule, ADR output, and team chat quoted from <code>tools/arbitrate.md</code> and
+      <code>SKILL.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Architecture Decision Records</strong> · <a href="https://adr.github.io/">adr.github.io</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-01-adopt-existing-code.html">◂ Adopting an existing project</a>
+  <a class="btn btn--primary" href="lesson-03-teach-and-export.html">Lesson 3 · Teaching &amp; exporting ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+var arbResults = {
+  decide: "<strong>decide</strong> — fastest. The framework spawns Alex and Maya and prints their positions side by side, each in a sentence or two:<br><br>🛡️ <strong>Alex</strong>: \"Add the two checks. Cost if we skip them: an unvalidated field could let bad input through.\"<br>📊 <strong>Maya</strong>: \"Ship Friday. Cost if we slip: we miss a promise users are waiting on.\"<br><br>You read both and choose — pick one, blend them, or defer. An ADR records your call.",
+  resolve: "<strong>resolve</strong> — middle depth. First it asks <em>you</em> for the concerns to weigh against (say: \"keep the Friday date\" and \"no data leaks\"). Then Alex and Maya each propose a resolution that respects those concerns — for example, Alex might suggest adding only the one critical check now and the rest next week. You pick the proposal you like. An ADR records it.",
+  watch: "<strong>watch</strong> — richest and most expensive. Alex and Maya actually talk to each other while you watch the exchange. They might converge on \"ship Friday with one essential check, file the rest as follow-up.\" It ends on agreement or when you step in. The full transcript plus the decision go into an ADR. Use this sparingly — it's meant to be rare."
+};
+function pickMode(mode, btn){
+  var sibs = btn.parentNode.querySelectorAll('.btn');
+  sibs.forEach(function(b){ b.classList.remove('btn--primary'); b.classList.add('btn--ghost'); });
+  btn.classList.remove('btn--ghost'); btn.classList.add('btn--primary');
+  var out = document.getElementById('arbOut');
+  out.style.color = "var(--color-text)";
+  out.innerHTML = arbResults[mode];
+}
+</script>
+
+</body>
+</html>

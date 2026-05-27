@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Hacky Hours actually is — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-what-is-hacky-hours.html">Module 1 · Getting started</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">What Hacky Hours actually is</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 1 · Lesson 1 · 🛠️ the big picture</p>
+  <h1>What Hacky Hours actually is</h1>
+  <p>Before you install anything or type a single command, it's worth knowing what you're
+  actually picking up — and, just as honestly, what it can't do for you. This is the lesson that
+  makes everything after it make sense.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: building literacy</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>Hacky Hours is a <strong>framework</strong> — a repeatable way of working — for building real
+  software with the help of a large language model (an "LLM," the kind of AI that powers Claude).
+  It's a community project from
+  <a href="https://www.empathetech.org/">Empathetech</a>, and it lives inside Claude Code as a
+  <strong>skill</strong> — a packaged set of instructions you call with a slash command. You'll be
+  using version 4.0.1 throughout this course.</p>
+
+  <p>It exists for one reason: typing "build me an app" into an AI gets you something that looks
+  finished but skips most of the thinking a real team would do. Hacky Hours puts that thinking
+  back in.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#philosophy">The one idea everything rests on</a></li>
+      <li><a href="#steps">The five steps</a></li>
+      <li><a href="#team">The team of twelve</a></li>
+      <li><a href="#defaults">It picks the safe, simple path by default</a></li>
+      <li><a href="#everyone">It's genuinely for everyone</a></li>
+      <li><a href="#try">Try it: is this a Hacky Hours moment?</a></li>
+      <li><a href="#grow">Going deeper</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="philosophy">The one idea everything rests on</h2>
+
+  <p>If you remember nothing else, remember this: <strong>you drive the product; Claude helps you
+  build it — but it needs your direction.</strong> The framework is explicit that the human is the
+  decision-maker. As the skill's own guiding values put it, "Human is the driver. You are the
+  implementation team. The user is the C-suite. Ask first, act second."</p>
+
+  <p class="pullquote">You bring the vision and the judgment. The framework brings the process and
+  the hands.</p>
+
+  <p>That means it will ask you questions instead of guessing, and it will pause before doing
+  anything hard to undo. It is not a button that produces a finished app while you watch.</p>
+
+  <hr class="divider">
+
+  <h2 id="steps">The five steps</h2>
+
+  <p>Hacky Hours organizes a build into five steps, in order. You move through them at your own
+  pace, and you can revisit earlier ones whenever your idea shifts:</p>
+
+  <ol>
+    <li><strong>Ideate</strong> — get the idea out of your head and into clear, written form: who
+    it's for, what it does, and why it matters.</li>
+    <li><strong>Design</strong> — decide how the product actually works, in enough detail that
+    someone new could understand it.</li>
+    <li><strong>Roadmap</strong> — prioritize ruthlessly, so the first version you ship is small
+    enough to actually finish.</li>
+    <li><strong>Build</strong> — implement it in small pieces, checking each one against your
+    design before calling it done.</li>
+    <li><strong>Iterate</strong> — gather feedback, update your plans, and queue up what's
+    next.</li>
+  </ol>
+
+  <p>These names and order come straight from the skill, which guides you "through five steps:
+  Ideate → Design → Roadmap → Build → Iterate, so you figure out <em>what</em> to build before
+  writing any code."</p>
+
+  <hr class="divider">
+
+  <h2 id="team">The team of twelve</h2>
+
+  <p>The part that makes Hacky Hours unusual is its <strong>persistent team</strong> of twelve
+  AI agents, each playing a real stakeholder role you'd find on a software team. Rather than one
+  generic assistant, you get distinct voices — Product, Design, Architect, Frontend, Backend,
+  Security, Ops, QA, Accessibility, Licensing, Data, and AI/ML — that weigh in at the right
+  moments.</p>
+
+  <p>Here's the honest reframe worth holding onto: each agent is a <strong>doorway into a real
+  discipline</strong>. When the accessibility agent flags something, that's a nudge toward a field
+  with decades of research behind it. The agent gives you a starting point; the discipline is
+  where the real depth lives. You'll meet all twelve and explore them yourself in the
+  <a href="../tools/team.html">team browser</a>.</p>
+
+  <aside class="callout callout--note">
+    <strong>Why a "team" and not just a smarter assistant</strong>
+    Splitting the work into roles forces questions to the surface that a single helpful voice
+    tends to skip — like "who can legally use this?" or "what happens to this user's data?" The
+    roles don't replace experts; they make sure the question at least gets asked.
+  </aside>
+
+  <hr class="divider">
+
+  <h2 id="defaults">It picks the safe, simple path by default</h2>
+
+  <p>Hacky Hours has a set of values baked into every recommendation it makes — you don't have to
+  ask for them. A few of the most useful:</p>
+
+  <ul>
+    <li><strong>Free before paid</strong> — it suggests free and open-source tools before
+    commercial ones, and flags costs clearly when a paid option comes up.</li>
+    <li><strong>Less infrastructure before more</strong> — it prefers simple, managed solutions
+    over things you'd have to run and maintain yourself.</li>
+    <li><strong>Privacy-preserving before data-rich</strong> — it nudges you to collect the
+    minimum data you need, and treats data collection as a deliberate decision rather than a
+    default.</li>
+  </ul>
+
+  <p>These are sensible starting points, not magic. They tilt you toward choices that are usually
+  cheaper, simpler, and easier to keep safe.</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>What this lesson is not promising</strong>
+    Hacky Hours gives you <strong>direction</strong> — good defaults, the right questions, a
+    structured process. It does <strong>not</strong> guarantee that what you build is secure,
+    private, legally compliant, or correct, and neither does this course. The responsibility to
+    review, understand, and verify what you ship stays with you. The framework's job is to help
+    you make better decisions, not to make them disappear.
+  </aside>
+
+  <h2 id="everyone">It's genuinely for everyone</h2>
+
+  <p>One of the framework's stated values is simply: "This is for everyone. From first-time
+  builders to seasoned engineers. Never assume prior knowledge. Explain jargon the first time you
+  use it."</p>
+
+  <p>Here's the clever part. The framework <strong>adapts to how much you already know</strong>:
+  it "stands in for <em>more</em> of the process for someone without the background, <em>less</em>
+  for someone with it." So if you're not an engineer, it does more of the heavy lifting and
+  explains more along the way. If you are, it gets out of your way. You'll set that up in the next
+  lesson.</p>
+
+  <h2 id="try">Try it: is this a Hacky Hours moment?</h2>
+
+  <p>Hacky Hours is built for building real things — not every coding task needs it. The skill
+  itself says it does <em>not</em> trigger on "typo fixes, single-file scripts, 'explain this
+  function,' or tactical one-off code tasks." Let's build your instinct for the difference.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🛠️ Interactive · for each request, pick yes or no</div>
+    <p style="font-size:var(--size-base); color:var(--color-text-muted); margin-top:0;">Would
+    this be a good moment to reach for Hacky Hours? Choose, and you'll get the reasoning.</p>
+    <div id="hhquiz"></div>
+    <p id="quizScore" role="status" style="margin-bottom:0; min-height:1.5em; font-weight:600;"></p>
+  </div>
+
+  <h2 id="grow">Going deeper 🌱</h2>
+
+  <p>Hacky Hours is one opinionated take on a much older idea: that <em>deciding what to build</em>
+  is most of the work, and that good software comes from a process, not a burst of typing.</p>
+
+  <aside class="callout callout--grow">
+    <strong>One door worth walking through</strong>
+    If the idea of "figure it out before you build it" sparks something, read Joel Spolsky's classic
+    <a href="https://www.joelonsoftware.com/2000/10/02/painless-functional-specifications-part-1-why-bother/">"Painless
+    Functional Specifications"</a> — a plain-spoken, decades-old argument for why writing down what
+    you're building first saves enormous pain later. You'll recognize the Hacky Hours philosophy in it.
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Hacky Hours is a community framework (and Claude Code skill) from Empathetech for building real software with an LLM.</li>
+      <li>The core idea: you drive the product; Claude helps you build it, but it needs your direction.</li>
+      <li>It runs in five steps — Ideate, Design, Roadmap, Build, Iterate — backed by a team of twelve stakeholder-role agents.</li>
+      <li>Each agent is a doorway into a real discipline; defaults lean free, simple, and privacy-preserving.</li>
+      <li>It's for everyone, doing more of the process for people without the background — and it gives direction, not guarantees.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · five steps, the twelve roles, the
+      Global Values ("Human is the driver," "Free before paid," "This is for everyone"), and the
+      "stands in for more/less" framing all quoted from <code>SKILL.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Painless Functional Specifications, Part 1</strong> · Joel Spolsky ·
+      <a href="https://www.joelonsoftware.com/2000/10/02/painless-functional-specifications-part-1-why-bother/">joelonsoftware.com</a></li>
+      <li><strong>Empathetech</strong> · project home ·
+      <a href="https://www.empathetech.org/">empathetech.org</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="../dashboard.html">◂ Dashboard</a>
+  <a class="btn btn--primary" href="lesson-02-install-and-modes.html">Lesson 2 · Installing it &amp; modes ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+var SCENARIOS = [
+  {text:"“Build me an app to track my houseplants and remind me to water them.”", yes:true,
+   why:"Yes — a real thing being built from scratch. This is exactly what the five steps are for."},
+  {text:"“Fix a typo in one file.”", yes:false,
+   why:"No — the skill explicitly skips typo fixes. Just ask Claude to fix it directly."},
+  {text:"“I vibe-coded a project and want to harden it before sharing it.”", yes:true,
+   why:"Yes — hardening an existing codebase is a core Hacky Hours use. Look up the adopt and audit commands later."},
+  {text:"“Explain what this one function does.”", yes:false,
+   why:"No — 'explain this function' is a tactical one-off. No team needed; just ask."}
+];
+(function(){
+  var host = document.getElementById('hhquiz');
+  var answered = 0, correct = 0;
+  SCENARIOS.forEach(function(s, i){
+    var row = document.createElement('div');
+    row.style.cssText = "border:1px solid var(--color-border); border-radius:var(--radius-md); padding:var(--space-4); margin-bottom:var(--space-3);";
+    var q = document.createElement('p');
+    q.style.cssText = "margin:0 0 var(--space-2); font-weight:600;";
+    q.textContent = s.text;
+    row.appendChild(q);
+    var btnYes = document.createElement('button');
+    var btnNo = document.createElement('button');
+    btnYes.className = "btn btn--ghost"; btnNo.className = "btn btn--ghost";
+    btnYes.type = "button"; btnNo.type = "button";
+    btnYes.textContent = "Yes"; btnNo.textContent = "No";
+    btnYes.style.marginRight = "var(--space-2)";
+    var fb = document.createElement('p');
+    fb.setAttribute('role','status');
+    fb.style.cssText = "margin:var(--space-3) 0 0; min-height:1.2em; font-size:var(--size-base);";
+    function pick(choice){
+      if(row.dataset.done) return;
+      row.dataset.done = "1"; answered++;
+      var right = (choice === s.yes);
+      if(right) correct++;
+      fb.style.color = right ? "var(--color-success)" : "var(--color-warning)";
+      fb.innerHTML = (right ? "✅ " : "Not quite. ") + s.why;
+      btnYes.disabled = true; btnNo.disabled = true;
+      (s.yes ? btnYes : btnNo).style.background = "var(--color-bg-subtle)";
+      if(answered === SCENARIOS.length){
+        var sc = document.getElementById('quizScore');
+        sc.style.color = "var(--color-primary)";
+        sc.textContent = "You got " + correct + " of " + SCENARIOS.length + ". The pattern: reach for Hacky Hours when you're building or hardening a real thing — not for one-off edits or questions.";
+      }
+    }
+    btnYes.addEventListener('click', function(){ pick(true); });
+    btnNo.addEventListener('click', function(){ pick(false); });
+    row.appendChild(btnYes); row.appendChild(btnNo); row.appendChild(fb);
+    host.appendChild(row);
+  });
+})();
+</script>
+
+</body>
+</html>

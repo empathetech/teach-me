@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Installing it &amp; builder vs. engineer mode — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-what-is-hacky-hours.html">Module 1 · Getting started</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Installing it &amp; builder vs. engineer mode</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 1 · Lesson 2 · ⚙️ setup</p>
+  <h1>Installing it &amp; builder vs. engineer mode</h1>
+  <p>Two short jobs in this lesson: get Hacky Hours onto your machine, and tell it how technical
+  you want it to be. Both take a couple of minutes, and both pay off every session after.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">7 min read</span> <span class="tag">hands-on</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>In the last lesson you learned <em>what</em> Hacky Hours is. Now we make it real on your
+  computer. You'll install it once, then learn the single setting that shapes how it talks to
+  you for everything that follows.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#install">Installing Hacky Hours</a></li>
+      <li><a href="#help">Your first command: help</a></li>
+      <li><a href="#modes">Builder mode vs. engineer mode</a></li>
+      <li><a href="#try">Try it: see the same answer in both modes</a></li>
+      <li><a href="#ab">One more thing: how it gets started (Mode A vs. Mode B)</a></li>
+      <li><a href="#grow">Going deeper</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="install">Installing Hacky Hours</h2>
+
+  <p>Hacky Hours runs inside <a href="https://claude.com/claude-code">Claude Code</a>, so make sure
+  that's installed first. Then run the one-line installer for your operating system. (An
+  "operating system" is just whether you're on a Mac, Linux, or Windows machine.)</p>
+
+  <p><strong>On macOS or Linux</strong>, open your terminal and run:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">terminal · macOS / Linux</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>curl -fsSL https://raw.githubusercontent.com/empathetech/hacky-hours-docs/main/install.sh | bash</code></pre>
+  </figure>
+
+  <p><strong>On Windows</strong>, open PowerShell and run:</p>
+
+  <figure class="code-block" data-lang="powershell">
+    <header class="code-block__header"><span class="code-block__lang">PowerShell · Windows</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>irm https://raw.githubusercontent.com/empathetech/hacky-hours-docs/main/install.ps1 | iex</code></pre>
+  </figure>
+
+  <p>After it finishes, <strong>restart Claude Code</strong> so it picks up the new skill. Then you
+  can use the <code>/hacky-hours</code> command. Full instructions and the source live at the
+  <a href="https://github.com/empathetech/hacky-hours-docs">Hacky Hours docs repository</a>.</p>
+
+  <aside class="callout callout--note">
+    <strong>What that command does, in plain words</strong>
+    It downloads a script from Empathetech's official GitHub and runs it, which copies the skill
+    files into Claude Code's skills folder. As with any install script, it's worth knowing it's
+    from a source you trust — here, that's the project's own repository, linked above.
+  </aside>
+
+  <aside class="callout callout--responsibility">
+    <strong>The honest note on install scripts</strong>
+    Piping a script straight into <code>bash</code> or <code>iex</code> runs whatever that script
+    contains. That's standard practice for many tools, but the responsibility to trust the source
+    is yours. If you'd rather read it first, open the <code>install.sh</code> or
+    <code>install.ps1</code> file on GitHub before running it. Hacky Hours can't make that judgment
+    call for you.
+  </aside>
+
+  <h2 id="help">Your first command: help</h2>
+
+  <p>Once it's installed and Claude Code is restarted, the friendliest first move is to ask it to
+  explain itself:</p>
+
+  <figure class="code-block" data-lang="text">
+    <header class="code-block__header"><span class="code-block__lang">in Claude Code</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours help</code></pre>
+  </figure>
+
+  <p>That prints the full list of commands — the five steps, the team tools, audit, and more —
+  with a one-line description of each. You don't need to memorize it; it's there whenever you
+  forget what something is called.</p>
+
+  <hr class="divider">
+
+  <h2 id="modes">Builder mode vs. engineer mode</h2>
+
+  <p>This is the setting that matters most for how Hacky Hours feels to you. It has two
+  <strong>modes</strong> — two ways of talking — and you choose which one fits you:</p>
+
+  <ul>
+    <li><strong>Builder mode</strong> — plain language. It explains tradeoffs through outcomes and
+    real-world analogies, and never uses jargon without defining it first. This is the default for
+    every new project, and it's where most non-engineers will want to stay. As the skill puts it,
+    builder mode "is not less rigorous — it's the same information grounded in what the user needs
+    to decide."</li>
+    <li><strong>Engineer mode</strong> — technical language. It assumes you're familiar with
+    programming concepts, frameworks, and tooling, and talks in precise terms — things like type
+    safety, dependency footprint, and architectural patterns. It does less hand-holding because it
+    assumes you don't need it.</li>
+  </ul>
+
+  <p>Both modes explain the consequences of a decision. The difference is purely how they frame
+  it. You set or switch modes with:</p>
+
+  <figure class="code-block" data-lang="text">
+    <header class="code-block__header"><span class="code-block__lang">in Claude Code</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours tools mode            # toggle to the other mode
+/hacky-hours tools mode builder    # switch to builder explicitly
+/hacky-hours tools mode engineer   # switch to engineer explicitly</code></pre>
+  </figure>
+
+  <p>The choice is remembered across sessions — it's written into your project's
+  <code>CLAUDE.md</code> file — so you set it once and forget it. You can always toggle back.</p>
+
+  <h2 id="try">Try it: see the same answer in both modes</h2>
+
+  <p>The best way to feel the difference is to read the same advice twice. Flip the toggle and
+  watch how the depth and vocabulary change — the underlying recommendation stays the same.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">⚙️ Interactive · flip the mode and watch the answer change</div>
+    <p style="font-size:var(--size-base); color:var(--color-text-muted); margin-top:0;">The
+    question: <em>"What database should I use for my app?"</em></p>
+    <div style="display:flex; gap:var(--space-3); align-items:center; margin-bottom:var(--space-4);">
+      <button id="modeToggle" class="btn btn--primary" type="button">Currently: Builder mode — switch to Engineer ▸</button>
+    </div>
+    <div id="modeAnswer" role="status" style="border:1px solid var(--color-border); border-radius:var(--radius-md); padding:var(--space-4); background:var(--color-bg-subtle); min-height:4em;"></div>
+  </div>
+
+  <aside class="callout callout--note">
+    <strong>Not sure which to pick?</strong>
+    Start in builder mode. It's the default for a reason, and you lose nothing — the rigor is the
+    same. If it ever feels like it's over-explaining things you already know, flip to engineer
+    mode in one command.
+  </aside>
+
+  <hr class="divider">
+
+  <h2 id="ab">One more thing: how it gets started (Mode A vs. Mode B)</h2>
+
+  <p>"Mode" is doing double duty in Hacky Hours, so let's clear up the second meaning, because
+  it'll save you confusion. Separate from builder/engineer, the skill behaves differently
+  depending on <em>how it was started</em>:</p>
+
+  <ul>
+    <li><strong>Mode A — you invoked it.</strong> You typed <code>/hacky-hours</code> (with or
+    without a command after it). You opted in, so it proceeds straight to work.</li>
+    <li><strong>Mode B — context triggered it.</strong> You wrote something in plain English like
+    "build me an app" and Claude recognized a build-a-real-thing moment. Because you didn't type
+    the command yourself, it <strong>stops and shows you an invitation first</strong> — offering to
+    engage the full team, sketch informally, or skip the framework — and waits for you to choose.
+    It won't start scaffolding or asking project questions until you say so.</li>
+  </ul>
+
+  <p>The takeaway: Hacky Hours never barges in. If it appears uninvited, it'll ask permission
+  before doing anything real.</p>
+
+  <h2 id="grow">Going deeper 🌱</h2>
+
+  <p>The idea that a tool should meet you at your level — explaining more or less depending on what
+  you know — is a thread that runs through good documentation everywhere.</p>
+
+  <aside class="callout callout--grow">
+    <strong>A door worth walking through</strong>
+    If the builder/engineer split interests you, read the
+    <a href="https://diataxis.fr/">Diátaxis framework</a> — a widely used, free guide to writing
+    technical documentation that adapts to whether the reader is learning, doing, or looking
+    something up. It's the same instinct as Hacky Hours' modes, applied to writing.
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Install with one line — <code>curl … install.sh | bash</code> on macOS/Linux, <code>irm … install.ps1 | iex</code> on Windows — then restart Claude Code.</li>
+      <li>Run <code>/hacky-hours help</code> to see every command.</li>
+      <li>Builder mode is plain-language (the default); engineer mode is technical and assumes more. Switch with <code>/hacky-hours tools mode</code>.</li>
+      <li>Builder mode isn't less rigorous — just framed around what you need to decide.</li>
+      <li>Mode A (you typed the command) proceeds; Mode B (context-triggered) shows an invitation and waits for your choice.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · install commands, <code>help</code>
+      output, builder/engineer mode behavior (from <code>tools/mode.md</code>), and Mode A vs.
+      Mode B invocation (from <code>SKILL.md</code>) ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Claude Code</strong> · the environment Hacky Hours runs in ·
+      <a href="https://claude.com/claude-code">claude.com/claude-code</a></li>
+      <li><strong>Diátaxis</strong> · documentation framework ·
+      <a href="https://diataxis.fr/">diataxis.fr</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-01-what-is-hacky-hours.html">◂ Lesson 1 · What Hacky Hours actually is</a>
+  <a class="btn btn--primary" href="lesson-03-step-zero.html">Lesson 3 · Step 0 — exploring safely ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+(function(){
+  var isEngineer = false;
+  var builder = "<strong>Builder mode:</strong> Supabase is a good first pick. It manages everything for you — there's no server to maintain — and it's free to start. That keeps you focused on your app instead of babysitting infrastructure, and it lines up with Hacky Hours' “free before paid, less infrastructure before more” defaults.";
+  var engineer = "<strong>Engineer mode:</strong> Supabase is managed Postgres with a built-in REST/realtime API layer — a good fit when you want SQL semantics without ops overhead. Free tier to start; watch row limits and connection pooling as you scale. Consistent with the framework’s bias toward managed services and minimal attack surface.";
+  var ans = document.getElementById('modeAnswer');
+  var btn = document.getElementById('modeToggle');
+  function render(){
+    ans.innerHTML = isEngineer ? engineer : builder;
+    btn.textContent = isEngineer
+      ? "Currently: Engineer mode — switch to Builder ◂"
+      : "Currently: Builder mode — switch to Engineer ▸";
+  }
+  btn.addEventListener('click', function(){ isEngineer = !isEngineer; render(); });
+  render();
+})();
+</script>
+
+</body>
+</html>

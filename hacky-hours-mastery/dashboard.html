@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hacky Hours Mastery — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <span class="nav-brand">🛠️ Hacky Hours Mastery</span>
+  <span class="nav-spacer"></span>
+  <a href="tools/team.html">The Team</a>
+  <span class="nav-sep">·</span>
+  <a href="style-guide.html">Style Guide</a>
+  <span class="nav-sep">·</span>
+  <a href="credits.html">Credits</a>
+</nav>
+
+<header class="hero">
+  <p class="eyebrow">An Empathetech community course</p>
+  <h1>Build real software — and understand what you're building.</h1>
+  <p>Hacky Hours gives you a team of twelve expert agents to help you design, build, and ship.
+  This course teaches you to work with them well — and to keep learning the craft, so you're
+  making real decisions instead of just hoping the AI got it right.</p>
+</header>
+
+<main class="wrap">
+
+  <section class="objective-band">
+    <span class="label">🎯 Your goal</span>
+    <p style="margin:.4rem 0 0; font-size:1.15rem;">Use <code>/hacky-hours</code> confidently to build real, shippable software —
+    and treat its stakeholder agents as people you learn from, so you grow steadily in security,
+    accessibility, data, and deployment instead of relying on the AI without understanding it.</p>
+  </section>
+
+  <div style="display:flex; gap:var(--space-6); flex-wrap:wrap; align-items:center; margin-bottom:var(--space-8);">
+    <div style="flex:1; min-width:260px;">
+      <div style="display:flex; justify-content:space-between; font-size:var(--size-sm); margin-bottom:6px;">
+        <strong>Your progress</strong><span id="progressText">0 of 9 modules · 0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-bar__fill" id="progressFill" style="width:0%"></div></div>
+    </div>
+    <a class="btn btn--primary" href="module-01-getting-started/lesson-01-what-is-hacky-hours.html">Start ▸ Module 1</a>
+  </div>
+
+  <h2 style="margin-top:0;">The course</h2>
+  <div class="module-grid">
+
+    <a class="module-card" href="module-01-getting-started/lesson-01-what-is-hacky-hours.html" style="border-top-color:var(--cat-idea);">
+      <span class="module-num">Module 1</span>
+      <h3>Getting started</h3>
+      <p>What Hacky Hours actually is, how to install it, builder vs. engineer mode, and
+      <code>step 0</code> — exploring safely before you commit a single file.</p>
+      <span class="tag tag--accent">3 lessons</span>
+    </a>
+
+    <a class="module-card" href="module-02-meet-the-team/lesson-01-the-twelve-agents.html" style="border-top-color:var(--cat-idea);">
+      <span class="module-num">Module 2</span>
+      <h3>Meet the team</h3>
+      <p>The twelve agents and the eight values that guide every recommendation. Each agent is a
+      way into a real software discipline you can keep learning.</p>
+      <span class="tag">4 lessons</span>
+    </a>
+
+    <a class="module-card" href="module-03-ideate/lesson-01-getting-it-out.html" style="border-top-color:var(--cat-idea);">
+      <span class="module-num">Module 3</span>
+      <h3>Ideate — getting it out of your head</h3>
+      <p>Step 1. Work with the product agent to turn a fuzzy idea into a clear PRODUCT_OVERVIEW
+      the whole team can build from.</p>
+      <span class="tag">3 lessons</span>
+    </a>
+
+    <a class="module-card" href="module-04-design/lesson-01-what-design-means.html" style="border-top-color:var(--cat-build);">
+      <span class="module-num">Module 4</span>
+      <h3>Design — how it actually works</h3>
+      <p>Step 2, the big one. Architecture, data, security, accessibility. Where you grow the
+      most — and where you learn what you're responsible for understanding yourself.</p>
+      <span class="tag">5 lessons</span>
+    </a>
+
+    <a class="module-card" href="module-05-roadmap/lesson-01-mvp-v1-v2.html" style="border-top-color:var(--cat-build);">
+      <span class="module-num">Module 5</span>
+      <h3>Roadmap — deciding what's actually first</h3>
+      <p>Step 3. MVP vs. V1 vs. V2+. Why the smallest shippable version is the hardest and most
+      important call you'll make.</p>
+      <span class="tag">2 lessons</span>
+    </a>
+
+    <a class="module-card" href="module-06-build/lesson-01-branches-and-commits.html" style="border-top-color:var(--cat-build);">
+      <span class="module-num">Module 6</span>
+      <h3>Build — one safe step at a time</h3>
+      <p>Step 4. Branches, the pre-merge checklist, changelogs, working with the frontend and
+      backend agents. Reading what the AI wrote without fear.</p>
+      <span class="tag">4 lessons</span>
+    </a>
+
+    <a class="module-card" href="module-07-ship-and-iterate/lesson-01-deployment-and-the-cloud.html" style="border-top-color:var(--cat-solid);">
+      <span class="module-num">Module 7</span>
+      <h3>Ship &amp; iterate</h3>
+      <p>Step 5 + the three-lane <code>audit</code> + cutting releases. The ops agent on
+      deployment, cloud, and getting your app off your laptop.</p>
+      <span class="tag">4 lessons</span>
+    </a>
+
+    <a class="module-card" href="module-08-working-with-the-team-well/lesson-01-adopt-existing-code.html" style="border-top-color:var(--cat-bigger);">
+      <span class="module-num">Module 8</span>
+      <h3>Working with the team well</h3>
+      <p>The deeper verbs: <code>adopt</code> an existing project, <code>arbitrate</code> when
+      agents disagree, team chat modes, teaching your team to learn from you, and
+      <code>export</code> to hand your docs to a real team.</p>
+      <span class="tag">3 lessons</span>
+    </a>
+
+    <a class="module-card" href="module-09-capstone/lesson-01-build-your-own-thing.html" style="border-top-color:var(--color-accent);">
+      <span class="module-num">Module 9 · Capstone</span>
+      <h3>Build your own thing, end to end</h3>
+      <p>Take one of your own ideas from blank page to shipped, with the team — then look back at
+      how much you've learned along the way.</p>
+      <span class="tag tag--accent">project</span>
+    </a>
+
+  </div>
+
+  <hr class="divider">
+
+  <section style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:var(--space-8);">
+    <h2 style="margin-top:0;">Before you begin</h2>
+    <pre style="font-family:var(--font-mono); font-size:.9rem; line-height:1.9; margin:0; white-space:pre-wrap;">🎯 Goal:      Use /hacky-hours confidently &amp; keep growing as a real builder
+📅 Timeline:  ~30 min/day · Module 1: a few days · Whole course: ~6 weeks, no rush
+💰 Cost:      Free — this course runs in your browser; the skill runs in Claude Code
+⚡ Hands-on:  Lessons send you to run the real /hacky-hours skill and reflect</pre>
+    <p style="margin:var(--space-4) 0 0; font-size:var(--size-sm); color:var(--color-text-muted);">
+    A note we'll repeat often: Hacky Hours gives you <strong>direction, not guarantees</strong>.
+    The decisions — and the responsibility for understanding them — stay yours.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> ·
+  <a href="https://github.com/empathetech">GitHub</a> ·
+  <a href="credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+</body>
+</html>

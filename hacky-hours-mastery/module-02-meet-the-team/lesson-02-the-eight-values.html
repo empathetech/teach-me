@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The eight values that guide everything — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-the-twelve-agents.html">Module 2 · Meet the team</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">The eight values</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 2 · Lesson 2 · what guides the team</p>
+  <h1>The eight values that guide everything</h1>
+  <p>Behind every suggestion the twelve agents make, there's a small set of principles steering
+  them. The framework calls them <strong>global values</strong>, and they exist to protect
+  <em>you</em> — especially if you're not an engineer. Let's walk through all eight in plain
+  language.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">9 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: good defaults</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <aside class="callout callout--note">
+    <strong>Straight from the source</strong>
+    These eight values come word-for-word from the framework's own <code>SKILL.md</code>, where
+    they're described as governing "every recommendation this framework makes… not defaults to
+    override — they are the framework's design principles." We'll quote each one and then translate
+    why it matters for you.
+  </aside>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#v1">Human is the driver</a></li>
+      <li><a href="#v2">Free before paid</a></li>
+      <li><a href="#v3">Less infrastructure before more</a></li>
+      <li><a href="#v4">Privacy-preserving before data-rich</a></li>
+      <li><a href="#v5">Reduce attack surface</a></li>
+      <li><a href="#v6">Accessible by default</a></li>
+      <li><a href="#v7">Licensing hygiene from the start</a></li>
+      <li><a href="#v8">This is for everyone</a></li>
+      <li><a href="#try">Try it: match the value</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="v1">1. Human is the driver</h2>
+  <aside class="callout callout--quote">
+    <strong>From the values</strong>
+    "You are the implementation team. The user is the C-suite. Ask first, act second. If something
+    could be hard to undo, confirm first."
+  </aside>
+  <p>You are always in charge. The team proposes; you decide. Nothing big or hard-to-reverse
+  happens without your sign-off. For a non-engineer, this is the value that keeps the tool from
+  running off without you.</p>
+
+  <h2 id="v2">2. Free before paid</h2>
+  <aside class="callout callout--quote">
+    <strong>From the values</strong>
+    "Recommend free/open-source tools and platforms before commercial ones. Flag costs clearly
+    when paid options are relevant."
+  </aside>
+  <p>The team reaches for free, open-source options first and tells you plainly when something
+  costs money. This keeps your project from quietly racking up bills — a real risk when you can't
+  yet tell a free tier from a paid one.</p>
+
+  <h2 id="v3">3. Less infrastructure before more</h2>
+  <aside class="callout callout--quote">
+    <strong>From the values</strong>
+    "Prefer a simple hosted solution over a self-managed one. A managed database over one the user
+    has to operate. A single service over a microservices architecture."
+  </aside>
+  <p><strong>Infrastructure</strong> is all the machinery your app runs on — servers, databases,
+  services. The fewer moving parts you have, the fewer things can break and the less you have to
+  understand. Simpler is friendlier.</p>
+
+  <h2 id="v4">4. Privacy-preserving before data-rich</h2>
+  <aside class="callout callout--quote">
+    <strong>From the values</strong>
+    "Collect the minimum data needed. Flag data collection, storage, and third-party sharing as
+    explicit decisions, not defaults."
+  </aside>
+  <p>The team won't quietly hoard people's information. Collecting less data means less to protect,
+  less to leak, and fewer legal obligations. The
+  <a href="https://gdpr.eu/data-minimization/">principle of data minimization</a> is a recognized
+  privacy practice, not just a nicety.</p>
+
+  <hr class="divider">
+
+  <h2 id="v5">5. Reduce attack surface</h2>
+  <aside class="callout callout--quote">
+    <strong>From the values</strong>
+    "When two approaches accomplish the same goal, prefer fewer credentials, fewer external
+    dependencies, and fewer moving parts."
+  </aside>
+  <p>Your <strong>attack surface</strong> is every place something could go wrong or be broken
+  into. Fewer parts means fewer things to get wrong. Often the most secure choice is just the
+  simpler one — though, as always, this is direction, not a guarantee.</p>
+
+  <h2 id="v6">6. Accessible by default</h2>
+  <aside class="callout callout--quote">
+    <strong>From the values</strong>
+    "WCAG 2.1 AA is the right starting point for any UI. Don't wait for the user to ask. Semantic
+    HTML before complex UI frameworks."
+  </aside>
+  <p><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG 2.1 AA</a> is the common
+  standard for making web content usable by people with disabilities. The team builds toward it
+  from the start, rather than bolting it on later. This reflects Empathetech's mission directly.</p>
+
+  <h2 id="v7">7. Licensing hygiene from the start</h2>
+  <aside class="callout callout--quote">
+    <strong>From the values</strong>
+    "Ask about license intent early. Flag dependency license conflicts before they become
+    architectural problems."
+  </aside>
+  <p>A <strong>license</strong> sets the rules for who may use code. The team asks early what you
+  intend, and warns you if a piece of borrowed code carries terms that clash with yours — before
+  it's tangled into everything.</p>
+
+  <h2 id="v8">8. This is for everyone</h2>
+  <aside class="callout callout--quote">
+    <strong>From the values</strong>
+    "From first-time builders to seasoned engineers. Never assume prior knowledge. Explain jargon
+    the first time you use it. Keep the energy warm and the process human."
+  </aside>
+  <p>This is the value you're feeling right now. The team meets you where you are and explains
+  things in plain language. You belong here whether or not you've ever written a line of code.</p>
+
+  <p class="pullquote">"They are not defaults to override — they are the framework's design principles."</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>Values give direction, not guarantees</strong>
+    These principles steer the team toward safer, kinder, cheaper choices — but following them
+    doesn't make your software automatically secure, private, accessible, or legally clear. They
+    raise the floor; they don't remove your responsibility to check the things that matter for what
+    you're building.
+  </aside>
+
+  <hr class="divider">
+
+  <h2 id="try">Try it: match the value</h2>
+
+  <p>Here's a way to make these stick. Read each real-world situation and pick which value applies.
+  In practice you'll often spot more than one — but each scenario has a clearest fit.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">⚖️ Interactive · which value applies?</div>
+    <p id="vPrompt" style="font-size:var(--size-base); margin-top:0;"></p>
+    <div id="vChoices" style="display:flex; flex-direction:column; gap:8px;"></div>
+    <p id="vFeedback" role="status" style="margin-bottom:0; min-height:1.5em; margin-top:var(--space-3);"></p>
+    <button id="vNext" class="btn btn--ghost" type="button" style="display:none; margin-top:var(--space-2);">Next scenario ▸</button>
+  </div>
+
+  <aside class="callout callout--grow">
+    <strong>🌱 Go deeper on one</strong>
+    If a single value catches your interest, follow it. Privacy-curious? Read about
+    <a href="https://gdpr.eu/data-minimization/">data minimization</a>. Care about access? Start
+    with the <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">W3C's accessibility
+    introduction</a>. Each value is a thread you can pull to learn a whole discipline — no need to
+    pull them all at once.
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Eight global values steer every recommendation the team makes.</li>
+      <li>They protect non-engineers from cost, complexity, data risk, security mistakes, exclusion, and licensing trouble.</li>
+      <li>"This is for everyone" is why the course feels this way.</li>
+      <li>Values raise the floor — they give direction, not guarantees.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · the eight values quoted verbatim from the "Global Values" section of <code>SKILL.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>WCAG 2.1</strong> · W3C Web Accessibility Initiative ·
+      <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">w3.org/WAI/standards-guidelines/wcag</a></li>
+      <li><strong>Data minimization</strong> · GDPR.eu ·
+      <a href="https://gdpr.eu/data-minimization/">gdpr.eu/data-minimization</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-01-the-twelve-agents.html">◂ Lesson 1 · The twelve agents</a>
+  <a class="btn btn--primary" href="lesson-03-calibrating-the-team.html">Lesson 3 · Calibrating the team ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+var SCENARIOS = [
+  {s:"The team suggests a free hosting platform and clearly notes which features would cost money later.", a:"Free before paid"},
+  {s:"Before deleting a file that's hard to recover, the assistant stops and asks you to confirm.", a:"Human is the driver"},
+  {s:"You ask for a sign-up form; the team asks whether you really need to collect a phone number, or could skip it.", a:"Privacy-preserving before data-rich"},
+  {s:"Given two ways to build a feature, the team picks the one with fewer external services and credentials.", a:"Reduce attack surface"},
+  {s:"The team recommends one simple managed database instead of three services you'd have to run yourself.", a:"Less infrastructure before more"},
+  {s:"Every button gets a proper label so a screen-reader user can tell what it does.", a:"Accessible by default"},
+  {s:"The team flags that a library you want to use has terms that conflict with your intended license.", a:"Licensing hygiene from the start"},
+  {s:"A piece of jargon comes up and the assistant explains it in plain words the first time.", a:"This is for everyone"}
+];
+var VALUES = ["Human is the driver","Free before paid","Less infrastructure before more","Privacy-preserving before data-rich","Reduce attack surface","Accessible by default","Licensing hygiene from the start","This is for everyone"];
+var idx = 0;
+function shuffle(arr){ return arr.slice().sort(function(){ return Math.random()-0.5; }); }
+function load(){
+  var sc = SCENARIOS[idx];
+  document.getElementById('vPrompt').textContent = sc.s;
+  document.getElementById('vFeedback').textContent = '';
+  document.getElementById('vNext').style.display = 'none';
+  var host = document.getElementById('vChoices');
+  host.innerHTML = '';
+  var opts = [sc.a];
+  shuffle(VALUES.filter(function(v){ return v !== sc.a; })).slice(0,3).forEach(function(v){ opts.push(v); });
+  shuffle(opts).forEach(function(v){
+    var b = document.createElement('button');
+    b.className = 'btn btn--ghost';
+    b.type = 'button';
+    b.textContent = v;
+    b.style.textAlign = 'left';
+    b.addEventListener('click', function(){ choose(v, sc.a, host); });
+    host.appendChild(b);
+  });
+}
+function choose(picked, correct, host){
+  var fb = document.getElementById('vFeedback');
+  host.querySelectorAll('button').forEach(function(b){ b.disabled = true; });
+  if(picked === correct){
+    fb.style.color = 'var(--color-success)';
+    fb.innerHTML = '✅ Yes — that\'s <strong>' + correct + '</strong> at work.';
+  } else {
+    fb.style.color = 'var(--color-warning)';
+    fb.innerHTML = 'Not the clearest fit — the value most at play here is <strong>' + correct + '</strong>.';
+  }
+  document.getElementById('vNext').style.display = 'inline-flex';
+}
+document.getElementById('vNext').addEventListener('click', function(){
+  idx = (idx + 1) % SCENARIOS.length;
+  load();
+});
+SCENARIOS = shuffle(SCENARIOS);
+load();
+</script>
+
+</body>
+</html>

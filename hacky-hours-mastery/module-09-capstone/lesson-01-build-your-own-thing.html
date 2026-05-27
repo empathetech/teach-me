@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your capstone build — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-build-your-own-thing.html">Module 9 · Capstone</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Your capstone build</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 9 · The Capstone · 🎉 the final lesson</p>
+  <h1>Your capstone build</h1>
+  <p>This is it — the last lesson. No new commands to memorize. Instead, you're going to take one of
+  your own ideas and run the whole flow on it, start to finish, with the team beside you. Let's
+  build something real.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">12 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: judgment</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <p>You started this course prompting an AI and hoping for the best. You're ending it able to direct
+  a team, weigh trade-offs, settle disagreements, and ship on purpose. The capstone is where that
+  comes together — on your idea, not ours.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#small">Pick something small</a></li>
+      <li><a href="#flow">The full flow, end to end</a></li>
+      <li><a href="#tracker">Your capstone tracker</a></li>
+      <li><a href="#far">How far you've come</a></li>
+      <li><a href="#honest">An honest word before you ship</a></li>
+      <li><a href="#grow">Where to go next</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="small">Pick something small</h2>
+
+  <p>The biggest mistake here is going big. Choose an idea you could actually finish — a single
+  page, a small tool, one feature you've wished existed. In the framework's language this is your
+  <strong>MVP</strong>: the minimum viable product, the smallest version that's genuinely useful.</p>
+
+  <aside class="callout callout--note">
+    <strong>Why small wins</strong>
+    A small project lets you walk the entire flow and feel each step click into place. A huge one
+    stalls in design and never ships. You can always iterate later — in fact, that's the whole point
+    of the iterate loop you already learned. Start small, finish, then grow.
+  </aside>
+
+  <h2 id="flow">The full flow, end to end</h2>
+
+  <p>Here's the sequence you'll run. Each command opens a step you've already studied — this is just
+  stringing them together on one project.</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">your capstone, command by command</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours ideate     # Step 1 — get the idea out of your head
+/hacky-hours design     # Step 2 — decide how it works
+/hacky-hours roadmap    # Step 3 — cut scope down to an MVP
+/hacky-hours build      # Step 4 — build it, run the pre-merge checklist
+/hacky-hours audit      # check for secrets and common red flags
+/hacky-hours update 1   # ship it — publish the release</code></pre>
+  </figure>
+
+  <p>A little orientation on each, in order:</p>
+
+  <ol>
+    <li><strong>Ideate (Step 1)</strong> — free-write the idea, then shape it into a clear overview:
+    who it's for, what it does, and the constraints that matter to you.</li>
+    <li><strong>Design (Step 2)</strong> — work through the design docs your project actually needs.
+    Don't write all ten; write the ones that fit. The team applies safe defaults: free before paid,
+    less data, fewer moving parts.</li>
+    <li><strong>Roadmap (Step 3)</strong> — sort every feature into MVP, V1, or later. If your MVP
+    feels big, it's too big. Cut.</li>
+    <li><strong>Build (Step 4)</strong> — implement one piece at a time, and run the
+    <strong>pre-merge checklist</strong> before calling anything done.</li>
+    <li><strong>Audit</strong> — <code>/hacky-hours audit</code> scans for leaked secrets and common
+    problems before you go public.</li>
+    <li><strong>Ship (update)</strong> — publish the release. Then, if you like,
+    <code>/hacky-hours team update</code> so your agents keep what they learned from this build.</li>
+  </ol>
+
+  <p>Here's the pre-merge checklist again, because it's the habit that separates "it runs" from "it's
+  ready":</p>
+
+  <aside class="callout callout--success">
+    <strong>The Step 4 pre-merge checklist</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Implementation matches the relevant design document</li>
+      <li>No secrets, API keys, or credentials in code or commit history</li>
+      <li>All user input that crosses a trust boundary is validated</li>
+      <li>Error messages don't expose internal system state</li>
+      <li>Change has been manually tested against the relevant user journey</li>
+    </ul>
+  </aside>
+
+  <h2 id="tracker">Your capstone tracker</h2>
+
+  <p>Use the tracker below to walk the flow. Tick each step as you finish it — your progress is saved
+  in this browser, so you can close the page and come back. Complete all of them and something nice
+  happens. 🎉</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🎉 Interactive · your capstone progress (saved in this browser)</div>
+    <div class="progress-bar" style="margin-bottom:var(--space-4);"><div class="progress-bar__fill" id="capFill" style="width:0%;"></div></div>
+    <div id="capSteps"></div>
+    <p id="capStatus" role="status" style="margin-top:var(--space-3); margin-bottom:var(--space-2); min-height:1.5em;"></p>
+    <button class="btn btn--ghost" type="button" onclick="resetCap()" style="font-size:var(--size-sm);">Reset tracker</button>
+  </div>
+
+  <hr class="divider">
+
+  <h2 id="far">How far you've come</h2>
+
+  <p>Take a second with this. When you started, building software meant typing a request into a model
+  and accepting whatever came back — no plan, no review, no way to tell good from risky.</p>
+
+  <p>Now you can name who's in the room, ask the right role the right question, read a design doc, run
+  an audit, settle a disagreement with an ADR, and decide — with reasons — what to ship. That's not a
+  trick of the tool. That's judgment, and it's yours to keep.</p>
+
+  <p class="pullquote">You moved from prompting and hoping to making real, informed decisions. That's the whole course in one sentence.</p>
+
+  <h2 id="honest">An honest word before you ship</h2>
+
+  <aside class="callout callout--responsibility">
+    <strong>Direction, not guarantees — read this carefully</strong>
+    Hacky Hours gives you <strong>direction</strong>: good defaults, the right questions, and a record
+    of your decisions. It does <strong>not</strong> guarantee that what you build is correct, secure,
+    legal, or safe — and neither does finishing this course. The agents are AI; they can be confidently
+    wrong. The responsibility to review and understand what you ship stays with you, always. And for
+    anything that touches <strong>real users' data</strong> — money, health, identity, anything that
+    could hurt someone if it leaked — please get a qualified human to review it before it goes live.
+    Knowing the edge of your own knowledge is the most important skill you've built here.
+  </aside>
+
+  <h2 id="grow">Where to go next 🌱</h2>
+
+  <p>Finishing this course is a beginning, not an end. The way you keep growing is by building real
+  things and reading past the parts you don't yet understand.</p>
+
+  <aside class="callout callout--grow">
+    <strong>Keep going</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Read the framework's own documentation and join the conversation:
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a>.</li>
+      <li>Keep an ADR habit — capture <em>why</em> you made each real decision:
+      <a href="https://adr.github.io/">adr.github.io</a>.</li>
+      <li>When this build is done, run <code>/hacky-hours export markdown-bundle</code> and keep your
+      docs. They're proof of what you can do now.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>The full flow runs ideate → design → roadmap → build → audit → ship, on one of your own ideas.</li>
+      <li>Start with a small MVP so you actually finish — you can always iterate.</li>
+      <li>The pre-merge checklist and audit are the habits that make a build "ready," not just "running."</li>
+      <li>Hacky Hours gives direction, not guarantees; you remain responsible for what you ship — especially anything with real users' data.</li>
+      <li>You've gone from prompting and hoping to directing a team and deciding on purpose. That's yours to keep.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · five-step flow, pre-merge checklist,
+      audit, and update quoted from <code>SKILL.md</code> and <code>tools/*.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Architecture Decision Records</strong> · <a href="https://adr.github.io/">adr.github.io</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="../module-08-working-with-the-team-well/lesson-03-teach-and-export.html">◂ Teaching &amp; exporting</a>
+  <a class="btn btn--primary" href="../dashboard.html">Back to Dashboard ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+
+var capItems = [
+  { key: "hhm_capstone_step1", label: "Step 1 — Ideate: shaped my idea into a clear overview" },
+  { key: "hhm_capstone_step2", label: "Step 2 — Design: wrote the design docs my project needs" },
+  { key: "hhm_capstone_step3", label: "Step 3 — Roadmap: cut scope down to a small MVP" },
+  { key: "hhm_capstone_step4", label: "Step 4 — Build: implemented and ran the pre-merge checklist" },
+  { key: "hhm_capstone_audit", label: "Audit: ran /hacky-hours audit and reviewed the flags" },
+  { key: "hhm_capstone_ship",  label: "Ship: published the release with /hacky-hours update 1" }
+];
+var celebratedKey = "hhm_capstone_celebrated";
+
+function buildTracker(){
+  var wrap = document.getElementById('capSteps');
+  wrap.innerHTML = "";
+  capItems.forEach(function(item){
+    var saved = false;
+    try { saved = localStorage.getItem(item.key) === "1"; } catch(e){}
+    var label = document.createElement('label');
+    label.style.display = "flex"; label.style.alignItems = "flex-start"; label.style.gap = "var(--space-3)";
+    label.style.padding = "var(--space-3) var(--space-4)"; label.style.marginBottom = "var(--space-2)";
+    label.style.background = "var(--color-bg-subtle)"; label.style.borderRadius = "var(--radius-md)";
+    label.style.cursor = "pointer";
+    var cb = document.createElement('input');
+    cb.type = "checkbox"; cb.checked = saved; cb.dataset.key = item.key;
+    cb.style.marginTop = "4px"; cb.style.width = "18px"; cb.style.height = "18px"; cb.style.flexShrink = "0";
+    cb.addEventListener('change', function(){
+      try { localStorage.setItem(item.key, cb.checked ? "1" : "0"); } catch(e){}
+      refresh();
+    });
+    var span = document.createElement('span');
+    span.textContent = item.label; span.style.fontSize = "var(--size-base)";
+    label.appendChild(cb); label.appendChild(span);
+    wrap.appendChild(label);
+  });
+}
+
+function countDone(){
+  var n = 0;
+  capItems.forEach(function(item){
+    try { if(localStorage.getItem(item.key) === "1") n++; } catch(e){}
+  });
+  return n;
+}
+
+function refresh(){
+  var done = countDone();
+  var total = capItems.length;
+  var pct = Math.round((done / total) * 100);
+  document.getElementById('capFill').style.width = pct + "%";
+  var status = document.getElementById('capStatus');
+  if(done === total){
+    status.style.color = "var(--color-success)";
+    status.innerHTML = "🎉 You ran the full flow and shipped. That's the whole course, on your own idea. Congratulations — you're a builder now.";
+    var already = false;
+    try { already = localStorage.getItem(celebratedKey) === "1"; } catch(e){}
+    if(!already){
+      try { localStorage.setItem(celebratedKey, "1"); } catch(e){}
+      celebrate();
+    }
+  } else {
+    status.style.color = "var(--color-text-muted)";
+    status.textContent = done + " of " + total + " steps done. Tick each one as you finish it — your progress is saved here.";
+    try { localStorage.setItem(celebratedKey, "0"); } catch(e){}
+  }
+}
+
+function celebrate(){
+  if(typeof confetti !== "function") return;
+  var end = Date.now() + 1200;
+  (function frame(){
+    confetti({ particleCount: 4, angle: 60, spread: 60, origin: { x: 0 } });
+    confetti({ particleCount: 4, angle: 120, spread: 60, origin: { x: 1 } });
+    if(Date.now() < end) requestAnimationFrame(frame);
+  })();
+  confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+}
+
+function resetCap(){
+  capItems.forEach(function(item){
+    try { localStorage.removeItem(item.key); } catch(e){}
+  });
+  try { localStorage.removeItem(celebratedKey); } catch(e){}
+  buildTracker();
+  refresh();
+}
+
+buildTracker();
+refresh();
+</script>
+
+</body>
+</html>

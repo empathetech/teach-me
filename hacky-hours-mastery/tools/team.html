@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Team — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">The Team</span>
+</nav>
+
+<header class="hero">
+  <p class="eyebrow">The central tool · your reference</p>
+  <h1>The Team</h1>
+  <p>Hacky Hours gives you twelve agents, grouped here by what they focus on. Click any one to
+  see what they do for you, what they produce, a plain sentence for working with them, and one
+  link to start learning that discipline yourself.</p>
+</header>
+
+<main class="wrap">
+
+  <p class="cat-label" style="color:var(--cat-idea)">Shaping the idea — what are we building, and for whom?</p>
+  <div class="team-grid" id="cat-idea"></div>
+
+  <p class="cat-label" style="color:var(--cat-build)">Building it — making it real and reasonably solid</p>
+  <div class="team-grid" id="cat-build"></div>
+
+  <p class="cat-label" style="color:var(--cat-solid)">Making it work for real people — running, testing, access</p>
+  <div class="team-grid" id="cat-solid"></div>
+
+  <p class="cat-label" style="color:var(--cat-bigger)">The bigger picture — rights, data, and AI</p>
+  <div class="team-grid" id="cat-bigger"></div>
+
+  <div id="detail" class="agent-detail" style="display:none;"></div>
+
+  <p style="color:var(--color-text-muted); font-size:var(--size-sm); margin-top:var(--space-8);">
+  In your terminal, <code>/hacky-hours team show alex</code> opens any agent's full profile, and
+  adding <code>--prompt</code> shows exactly how they think. These agents give direction — the
+  decisions, and the responsibility for understanding them, stay yours.</p>
+
+</main>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> ·
+  <a href="https://github.com/empathetech">GitHub</a> ·
+  <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+var AGENTS = {
+  "cat-idea": [
+    {id:"maya", e:"📊", n:"Maya Tanaka", r:"Product", color:"var(--cat-idea)",
+     craft:"Product thinking — figuring out who the software is for and what problem it actually solves, before any code exists.",
+     makes:"PRODUCT_OVERVIEW.md (the 5 Ws), MARKET_FIT.md",
+     steer:"\"Who is this really for, and what's the one thing they need it to do?\"",
+     deeper:"The discipline is product management. A gentle start is the 'Jobs To Be Done' framing.",
+     link:"https://jtbd.info/2-what-is-jobs-to-be-done-jtbd-796b82081cca", linkText:"What is Jobs To Be Done?"},
+    {id:"felix", e:"🎨", n:"Felix Okafor", r:"Design", color:"var(--cat-idea)",
+     craft:"User experience and visual design — how the thing looks, and more importantly how it feels to use.",
+     makes:"STYLE_GUIDE.md, USER_JOURNEYS.md",
+     steer:"\"Walk me through what the user sees, step by step, the first time.\"",
+     deeper:"The discipline is UX design. Nielsen Norman Group's usability heuristics are the classic primer.",
+     link:"https://www.nngroup.com/articles/ten-usability-heuristics/", linkText:"10 Usability Heuristics"},
+    {id:"priya", e:"🏗️", n:"Priya Chen", r:"Architect", color:"var(--cat-idea)",
+     craft:"Software architecture — the overall shape: what pieces exist, how they connect, and which technologies to pick (and avoid).",
+     makes:"ARCHITECTURE.md with diagrams",
+     steer:"\"What's the simplest architecture that could work here?\"",
+     deeper:"Start with the framework's value — less infrastructure before more — then read 'monolith first'.",
+     link:"https://martinfowler.com/bliki/MonolithFirst.html", linkText:"MonolithFirst — Martin Fowler"}
+  ],
+  "cat-build": [
+    {id:"marcus", e:"🖥️", n:"Marcus Rivera", r:"Frontend", color:"var(--cat-build)",
+     craft:"Frontend engineering — everything the user touches in the browser: screens, buttons, forms.",
+     makes:"The UI code and component structure",
+     steer:"\"Use plain, semantic HTML before reaching for a heavy framework.\"",
+     deeper:"The frontend is HTML, CSS, and JavaScript underneath. MDN is the friendliest reference there is.",
+     link:"https://developer.mozilla.org/en-US/docs/Learn", linkText:"MDN Learn Web Development"},
+    {id:"sam", e:"⚙️", n:"Sam Park", r:"Backend", color:"var(--cat-build)",
+     craft:"Backend engineering — the server and logic users never see that makes everything work.",
+     makes:"API/server code, BUSINESS_LOGIC.md",
+     steer:"\"What happens on the server when the user clicks this?\"",
+     deeper:"The idea that unlocks the backend is the request/response cycle.",
+     link:"https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview", linkText:"How HTTP works — MDN"},
+    {id:"alex", e:"🛡️", n:"Alex Davies", r:"Security", color:"var(--cat-build)",
+     craft:"Application security — thinking about how things could go wrong: leaked secrets, bad input, who can reach what. Gives direction, never a guarantee.",
+     makes:"SECURITY_PRIVACY.md, the pre-merge checklist",
+     steer:"\"Run the pre-merge checklist, and tell me what you're NOT confident about.\"",
+     deeper:"The OWASP Top 10 is the plain-language list of what to watch for. Remember: for sensitive data, get a real review.",
+     link:"https://owasp.org/www-project-top-ten/", linkText:"OWASP Top 10"}
+  ],
+  "cat-solid": [
+    {id:"jordan", e:"🚀", n:"Jordan Kim", r:"Ops", color:"var(--cat-solid)",
+     craft:"Operations and deployment — getting your app off your laptop and onto the internet, then keeping it running. Cloud, hosting, servers.",
+     makes:"Deployment setup and hosting choices",
+     steer:"\"What's the simplest way to get this live that I could maintain myself?\"",
+     deeper:"This is your way into the cloud. Start with what 'deploy' means and a free host like Netlify.",
+     link:"https://docs.netlify.com/get-started/", linkText:"Netlify — Get Started"},
+    {id:"emma", e:"🔍", n:"Emma Wright", r:"QA", color:"var(--cat-solid)",
+     craft:"Quality assurance — deliberately trying to break things before your users do. Testing, edge cases, 'what if'.",
+     makes:"TESTING.md and test plans",
+     steer:"\"What's the weirdest thing a user could do here, and what happens then?\"",
+     deeper:"The core idea is the difference between the 'happy path' and 'edge cases'.",
+     link:"https://www.browserstack.com/guide/what-is-test-case", linkText:"What is a test case?"},
+    {id:"lena", e:"♿", n:"Lena Mwangi", r:"Accessibility", color:"var(--cat-solid)",
+     craft:"Accessibility — making sure people with disabilities can use what you build: screen readers, keyboard use, contrast. Central to Empathetech's mission.",
+     makes:"ACCESSIBILITY.md and WCAG checks",
+     steer:"\"Can someone using only a keyboard and a screen reader do everything here?\"",
+     deeper:"WCAG 2.1 AA is the common target. The W3C's intro is a kind, official starting point.",
+     link:"https://www.w3.org/WAI/fundamentals/accessibility-intro/", linkText:"Accessibility Fundamentals — W3C"}
+  ],
+  "cat-bigger": [
+    {id:"diego", e:"📜", n:"Diego Romano", r:"Licensing", color:"var(--cat-bigger)",
+     craft:"Software licensing — who may use your code, and whose code you may use. The legal layer most beginners skip until it bites.",
+     makes:"LICENSING.md and your LICENSE file",
+     steer:"\"Do any of our dependencies have a license that conflicts with ours?\"",
+     deeper:"choosealicense.com is the friendliest doorway into open-source licenses.",
+     link:"https://choosealicense.com/", linkText:"Choose a License"},
+    {id:"yuki", e:"📈", n:"Yuki Nakamura", r:"Data", color:"var(--cat-bigger)",
+     craft:"Data modeling — deciding what information your app stores and how the pieces relate. This is where databases live.",
+     makes:"DATA_MODEL.md with an ERD (entity-relationship diagram)",
+     steer:"\"Sketch the data model — what do we store and how does it connect?\"",
+     deeper:"Your way into databases. Start with what a relational database and a table actually are.",
+     link:"https://www.freecodecamp.org/news/dbms-and-sql-basics/", linkText:"Databases & SQL basics"},
+    {id:"kai", e:"🤖", n:"Kai Patel", r:"AI/ML", color:"var(--cat-bigger)",
+     craft:"AI and machine learning — when (and whether) your app should use AI, and how to do it responsibly. Often the answer is 'not yet'.",
+     makes:"AI/ML sections of the design docs",
+     steer:"\"Do we actually need AI for this, or is a simpler rule enough?\"",
+     deeper:"The most useful first idea is knowing when NOT to use machine learning.",
+     link:"https://developers.google.com/machine-learning/guides/rules-of-ml", linkText:"Google's Rules of ML (Rule #1)"}
+  ]
+};
+
+function render(){
+  Object.keys(AGENTS).forEach(function(cat){
+    var host = document.getElementById(cat);
+    AGENTS[cat].forEach(function(a){
+      var card = document.createElement('button');
+      card.className = 'agent-card';
+      card.style.setProperty('--cat', a.color);
+      card.setAttribute('aria-label', 'Meet ' + a.n + ', ' + a.r);
+      card.innerHTML = '<span class="emoji">'+a.e+'</span><span class="name">'+a.n+'</span><span class="role">'+a.r+'</span>';
+      card.addEventListener('click', function(){ showAgent(a, card); });
+      host.appendChild(card);
+    });
+  });
+}
+function showAgent(a, card){
+  document.querySelectorAll('.agent-card').forEach(function(c){ c.classList.remove('is-active'); });
+  card.classList.add('is-active');
+  var d = document.getElementById('detail');
+  d.style.display = 'block';
+  d.style.borderTop = '5px solid ' + a.color;
+  d.innerHTML =
+    '<h3>'+a.e+' '+a.n+' <span style="font-weight:400; color:#cdc2e6; font-size:1rem;">· '+a.r+'</span></h3>'+
+    '<p class="craft">'+a.craft+'</p>'+
+    '<p><strong style="color:#fff;">What they produce:</strong> '+a.makes+'</p>'+
+    '<p><strong style="color:#fff;">A sentence for working with them:</strong><br><em>'+a.steer+'</em></p>'+
+    '<div class="deeper">🌱 <strong style="color:var(--color-accent);">Start learning this yourself:</strong> '+a.deeper+
+    '<br><a href="'+a.link+'" target="_blank" rel="noopener">'+a.linkText+' ↗</a></div>';
+  d.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+render();
+</script>
+
+</body>
+</html>

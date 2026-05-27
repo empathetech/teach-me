@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calibrating the team to you — Hacky Hours Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../dashboard.html">🏠 Dashboard</a>
+  <span class="nav-sep">›</span>
+  <a href="lesson-01-the-twelve-agents.html">Module 2 · Meet the team</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-current">Calibrating the team</span>
+</nav>
+
+<header class="lesson__hero">
+  <p class="eyebrow">Module 2 · Lesson 3 · make it yours</p>
+  <h1>Calibrating the team to you</h1>
+  <p>Your team isn't a one-time thing that vanishes when you close the terminal. It's
+  <strong>persistent</strong> — it lives on your computer, it's portable, and it can even learn
+  from you over time. This lesson shows you how to shape it to fit how you work.</p>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">8 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: comfort with tooling</span></div>
+</header>
+
+<article class="lesson">
+<div class="lesson__body">
+
+  <aside class="callout callout--note">
+    <strong>Nothing here can break anything</strong>
+    Everything in this lesson is safe to explore. Reading and listing your teams changes nothing.
+    The only commands that create files are clearly described before you run them — and you'll
+    always be asked before anything significant happens. Curiosity is encouraged.
+  </aside>
+
+  <nav class="toc" aria-label="On this page">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#where">Where your team lives</a></li>
+      <li><a href="#tiers">Tiers: how many agents you want</a></li>
+      <li><a href="#commands">The commands you'll use</a></li>
+      <li><a href="#learn">The team can learn from you</a></li>
+      <li><a href="#try">Try it: pick your tier</a></li>
+      <li><a href="#grow">Going further</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="where">Where your team lives</h2>
+
+  <p>Your team is stored at <code>~/.hacky-hours/teams/&lt;name&gt;/</code> on your own computer.
+  The <code>~</code> just means your home folder. Each team is its own <strong>git repo</strong> —
+  a self-contained, version-tracked folder — which means it's portable: you can move it to another
+  machine or back it up like any other project.</p>
+
+  <p>Crucially, your team lives <em>separately</em> from any single project. You build one team and
+  apply it to many projects, rather than starting fresh each time. The first time you use the
+  framework, it sets up a team called <code>default</code> for you automatically.</p>
+
+  <aside class="callout callout--quote">
+    <strong>From the framework</strong>
+    "The team lives at <code>~/.hacky-hours/teams/&lt;team-name&gt;/</code> as its own git repo —
+    separate from any project, portable across machines."
+  </aside>
+
+  <hr class="divider">
+
+  <h2 id="tiers">Tiers: how many agents you want</h2>
+
+  <p>Not every project needs all twelve voices. A team has a <strong>tier</strong> that sets how
+  many agents are on it. There are four:</p>
+
+  <ul>
+    <li><strong>solo</strong> — the leanest team, a small handful of agents. Good for a quick
+    personal tool where you want speed over thoroughness.</li>
+    <li><strong>lean</strong> — a bit more coverage, still small.</li>
+    <li><strong>startup</strong> — a fuller roster without the whole crew.</li>
+    <li><strong>full</strong> — all twelve agents. The default, and the most thorough.</li>
+  </ul>
+
+  <aside class="callout callout--note">
+    <strong>An honest note on tiers</strong>
+    In v4.0.1, the <strong>full</strong> tier is the one that's fully built. If you create a
+    leaner team, the framework currently sets it up as full and tells you so, leaving you to trim
+    agents by hand. So in practice today: <strong>full</strong> is the reliable choice, and leaner
+    tiers are a direction the framework is growing toward. We mention this so nothing surprises you.
+  </aside>
+
+  <h2 id="commands">The commands you'll use</h2>
+
+  <p>Here are the team commands worth knowing. None of the read-only ones change anything.</p>
+
+  <ul>
+    <li><code>/hacky-hours team</code> — shows your active team's roster at a glance.</li>
+    <li><code>/hacky-hours team list</code> — lists all the teams you have and marks the active one.</li>
+    <li><code>/hacky-hours team show &lt;id&gt;</code> — opens one agent's full profile (try
+    <code>team show alex</code>).</li>
+    <li><code>/hacky-hours team new</code> — creates a new team; it asks you for a name and tier.</li>
+    <li><code>/hacky-hours team switch &lt;name&gt;</code> — binds the project you're in to a
+    different team.</li>
+  </ul>
+
+  <p>A good first move, completely safe, is just to look at what you already have:</p>
+
+  <figure class="code-block" data-lang="bash">
+    <header class="code-block__header"><span class="code-block__lang">terminal · try this</span><button class="code-block__copy" type="button" onclick="copyCode(this)">Copy</button></header>
+    <pre><code>/hacky-hours team list</code></pre>
+  </figure>
+
+  <p>The first time, you'll likely see one team — <code>default</code>, full tier, twelve agents.
+  That's exactly right.</p>
+
+  <h2 id="learn">The team can learn from you 🌱</h2>
+
+  <p>Here's the part that makes the team genuinely <em>yours</em>. As you work, you'll correct
+  agents, set preferences, and make decisions. The command
+  <code>/hacky-hours team update</code> takes those session changes and offers to save them into
+  your team's repo — one at a time, so you accept, edit, or reject each.</p>
+
+  <p>Over many projects, your team gradually shapes itself around how you like to build. It starts
+  generic and becomes personal. You're never locked in: because it's a git repo, every change is
+  tracked and reversible.</p>
+
+  <p class="pullquote">"The team is the user's source of truth." — and that's why nothing gets written to it without your say-so.</p>
+
+  <aside class="callout callout--responsibility">
+    <strong>You stay the editor</strong>
+    Letting the team learn your preferences is a convenience, not a substitute for judgment.
+    Review what <code>team update</code> proposes before accepting — the framework deliberately
+    shows you each change rather than saving silently, precisely so the decisions stay yours.
+  </aside>
+
+  <hr class="divider">
+
+  <h2 id="try">Try it: pick your tier</h2>
+
+  <p>Answer two quick questions and we'll suggest a starting tier. There's no wrong answer — and
+  remember, today the practical pick is usually <strong>full</strong>, with leaner tiers on the
+  way.</p>
+
+  <div class="tool-frame">
+    <div class="tool-frame__label">🎚️ Interactive · which tier fits this project?</div>
+    <p style="font-size:var(--size-base); margin-top:0;"><strong>1. How big is what you're building?</strong></p>
+    <div id="q1" style="display:flex; flex-wrap:wrap; gap:8px;">
+      <button class="btn btn--ghost tierbtn" type="button" data-q="size" data-v="small">A small personal tool</button>
+      <button class="btn btn--ghost tierbtn" type="button" data-q="size" data-v="big">Something other people will rely on</button>
+    </div>
+    <p style="font-size:var(--size-base); margin-top:var(--space-4);"><strong>2. Will it store other people's data or go on the public internet?</strong></p>
+    <div id="q2" style="display:flex; flex-wrap:wrap; gap:8px;">
+      <button class="btn btn--ghost tierbtn" type="button" data-q="risk" data-v="low">No, just me / local</button>
+      <button class="btn btn--ghost tierbtn" type="button" data-q="risk" data-v="high">Yes, real data or public</button>
+    </div>
+    <p id="tierResult" role="status" style="margin-bottom:0; min-height:1.5em; margin-top:var(--space-4); font-size:var(--size-base);"></p>
+  </div>
+
+  <h2 id="grow">Going further 🌱</h2>
+
+  <aside class="callout callout--grow">
+    <strong>Good next steps</strong>
+    <ul style="margin:.5rem 0 0;">
+      <li>Run <code>/hacky-hours team show maya</code> and read a full agent profile end to end.</li>
+      <li>Browse the same twelve in our directory: <a href="../tools/team.html">The Team</a>.</li>
+      <li>Curious what a git repo even is — since your team is one? The
+      <a href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F">Pro Git book's first
+      chapter</a> is the friendly, free standard.</li>
+    </ul>
+  </aside>
+
+  <div class="recap">
+    <h3>What you just learned</h3>
+    <ul style="margin-bottom:0;">
+      <li>Your team is persistent, stored at <code>~/.hacky-hours/teams/&lt;name&gt;/</code>, and portable because it's a git repo.</li>
+      <li>Teams have tiers: solo, lean, startup, full — full is all twelve and the reliable choice today.</li>
+      <li>Key commands: <code>team</code>, <code>team list</code>, <code>team show</code>, <code>team new</code>, <code>team switch</code>.</li>
+      <li><code>team update</code> lets the team learn your preferences — with you approving each change.</li>
+    </ul>
+  </div>
+
+  <details class="lesson__sources">
+    <summary>Sources for this lesson</summary>
+    <ol>
+      <li><strong>Hacky Hours v4.0.1</strong> · Empathetech · team storage path, tiers, commands, and <code>team update</code> behavior from <code>tools/team.md</code> ·
+      <a href="https://github.com/empathetech/hacky-hours-docs">github.com/empathetech/hacky-hours-docs</a></li>
+      <li><strong>Pro Git — What is Git?</strong> · Chacon &amp; Straub ·
+      <a href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F">git-scm.com</a></li>
+      <li><strong>The Team directory</strong> · this course · <a href="../tools/team.html">tools/team.html</a></li>
+    </ol>
+  </details>
+
+</div>
+</article>
+
+<nav class="lesson-nav">
+  <a class="btn btn--ghost" href="lesson-02-the-eight-values.html">◂ Lesson 2 · The eight values</a>
+  <a class="btn btn--primary" href="lesson-04-how-the-team-talks.html">Lesson 4 · How the team talks ▸</a>
+</nav>
+
+<footer class="site-footer">
+  <p>Designed by <strong><a href="https://www.empathetech.org/">Empathetech</a></strong> with <a href="https://claude.com/claude-code">Claude Code</a> · <a href="../credits.html">Credits &amp; attribution</a></p>
+  <p style="opacity:.7;">An Empathetech community project. 🤗</p>
+</footer>
+
+<script>
+function copyCode(btn){
+  var code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(function(){
+    var t = btn.textContent; btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = t; }, 1200);
+  });
+}
+var answers = { size:null, risk:null };
+function recommend(){
+  if(answers.size === null || answers.risk === null) return;
+  var res = document.getElementById('tierResult');
+  res.style.color = 'var(--color-text)';
+  if(answers.size === 'big' || answers.risk === 'high'){
+    res.innerHTML = '👉 Go <strong>full</strong>. When real people or real data are involved, you want every voice — especially security, accessibility, and data. Run <code>/hacky-hours team</code> and you\'re likely already on it.';
+  } else {
+    res.innerHTML = '👉 A leaner team would suit this — but in v4.0.1, <strong>full</strong> is the reliable pick, and the extra voices won\'t hurt a small tool. Lean tiers are coming; for now, full is a fine default.';
+  }
+}
+document.querySelectorAll('.tierbtn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var q = this.dataset.q;
+    document.querySelectorAll('.tierbtn[data-q="'+q+'"]').forEach(function(b){ b.classList.remove('btn--primary'); b.classList.add('btn--ghost'); });
+    this.classList.remove('btn--ghost'); this.classList.add('btn--primary');
+    answers[q] = this.dataset.v;
+    recommend();
+  });
+});
+</script>
+
+</body>
+</html>
