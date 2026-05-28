@@ -25,7 +25,7 @@
   <p>You shipped. Real people are using the thing you built. Now what? You <strong>iterate</strong>
   — listen, decide what matters, update your docs, and build the next round. This is Step 5, and
   it's the loop that turns a one-time launch into a living product.</p>
-  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">9 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: shipping as a habit</span></div>
+  <div style="margin-top:var(--space-4);"><span class="tag tag--accent">11 min read</span> <span class="tag">hands-on</span> <span class="tag">grows: shipping as a habit</span></div>
 </header>
 
 <article class="lesson">
@@ -38,6 +38,7 @@
   <nav class="toc" aria-label="On this page">
     <strong>In this lesson</strong>
     <ol>
+      <li><a href="#why">Why a step, and not just more chatting?</a></li>
       <li><a href="#five">The five moves of Step 5</a></li>
       <li><a href="#adr">What an ADR is, and when to write one</a></li>
       <li><a href="#try">Try it: triage your feedback</a></li>
@@ -45,6 +46,78 @@
       <li><a href="#close">Closing the loop</a></li>
     </ol>
   </nav>
+
+  <h2 id="why">Why a step, and not just more chatting?</h2>
+
+  <p>This is the question worth sitting with: you're already in a Claude Code session with the
+  whole team right there. Why not just <em>say</em> "hey, also fix this" and keep going? Why bother
+  with a named step, an <code>ITERATION.md</code>, and updating documents?</p>
+
+  <p>Because of a quiet failure mode called <strong>drift</strong>.</p>
+
+  <aside class="callout callout--warning">
+    <strong>A real example</strong>
+    Someone was troubleshooting a small thing — back and forth with Claude, a few times, just
+    chatting. Each little fix seemed fine on its own. But the patches slowly pulled the code away
+    from what the design docs actually said, and nobody noticed until he looked up and realized the
+    app no longer matched the plan. What finally caught it wasn't more chatting — it was pointing
+    out that the work had drifted from Hacky Hours, and re-anchoring to the design.
+  </aside>
+
+  <p>That's drift in one sentence: <strong>a series of small, reasonable, ad-hoc changes that each
+  make sense alone but add up to a project that no longer matches its own plan.</strong> It's the
+  default outcome of pure back-and-forth chat, because a chat optimizes for the last thing you
+  said — not for the project as a whole.</p>
+
+  <p class="pullquote">Ad-hoc chatting optimizes for the next message. A defined step optimizes
+  for the project.</p>
+
+  <p>Here's the difference, side by side:</p>
+
+  <table style="width:100%; border-collapse:collapse; margin:var(--space-6) 0; font-size:var(--size-base);">
+    <thead>
+      <tr>
+        <th style="text-align:left; padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--color-border); font-family:var(--font-heading); background:var(--color-bg-subtle);">Ad-hoc back-and-forth</th>
+        <th style="text-align:left; padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--color-border); font-family:var(--font-heading); background:var(--color-bg-subtle);">Running <code>/hacky-hours iterate</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--color-border); vertical-align:top;">The design docs say one thing; the code quietly becomes another. No record of why.</td>
+        <td style="padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--color-border); vertical-align:top;">You <strong>amend the docs first</strong>, so the plan and the code stay in sync — on purpose.</td>
+      </tr>
+      <tr>
+        <td style="padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--color-border); vertical-align:top;">Fixes are scattered across a chat you'll never re-read.</td>
+        <td style="padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--color-border); vertical-align:top;">Everything lands in <code>ITERATION.md</code>, then gets triaged with intention.</td>
+      </tr>
+      <tr>
+        <td style="padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--color-border); vertical-align:top;">"Why is it like this?" — nobody knows six weeks later.</td>
+        <td style="padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--color-border); vertical-align:top;">Significant decisions get an ADR — a written "why" you can return to.</td>
+      </tr>
+      <tr>
+        <td style="padding:var(--space-3) var(--space-4); vertical-align:top;">The team's checks (security, accessibility) get skipped because you never re-entered the flow.</td>
+        <td style="padding:var(--space-3) var(--space-4); vertical-align:top;">You re-enter the Build cycle, so the pre-merge checklist and the team's eyes apply again.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <aside class="callout callout--note">
+    <strong>The deeper point:</strong> your design docs are the project's <em>source of truth</em>.
+    Ad-hoc chat changes the code and leaves the truth behind; the iterate step changes the truth
+    first, then the code follows. That single ordering is what keeps a project honest over months.
+    (It's also why the <a href="../module-06-build/lesson-02-the-pre-merge-checklist.html">pre-merge
+    checklist</a>'s very first item is "implementation matches the relevant design document.")
+  </aside>
+
+  <aside class="callout callout--responsibility">
+    <strong>You're still allowed to just chat</strong>
+    None of this means quick conversation is forbidden — exploring and asking questions in the
+    session is great. The line to watch is when chatting starts <em>changing what the product is</em>
+    without anything writing that down. When a change is real enough to matter, that's the moment to
+    run iterate instead of firing one more message. Knowing which is which is a judgment you'll grow.
+  </aside>
+
+  <hr class="divider">
 
   <h2 id="five">The five moves of Step 5</h2>
 
@@ -165,6 +238,8 @@
   <div class="recap">
     <h3>What you just learned</h3>
     <ul style="margin-bottom:0;">
+      <li>A defined step beats ad-hoc chatting because it prevents <strong>drift</strong> — small
+      fixes silently pulling the code away from the plan.</li>
       <li>Step 5 is five moves: <strong>Capture → Synthesize → Prioritize → Amend → Build</strong>,
       with everything captured in <code>ITERATION.md</code>.</li>
       <li>Triage into three buckets: <strong>hotfix</strong>, <strong>next milestone</strong>,
